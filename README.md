@@ -6,7 +6,7 @@
 
 <div>
   <img src="https://img.shields.io/badge/Docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/.NET Core 3.1-512BD4?style=flat&logo=dotnet&logoColor=white" />
+  <img src="https://img.shields.io/badge/.NET Core 6.0-512BD4?style=flat&logo=dotnet&logoColor=white" />
   <img src="https://img.shields.io/badge/MS%20SQL%20Sever-00000F?style=flat&logo=microsoft%20sql%20server&logoColor=white" />
   <img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=flat&logo=swagger&logoColor=white" />
 </div>
@@ -27,7 +27,7 @@ Features:
 ## Getting Started
 
 To run the development server locally you will need to install the following tools:
-- [.NET SDK (3.1)](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
+- [.NET SDK (6.0)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [Docker](https://www.docker.com/)
 
 
