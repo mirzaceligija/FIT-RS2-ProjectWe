@@ -1,8 +1,11 @@
 using ProjectWe.API;
+using ProjectWe.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddPresentation();
+    builder.Services
+        .AddPresentation()
+        .AddInfrastructure(builder.Configuration);
 }
 
 var app = builder.Build();

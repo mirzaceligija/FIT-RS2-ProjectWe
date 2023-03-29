@@ -16,20 +16,6 @@ namespace ProjectWe.API
             //TODO: Add Automapper
             //builder.Services.AddAutoMapper(typeof(IUsersService));
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("Administrator",
-                authBuilder =>
-                {
-                    authBuilder.RequireRole("Administrator");
-                });
-                options.AddPolicy("Manager",
-                    authBuilder =>
-                    {
-                        authBuilder.RequireRole("Manager");
-                    });
-            });
-
             return services;
         }
     }
