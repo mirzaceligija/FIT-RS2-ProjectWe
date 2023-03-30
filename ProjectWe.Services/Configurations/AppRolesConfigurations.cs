@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services.Configurations
 {
-    public class RolesConfigurations : IEntityTypeConfiguration<AppRole>
+    public class AppRolesConfigurations : IEntityTypeConfiguration<AppRole>
     {
         public void Configure(EntityTypeBuilder<AppRole> builder)
         {
@@ -20,7 +20,7 @@ namespace ProjectWe.Services.Configurations
 
         public void ConfigureRolesTable(EntityTypeBuilder<AppRole> builder)
         {
-            builder.ToTable("Roles");
+            builder.ToTable("AppRoles");
             builder.HasKey(u => u.Id);
             builder.Property(u => u.Name).HasMaxLength(256).IsRequired(true);
             builder.Property(u => u.NormalizedName).HasMaxLength(256).IsRequired(true);

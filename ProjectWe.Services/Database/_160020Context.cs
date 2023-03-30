@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper.Execution;
+using System.Data;
 
 namespace ProjectWe.Services.Database
 {
@@ -23,8 +24,17 @@ namespace ProjectWe.Services.Database
         {
         }
 
-        public DbSet<AppUser> Users { get; set; }
-        public DbSet<AppRole> Roles { get; set; }
+        public virtual DbSet<AppUser> AppUsers { get; set; } = null!;
+        public virtual DbSet<AppRole> AppRoles { get; set; } = null!;
+        public virtual DbSet<Project> Projects { get; set; } = null!;
+        public virtual DbSet<Objective> Objectives { get; set; } = null!;
+        public virtual DbSet<Output> Outputs { get; set; } = null!;
+        public virtual DbSet<Activity> Activities { get; set; } = null!;
+        public virtual DbSet<Budget> Budgets { get; set; } = null!;
+        public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<Status> Statuses { get; set; } = null!;
+        public virtual DbSet<City> Cities { get; set; } = null!;
+        public virtual DbSet<Vote> Votes { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

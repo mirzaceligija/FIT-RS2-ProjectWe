@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services.Configurations
 {
-    public class UsersConfigurations : IEntityTypeConfiguration<AppUser>
+    public class AppUsersConfigurations : IEntityTypeConfiguration<AppUser>
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
             ConfigureUsersTable(builder);
+            SeedUsers(builder);
         }
 
         public void ConfigureUsersTable(EntityTypeBuilder<AppUser> builder)
         {
-            builder.ToTable("Users");
+            builder.ToTable("AppUsers");
             builder.HasKey(u => u.Id);
             builder.Property(u => u.Id).ValueGeneratedNever();
             builder.Property(u => u.NormalizedUserName).HasMaxLength(64).IsRequired(false);
@@ -42,6 +43,17 @@ namespace ProjectWe.Services.Configurations
             builder.Property(u => u.AccessFailedCount).IsRequired(true).HasDefaultValue(0);
             builder.Property(u => u.CreatedAt).ValueGeneratedOnAdd().HasDefaultValue(DateTime.UtcNow);
             builder.Property(u => u.LastModified).ValueGeneratedOnAddOrUpdate().HasDefaultValue(DateTime.UtcNow);
+        }
+
+        public void SeedUsers(EntityTypeBuilder<AppUser> builder)
+        {
+            builder.HasData(
+                new AppUser { Id = 1, UserName = "Admin", NormalizedUserName = "ADMIN", CreatedAt = DateTime.UtcNow, LastModified = null,
+                    Email = "admin@email.com", NormalizedEmail = "ADMIN@EMAIL.COM", PasswordHash = "X1", SecurityStamp = Guid.NewGuid().ToString(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString() },
+                new AppUser { Id = 2, UserName = "Manager", NormalizedUserName = "MANAGER", CreatedAt = DateTime.UtcNow, LastModified = null,
+                    Email = "manager@email.com", NormalizedEmail = "MANAGER@EMAIL.COM", PasswordHash = "X1", SecurityStamp = Guid.NewGuid().ToString(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString() });
         }
     }
 }
