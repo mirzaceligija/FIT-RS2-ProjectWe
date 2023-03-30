@@ -25,5 +25,11 @@ namespace ProjectWe.Services.Database
 
         public DbSet<AppUser> Users { get; set; }
         public DbSet<AppRole> Roles { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(_160020Context).Assembly);
+        }
     }
 }
