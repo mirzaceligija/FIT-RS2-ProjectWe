@@ -11,7 +11,7 @@ namespace ProjectWe.Services.Database
     {
         public AppUser()
         {
-            AppRoles = new HashSet<AppRole>();
+            AppUserRoles = new HashSet<AppUserRoles>();
             Activities = new HashSet<Activity>();
             Budgets = new HashSet<Budget>();
             Objectives = new HashSet<Objective>();
@@ -20,9 +20,11 @@ namespace ProjectWe.Services.Database
             Votes = new HashSet<Vote>();
         }
 
+        public string FirstName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModified { get; set; }
-        public virtual ICollection<AppRole> AppRoles { get; set; }
+        public virtual ICollection<AppUserRoles> AppUserRoles { get; set; }
         public virtual ICollection<Activity> Activities { get; set; }
         public virtual ICollection<Budget> Budgets { get; set; }
         public virtual ICollection<Objective> Objectives { get; set; }

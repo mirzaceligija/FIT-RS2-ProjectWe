@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProjectWe.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace ProjectWe.Services
     {
         public MappingProfiles()
         {
+            CreateMap<Database.AppUser, Models.AppUser>()
+                .ForMember(dest => dest.RoleNames, opt => opt.MapFrom(src => string.Join(", ", src.AppUserRoles!.Select(x => x.AppRole!.Name).ToList())));
+            CreateMap<UserInsertRequest, Database.AppUser>();
+            CreateMap<UserUpdateRequest, Database.AppUser>();
+
+            CreateMap<Database.AppRole, Models.AppRole>();
+            CreateMap<Database.AppUserRoles, Models.AppUserRoles>();
         }
     }
 }

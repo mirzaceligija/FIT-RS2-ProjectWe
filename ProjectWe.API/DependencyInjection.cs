@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
 using ProjectWe.API.Filters;
+using ProjectWe.Services;
 
 namespace ProjectWe.API
 {
@@ -13,8 +14,7 @@ namespace ProjectWe.API
             });
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            //TODO: Add Automapper
-            //builder.Services.AddAutoMapper(typeof(IUsersService));
+            services.AddAutoMapper(typeof(IUsersService));
 
             return services;
         }

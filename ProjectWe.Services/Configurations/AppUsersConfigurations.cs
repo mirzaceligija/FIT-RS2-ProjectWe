@@ -21,13 +21,15 @@ namespace ProjectWe.Services.Configurations
         {
             builder.ToTable("AppUsers");
             builder.HasKey(u => u.Id);
-            builder.Property(u => u.Id).ValueGeneratedNever();
+            builder.Property(u => u.Id).ValueGeneratedOnAdd();
             builder.Property(u => u.NormalizedUserName).HasMaxLength(64).IsRequired(false);
             builder.Property(u => u.Email).HasMaxLength(320).IsRequired(true);
             builder.HasIndex(u => u.Email).IsUnique();
             builder.Property(u => u.NormalizedEmail).HasMaxLength(320).IsRequired(true);
             builder.HasIndex(u => u.NormalizedEmail).IsUnique();
-            builder.Property(u => u.UserName).HasMaxLength(64).IsRequired(false);
+            builder.Property(u => u.FirstName).HasMaxLength(64).IsRequired(true);
+            builder.Property(u => u.LastName).HasMaxLength(64).IsRequired(true);
+            builder.Property(u => u.UserName).HasMaxLength(64).IsRequired(true);
             builder.HasIndex(u => u.UserName).IsUnique();
             builder.Property(u => u.NormalizedUserName).HasMaxLength(64).IsRequired(false);
             builder.HasIndex(u => u.NormalizedUserName).IsUnique();
@@ -48,12 +50,40 @@ namespace ProjectWe.Services.Configurations
         public void SeedUsers(EntityTypeBuilder<AppUser> builder)
         {
             builder.HasData(
-                new AppUser { Id = 1, UserName = "Admin", NormalizedUserName = "ADMIN", CreatedAt = DateTime.UtcNow, LastModified = null,
-                    Email = "admin@email.com", NormalizedEmail = "ADMIN@EMAIL.COM", PasswordHash = "X1", SecurityStamp = Guid.NewGuid().ToString(),
-                    ConcurrencyStamp = Guid.NewGuid().ToString() },
-                new AppUser { Id = 2, UserName = "Manager", NormalizedUserName = "MANAGER", CreatedAt = DateTime.UtcNow, LastModified = null,
-                    Email = "manager@email.com", NormalizedEmail = "MANAGER@EMAIL.COM", PasswordHash = "X1", SecurityStamp = Guid.NewGuid().ToString(),
-                    ConcurrencyStamp = Guid.NewGuid().ToString() });
+                new AppUser { 
+                    Id = 1,
+                    UserName = "Admin",
+                    NormalizedUserName = "ADMIN",
+                    Email = "admin@email.com",
+                    NormalizedEmail = "ADMIN@EMAIL.COM",
+                    FirstName = "Admin",
+                    LastName = "Super",
+                    PasswordHash = "AQAAAAEAACcQAAAAEJSnLX1fQLSM0GHZgeHn7+BQiABcmmD5rMhOu5DCTCHh3huSn3kevRq8fmUQJ0urqg==",
+                    SecurityStamp = "VHFSXSTATK7ARJ7NGKNMU2TOAEL6GDZU",
+                    ConcurrencyStamp = "0b275a23-24e7-4bbc-86c5-5f24843d0062",
+                    LockoutEnabled = false,
+                    EmailConfirmed = true,
+                    CreatedAt = DateTime.UtcNow,
+                    LastModified = null,
+                },
+
+                new AppUser
+                {
+                    Id = 2,
+                    UserName = "Manager",
+                    NormalizedUserName = "MANAGER",
+                    Email = "manager@email.com",
+                    NormalizedEmail = "MANAGER@EMAIL.COM",
+                    FirstName = "Manager",
+                    LastName = "Super",
+                    PasswordHash = "AQAAAAEAACcQAAAAEJSnLX1fQLSM0GHZgeHn7+BQiABcmmD5rMhOu5DCTCHh3huSn3kevRq8fmUQJ0urqg==",
+                    SecurityStamp = "VHFSXSTATK7ARJ7NGKNMU2TOAEL6GDZU",
+                    ConcurrencyStamp = "0b275a23-24e7-4bbc-86c5-5f24843d0062",
+                    LockoutEnabled = false,
+                    EmailConfirmed = true,
+                    CreatedAt = DateTime.UtcNow,
+                    LastModified = null,
+                });
         }
     }
 }

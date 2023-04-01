@@ -26,6 +26,7 @@ namespace ProjectWe.Services.Database
 
         public virtual DbSet<AppUser> AppUsers { get; set; } = null!;
         public virtual DbSet<AppRole> AppRoles { get; set; } = null!;
+        public virtual DbSet<AppUserRoles> AppUserRoles { get; set; } = null!;
         public virtual DbSet<Project> Projects { get; set; } = null!;
         public virtual DbSet<Objective> Objectives { get; set; } = null!;
         public virtual DbSet<Output> Outputs { get; set; } = null!;

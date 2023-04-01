@@ -49,9 +49,15 @@ namespace ProjectWe.Services
                 return null;
             }
 
+            BeforeUpdate(update, entity);
+
             Context.SaveChanges();
 
             return Mapper.Map<T>(entity);
+        }
+
+        public virtual void BeforeUpdate(TUpdate update, TDb entity)
+        {
         }
     }
 }

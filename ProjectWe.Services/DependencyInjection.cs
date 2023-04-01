@@ -23,6 +23,7 @@ namespace ProjectWe.Services
             ConfigurationManager configuration)
         {
             services
+                .AddAppServices()
                 .AddIdentityConfiguration()
                 .AddIdentityAuthentication(configuration)
                 .AddIdentityAuthorization(configuration)
@@ -31,20 +32,28 @@ namespace ProjectWe.Services
             return services;
         }
 
+        public static IServiceCollection AddAppServices(this IServiceCollection services)
+        {
+            services.AddTransient<IUsersService, UsersService>();
+
+            return services;
+        }
+
         public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services)
         {
-            services.AddIdentityCore<AppUser>(opt => {
-                opt.Password.RequireDigit = false;
-                opt.Password.RequireLowercase = false;
-                opt.Password.RequireUppercase = false;
-                opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequiredLength = 4;
-                opt.User.RequireUniqueEmail = true;
-                opt.SignIn.RequireConfirmedEmail = false;
-            })
+            services
+                .AddIdentityCore<AppUser>(opt => {
+                    opt.Password.RequireDigit = false;
+                    opt.Password.RequireLowercase = false;
+                    opt.Password.RequireUppercase = false;
+                    opt.Password.RequireNonAlphanumeric = false;
+                    opt.Password.RequiredLength = 4;
+                    opt.User.RequireUniqueEmail = true;
+                    opt.SignIn.RequireConfirmedEmail = false;
+                })
                 .AddRoles<AppRole>()
                 .AddRoleManager<RoleManager<AppRole>>()
-            .AddSignInManager<SignInManager<AppUser>>()
+                .AddSignInManager<SignInManager<AppUser>>()
                 .AddRoleValidator<RoleValidator<AppRole>>()
                 .AddEntityFrameworkStores<_160020Context>()
                 .AddDefaultTokenProviders();
@@ -92,11 +101,6 @@ namespace ProjectWe.Services
                 opt.AddPolicy("RequireAdmin", policy =>
                 {
                     policy.RequireRole("Admin");
-                });
-
-                opt.AddPolicy("RequireManager", policy =>
-                {
-                    policy.RequireRole("Manager");
                 });
             });
 
