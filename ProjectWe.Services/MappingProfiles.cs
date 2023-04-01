@@ -40,6 +40,9 @@ namespace ProjectWe.Services
 
             CreateMap<Database.Activity, Models.Activity>();
             CreateMap<ActivityUpsertRequest, Database.Activity>();
+
+            CreateMap<Database.Budget, Models.Budget>();
+            CreateMap<BudgetUpsertRequest, Database.Budget>();
         }
     }
 }
