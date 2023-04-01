@@ -25,6 +25,9 @@ namespace ProjectWe.Services
 
             CreateMap<Database.Status, Models.Status>();
             CreateMap<StatusUpsertRequest, Database.Status>();
+
+            CreateMap<Database.Category, Models.Category>();
+            CreateMap<CategoryUpsertRequest, Database.Category>();
         }
     }
 }
