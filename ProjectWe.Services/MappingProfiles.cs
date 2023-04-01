@@ -22,6 +22,9 @@ namespace ProjectWe.Services
 
             CreateMap<Database.City, Models.City>();
             CreateMap<CityUpsertRequest, Database.City>();
+
+            CreateMap<Database.Status, Models.Status>();
+            CreateMap<StatusUpsertRequest, Database.Status>();
         }
     }
 }

@@ -36,6 +36,7 @@ namespace ProjectWe.Services
         {
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<ICitiesService, CitiesService>();
+            services.AddTransient<IStatusesService, StatusesService>();
 
             return services;
         }
