@@ -20,7 +20,7 @@ namespace ProjectWe.Services.Configurations
         public void ConfigureOutputsTable(EntityTypeBuilder<Output> builder)
         {
             builder.ToTable("Outputs");
-            builder.HasKey(u => u.ObjectiveId);
+            builder.HasKey(u => u.OutputId);
             builder.Property(u => u.Description).HasMaxLength(512).IsRequired(true);
             builder.Property(u => u.Indicators).HasMaxLength(512).IsRequired(false);
             builder.Property(u => u.MeansOfVerification).HasMaxLength(512).IsRequired(false);
