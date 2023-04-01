@@ -38,6 +38,7 @@ namespace ProjectWe.Services
             services.AddTransient<ICitiesService, CitiesService>();
             services.AddTransient<IStatusesService, StatusesService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IProjectsService, ProjectsService>();
 
             return services;
         }

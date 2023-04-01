@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjectWe.Services;
+using System.Security.Claims;
 
 namespace ProjectWe.API.Controllers
 {
@@ -27,6 +28,11 @@ namespace ProjectWe.API.Controllers
         public virtual T Get(int id)
         {
             return Service.Get(id);
+        }
+
+        protected int GetUserId()
+        {
+            return int.Parse(this.User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
         }
     }
 }
