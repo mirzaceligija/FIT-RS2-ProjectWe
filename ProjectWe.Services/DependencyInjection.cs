@@ -35,6 +35,7 @@ namespace ProjectWe.Services
         public static IServiceCollection AddAppServices(this IServiceCollection services)
         {
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<ICitiesService, CitiesService>();
 
             return services;
         }

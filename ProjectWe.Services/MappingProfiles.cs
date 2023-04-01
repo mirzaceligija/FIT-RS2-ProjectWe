@@ -19,6 +19,9 @@ namespace ProjectWe.Services
 
             CreateMap<Database.AppRole, Models.AppRole>();
             CreateMap<Database.AppUserRoles, Models.AppUserRoles>();
+
+            CreateMap<Database.City, Models.City>();
+            CreateMap<CityUpsertRequest, Database.City>();
         }
     }
 }
