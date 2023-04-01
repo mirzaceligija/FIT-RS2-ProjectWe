@@ -37,6 +37,9 @@ namespace ProjectWe.Services
 
             CreateMap<Database.Output, Models.Output>();
             CreateMap<OutputUpsertRequest, Database.Output>();
+
+            CreateMap<Database.Activity, Models.Activity>();
+            CreateMap<ActivityUpsertRequest, Database.Activity>();
         }
     }
 }
