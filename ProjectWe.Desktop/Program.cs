@@ -1,3 +1,5 @@
+using ProjectWe.Desktop.Forms.Authentication;
+
 namespace ProjectWe.Desktop
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace ProjectWe.Desktop
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run();
+            Application.Run(new frmSignIn());
         }
     }
 }
