@@ -28,7 +28,8 @@ namespace ProjectWe.Desktop.Services
             {
                 query = await search.ToQueryString();
             }
-            return await $"{_baseUrl}{_resource}".WithOAuthBearerToken(User?.Token).GetJsonAsync<T>();
+
+            return await $"{_baseUrl}{_resource}?{query}".WithOAuthBearerToken(User?.Token).GetJsonAsync<T>();
         }
 
         public async Task<T> Get<T>(object id)

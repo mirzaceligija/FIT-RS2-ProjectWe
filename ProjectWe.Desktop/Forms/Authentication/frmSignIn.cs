@@ -36,8 +36,8 @@ namespace ProjectWe.Desktop.Forms.Authentication
                 if(APIService.User.RoleNames.Contains("Admin"))
                 {
                     this.Hide();
-                    frmUsers frmUsers = new frmUsers();
-                    frmUsers.Show();
+                    mdiMain mdiMain = new mdiMain();
+                    mdiMain.Show();
                 } else
                 {
                     throw new Exception();

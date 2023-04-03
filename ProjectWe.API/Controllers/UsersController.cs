@@ -43,7 +43,7 @@ namespace ProjectWe.API.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public override IEnumerable<Models.AppUser> GetList([FromBody] UserSearchObject getList)
+        public override IEnumerable<Models.AppUser> GetList([FromQuery] UserSearchObject getList)
         {
             return base.GetList(getList);
         }

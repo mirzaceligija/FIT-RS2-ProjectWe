@@ -111,7 +111,7 @@ namespace ProjectWe.Services
         {
             if (search?.IncludeRoles == true)
             {
-                query = query.Include("UserRoles.Role");
+                query = query.Include("AppUserRoles.AppRole");
             }
 
             return query;
