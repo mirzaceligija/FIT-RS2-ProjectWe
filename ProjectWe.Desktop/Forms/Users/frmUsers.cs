@@ -1,4 +1,5 @@
-﻿using ProjectWe.Desktop.Services;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using ProjectWe.Desktop.Services;
 using ProjectWe.Models;
 using ProjectWe.Models.SearchObjects;
 using System;
@@ -15,11 +16,19 @@ namespace ProjectWe.Desktop.Forms.Users
 {
     public partial class frmUsers : Form
     {
-        public APIService _api { get; set; } = new APIService("Users");
+        public APIService UsersService { get; set; } = new APIService("Users");
         public frmUsers()
         {
             InitializeComponent();
             dgvUsers.AutoGenerateColumns = false;
+        }
+
+        private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var user = dgvUsers.SelectedRows[0].DataBoundItem as AppUser;
+
+            frmUserDetails frmUserDetails = new frmUserDetails(user);
+            frmUserDetails.ShowDialog();
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -31,7 +40,7 @@ namespace ProjectWe.Desktop.Forms.Users
                 IncludeRoles = true
             };
 
-            var users = await _api.GetList<List<AppUser>>(searchObject);
+            var users = await UsersService.GetList<List<AppUser>>(searchObject);
             dgvUsers.DataSource = users;
         }
     }

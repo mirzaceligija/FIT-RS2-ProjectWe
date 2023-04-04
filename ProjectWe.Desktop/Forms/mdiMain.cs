@@ -1,4 +1,6 @@
-﻿using ProjectWe.Desktop.Forms.Users;
+﻿using ProjectWe.Desktop.Forms.Projects;
+using ProjectWe.Desktop.Forms.Reports;
+using ProjectWe.Desktop.Forms.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,6 @@ namespace ProjectWe.Desktop.Forms
         public mdiMain()
         {
             InitializeComponent();
-
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -98,12 +99,31 @@ namespace ProjectWe.Desktop.Forms
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmReports childForm = new frmReports();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
         }
 
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserDetails frmUserDetails = new frmUserDetails();
+            frmUserDetails.ShowDialog();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsers childForm = new frmUsers();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void projectsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProjects childForm = new frmProjects();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
             childForm.WindowState = FormWindowState.Maximized;

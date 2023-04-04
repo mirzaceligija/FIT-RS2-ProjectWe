@@ -39,12 +39,41 @@ namespace ProjectWe.Desktop.Services
 
         public async Task<T> Insert<T>(object request)
         {
-            return await $"{_baseUrl}{_resource}".WithOAuthBearerToken(User?.Token).PostJsonAsync(request).ReceiveJson<T>();
+            try
+            {
+                return await $"{_baseUrl}{_resource}".WithOAuthBearerToken(User?.Token).PostJsonAsync(request).ReceiveJson<T>();
+            } catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                var stringBuilder = new StringBuilder();
+                foreach (var err in errors)
+                {
+                    stringBuilder.AppendLine($"{err.Key}, ${string.Join(",", err.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
         }
 
         public async Task<T> Update<T>(object id, object request)
         {
-            return await $"{_baseUrl}{_resource}/{id}".WithOAuthBearerToken(User?.Token).PutJsonAsync(request).ReceiveJson<T>();
+            try
+            {
+                return await $"{_baseUrl}{_resource}?id={id}".WithOAuthBearerToken(User?.Token).PutJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                var stringBuilder = new StringBuilder();
+                foreach (var err in errors)
+                {
+                    stringBuilder.AppendLine($"{err.Key}, ${string.Join(",", err.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
         }
 
         // Authentication Endpoints

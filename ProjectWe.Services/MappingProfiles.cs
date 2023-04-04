@@ -18,6 +18,8 @@ namespace ProjectWe.Services
             CreateMap<UserUpdateRequest, Database.AppUser>();
 
             CreateMap<Database.AppRole, Models.AppRole>();
+            CreateMap<RoleUpsertRequest, Database.AppRole>();
+
             CreateMap<Database.AppUserRoles, Models.AppUserRoles>();
 
             CreateMap<Database.City, Models.City>();

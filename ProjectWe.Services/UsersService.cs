@@ -37,17 +37,20 @@ namespace ProjectWe.Services
 
             var entity = base.Insert(insert);
 
-            var userRole = new AppUserRoles
+            foreach (var roleId in insert.AppRoleIdsList)
             {
-                UserId = entity.Id,
-                RoleId = 2, // 2 stands for manager,
-                CreatedAt = DateTime.UtcNow,
-                LastModified = null,
-            };
+                var userRole = new AppUserRoles
+                {
+                    UserId = entity.Id,
+                    RoleId = roleId,
+                    CreatedAt = DateTime.UtcNow,
+                    LastModified = null,
+                };
 
-            Context.UserRoles.Add(userRole);
+                Context.UserRoles.Add(userRole);
+            }
+
             Context.SaveChanges();
-
             return entity;
         }
 
@@ -73,8 +76,32 @@ namespace ProjectWe.Services
 
             var entity = base.Update(id, update);
 
-            Context.SaveChanges();
+            var existingRoles = Context.UserRoles.Where(x => x.UserId == entity.Id).ToList();
 
+            var rolesToAdd = update.AppRoleIdsList
+                .Where(roleId => !existingRoles.Any(ur => ur.RoleId == roleId))
+                .Select(roleId => new AppUserRoles {
+                    UserId = entity.Id,
+                    RoleId = roleId,
+                    CreatedAt = DateTime.UtcNow,
+                    LastModified = null,
+                }).ToList();
+
+            var rolesToDelete = existingRoles
+                .Where(ur => !update.AppRoleIdsList.Contains(ur.RoleId))
+                .ToList();
+
+            foreach (var role in rolesToAdd)
+            {
+                Context.UserRoles.Add(role);
+            }
+
+            foreach (var role in rolesToDelete)
+            {
+                Context.UserRoles.Remove(role);
+            }
+
+            Context.SaveChanges();
             return entity;
         }
 

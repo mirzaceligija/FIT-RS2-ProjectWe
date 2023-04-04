@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiMain));
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
             menuStrip1 = new MenuStrip();
             projectsToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            searchToolStripMenuItem = new ToolStripMenuItem();
             reportsToolStripMenuItem = new ToolStripMenuItem();
             statusStrip.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -59,6 +62,7 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.RoyalBlue;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { projectsToolStripMenuItem, usersToolStripMenuItem, reportsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
@@ -69,19 +73,37 @@
             // 
             // projectsToolStripMenuItem
             // 
+            projectsToolStripMenuItem.ForeColor = Color.White;
             projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
             projectsToolStripMenuItem.Size = new Size(75, 24);
             projectsToolStripMenuItem.Text = "Projects";
+            projectsToolStripMenuItem.Click += projectsToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem
             // 
+            usersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, searchToolStripMenuItem });
+            usersToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             usersToolStripMenuItem.Size = new Size(58, 24);
             usersToolStripMenuItem.Text = "Users";
-            usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new Size(224, 26);
+            newToolStripMenuItem.Text = "New";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
+            // 
+            // searchToolStripMenuItem
+            // 
+            searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            searchToolStripMenuItem.Size = new Size(224, 26);
+            searchToolStripMenuItem.Text = "Search";
+            searchToolStripMenuItem.Click += searchToolStripMenuItem_Click;
             // 
             // reportsToolStripMenuItem
             // 
+            reportsToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             reportsToolStripMenuItem.Size = new Size(74, 24);
             reportsToolStripMenuItem.Text = "Reports";
@@ -94,10 +116,11 @@
             ClientSize = new Size(843, 697);
             Controls.Add(statusStrip);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Margin = new Padding(4, 5, 4, 5);
             Name = "mdiMain";
-            Text = "mdiMain";
+            Text = "ProjectWe - Admin";
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             menuStrip1.ResumeLayout(false);
@@ -114,6 +137,8 @@
         private ToolStripMenuItem projectsToolStripMenuItem;
         private ToolStripMenuItem reportsToolStripMenuItem;
         private ToolStripMenuItem usersToolStripMenuItem;
+        private ToolStripMenuItem newToolStripMenuItem;
+        private ToolStripMenuItem searchToolStripMenuItem;
     }
 }
 
