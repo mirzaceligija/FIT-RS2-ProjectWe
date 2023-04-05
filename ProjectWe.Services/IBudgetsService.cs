@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public interface IBudgetsService : ICRUDService<Models.Budget, BudgetSearchObject, BudgetUpsertRequest, BudgetUpsertRequest>
+    public interface IBudgetsService : ICRUDService<Models.Budget, BudgetSearchObject, BudgetInsertRequest, BudgetUpdateRequest>
     {
     }
 }

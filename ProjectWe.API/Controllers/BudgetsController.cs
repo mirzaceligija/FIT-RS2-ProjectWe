@@ -6,7 +6,7 @@ using ProjectWe.Services;
 
 namespace ProjectWe.API.Controllers
 {
-    public class BudgetsController : BaseCRUDController<Models.Budget, BudgetSearchObject, BudgetUpsertRequest, BudgetUpsertRequest>
+    public class BudgetsController : BaseCRUDController<Models.Budget, BudgetSearchObject, BudgetInsertRequest, BudgetUpdateRequest>
     {
         public IBudgetsService _service { get; set; }
 
@@ -15,15 +15,14 @@ namespace ProjectWe.API.Controllers
             _service = service;
         }
 
-        public override Models.Budget Insert([FromBody] BudgetUpsertRequest insert)
+        public override Models.Budget Insert([FromBody] BudgetInsertRequest insert)
         {
             insert.UserId = GetUserId();
             return base.Insert(insert);
         }
 
-        public override Models.Budget Update(int id, [FromBody] BudgetUpsertRequest update)
+        public override Models.Budget Update(int id, [FromBody] BudgetUpdateRequest update)
         {
-            update.UserId = GetUserId();
             return base.Update(id, update);
         }
     }

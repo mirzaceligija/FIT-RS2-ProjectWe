@@ -41,10 +41,12 @@ namespace ProjectWe.Services
             CreateMap<OutputUpsertRequest, Database.Output>();
 
             CreateMap<Database.Activity, Models.Activity>();
-            CreateMap<ActivityUpsertRequest, Database.Activity>();
+            CreateMap<ActivityInsertRequest, Database.Activity>();
+            CreateMap<ActivityUpdateRequest, Database.Activity>();
 
             CreateMap<Database.Budget, Models.Budget>();
-            CreateMap<BudgetUpsertRequest, Database.Budget>();
+            CreateMap<BudgetInsertRequest, Database.Budget>();
+            CreateMap<BudgetUpdateRequest, Database.Budget>();
         }
     }
 }

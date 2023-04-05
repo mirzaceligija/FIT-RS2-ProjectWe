@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public class ActivitiesService : BaseCRUDService<Models.Activity, Database.Activity, ActivitySearchObject, ActivityUpsertRequest, ActivityUpsertRequest>, IActivitiesService
+    public class ActivitiesService : BaseCRUDService<Models.Activity, Database.Activity, ActivitySearchObject, ActivityInsertRequest, ActivityUpdateRequest>, IActivitiesService
     {
         public ActivitiesService(_160020Context context, IMapper mapper) : base(context, mapper)
         {
@@ -20,7 +20,7 @@ namespace ProjectWe.Services
         {
             var filteredQuery = base.AddFilter(query, search);
 
-            if (!string.IsNullOrWhiteSpace(search?.ProjectId.ToString()))
+            if (search.ProjectId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.ProjectId == search.ProjectId);
             }

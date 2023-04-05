@@ -42,6 +42,9 @@
             btnSave = new Button();
             tabObjective = new TabControl();
             tabPage1 = new TabPage();
+            dgvObjectives = new DataGridView();
+            ObjectiveId = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             tabOutputs = new TabPage();
             dgvOutputs = new DataGridView();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
@@ -54,6 +57,7 @@
             StartDate = new DataGridViewTextBoxColumn();
             EndDate = new DataGridViewTextBoxColumn();
             tabBudget = new TabPage();
+            btnRefreshBudget = new Button();
             dgvBudget = new DataGridView();
             Description = new DataGridViewTextBoxColumn();
             CostPerUnit = new DataGridViewTextBoxColumn();
@@ -61,20 +65,18 @@
             TotalCost = new DataGridViewTextBoxColumn();
             lblTotalCostValue = new Label();
             lblTotalCost = new Label();
-            dgvObjectives = new DataGridView();
-            ObjectiveId = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            btnRefreshActivities = new Button();
             groupBox1.SuspendLayout();
             grpInfo.SuspendLayout();
             tabObjective.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvObjectives).BeginInit();
             tabOutputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOutputs).BeginInit();
             tabActivities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvActivities).BeginInit();
             tabBudget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBudget).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvObjectives).BeginInit();
             SuspendLayout();
             // 
             // cmbStatus
@@ -193,7 +195,7 @@
             btnSave.BackColor = Color.Gold;
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Location = new Point(694, 409);
+            btnSave.Location = new Point(694, 191);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 28;
@@ -207,10 +209,10 @@
             tabObjective.Controls.Add(tabOutputs);
             tabObjective.Controls.Add(tabActivities);
             tabObjective.Controls.Add(tabBudget);
-            tabObjective.Location = new Point(12, 191);
+            tabObjective.Location = new Point(12, 226);
             tabObjective.Name = "tabObjective";
             tabObjective.SelectedIndex = 0;
-            tabObjective.Size = new Size(776, 212);
+            tabObjective.Size = new Size(776, 483);
             tabObjective.TabIndex = 29;
             // 
             // tabPage1
@@ -219,10 +221,37 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(768, 179);
+            tabPage1.Size = new Size(768, 450);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Objectives";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvObjectives
+            // 
+            dgvObjectives.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvObjectives.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvObjectives.Columns.AddRange(new DataGridViewColumn[] { ObjectiveId, dataGridViewTextBoxColumn3 });
+            dgvObjectives.Location = new Point(7, 18);
+            dgvObjectives.MultiSelect = false;
+            dgvObjectives.Name = "dgvObjectives";
+            dgvObjectives.RowHeadersWidth = 51;
+            dgvObjectives.RowTemplate.Height = 29;
+            dgvObjectives.Size = new Size(754, 426);
+            dgvObjectives.TabIndex = 5;
+            // 
+            // ObjectiveId
+            // 
+            ObjectiveId.DataPropertyName = "ObjectiveId";
+            ObjectiveId.HeaderText = "ObjectiveId";
+            ObjectiveId.MinimumWidth = 6;
+            ObjectiveId.Name = "ObjectiveId";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            dataGridViewTextBoxColumn3.HeaderText = "Description";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // tabOutputs
             // 
@@ -230,7 +259,7 @@
             tabOutputs.Location = new Point(4, 29);
             tabOutputs.Name = "tabOutputs";
             tabOutputs.Padding = new Padding(3);
-            tabOutputs.Size = new Size(768, 179);
+            tabOutputs.Size = new Size(768, 450);
             tabOutputs.TabIndex = 1;
             tabOutputs.Text = "Outputs";
             tabOutputs.UseVisualStyleBackColor = true;
@@ -245,7 +274,7 @@
             dgvOutputs.Name = "dgvOutputs";
             dgvOutputs.RowHeadersWidth = 51;
             dgvOutputs.RowTemplate.Height = 29;
-            dgvOutputs.Size = new Size(754, 143);
+            dgvOutputs.Size = new Size(754, 426);
             dgvOutputs.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn2
@@ -271,27 +300,33 @@
             // 
             // tabActivities
             // 
+            tabActivities.Controls.Add(btnRefreshActivities);
             tabActivities.Controls.Add(dgvActivities);
             tabActivities.Location = new Point(4, 29);
             tabActivities.Name = "tabActivities";
             tabActivities.Padding = new Padding(3);
-            tabActivities.Size = new Size(768, 179);
+            tabActivities.Size = new Size(768, 450);
             tabActivities.TabIndex = 2;
             tabActivities.Text = "Activities";
             tabActivities.UseVisualStyleBackColor = true;
             // 
             // dgvActivities
             // 
+            dgvActivities.AllowUserToAddRows = false;
+            dgvActivities.AllowUserToDeleteRows = false;
             dgvActivities.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvActivities.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvActivities.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, Locations, StartDate, EndDate });
-            dgvActivities.Location = new Point(7, 18);
+            dgvActivities.Location = new Point(7, 49);
             dgvActivities.MultiSelect = false;
             dgvActivities.Name = "dgvActivities";
+            dgvActivities.ReadOnly = true;
             dgvActivities.RowHeadersWidth = 51;
             dgvActivities.RowTemplate.Height = 29;
-            dgvActivities.Size = new Size(754, 143);
+            dgvActivities.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvActivities.Size = new Size(754, 395);
             dgvActivities.TabIndex = 3;
+            dgvActivities.CellDoubleClick += dgvActivities_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -323,29 +358,47 @@
             // 
             // tabBudget
             // 
+            tabBudget.Controls.Add(btnRefreshBudget);
             tabBudget.Controls.Add(dgvBudget);
             tabBudget.Controls.Add(lblTotalCostValue);
             tabBudget.Controls.Add(lblTotalCost);
             tabBudget.Location = new Point(4, 29);
             tabBudget.Name = "tabBudget";
             tabBudget.Padding = new Padding(3);
-            tabBudget.Size = new Size(768, 179);
+            tabBudget.Size = new Size(768, 450);
             tabBudget.TabIndex = 3;
             tabBudget.Text = "Budget";
             tabBudget.UseVisualStyleBackColor = true;
             // 
+            // btnRefreshBudget
+            // 
+            btnRefreshBudget.BackColor = Color.White;
+            btnRefreshBudget.FlatStyle = FlatStyle.Flat;
+            btnRefreshBudget.Location = new Point(668, 14);
+            btnRefreshBudget.Name = "btnRefreshBudget";
+            btnRefreshBudget.Size = new Size(94, 29);
+            btnRefreshBudget.TabIndex = 9;
+            btnRefreshBudget.Text = "Refresh";
+            btnRefreshBudget.UseVisualStyleBackColor = false;
+            btnRefreshBudget.Click += btnRefreshBudget_Click;
+            // 
             // dgvBudget
             // 
+            dgvBudget.AllowUserToAddRows = false;
+            dgvBudget.AllowUserToDeleteRows = false;
             dgvBudget.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBudget.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBudget.Columns.AddRange(new DataGridViewColumn[] { Description, CostPerUnit, NumberOfUnits, TotalCost });
-            dgvBudget.Location = new Point(8, 30);
+            dgvBudget.Location = new Point(8, 49);
             dgvBudget.MultiSelect = false;
             dgvBudget.Name = "dgvBudget";
+            dgvBudget.ReadOnly = true;
             dgvBudget.RowHeadersWidth = 51;
             dgvBudget.RowTemplate.Height = 29;
-            dgvBudget.Size = new Size(754, 143);
+            dgvBudget.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBudget.Size = new Size(754, 395);
             dgvBudget.TabIndex = 2;
+            dgvBudget.CellDoubleClick += dgvBudget_CellDoubleClick;
             // 
             // Description
             // 
@@ -353,6 +406,7 @@
             Description.HeaderText = "Description";
             Description.MinimumWidth = 6;
             Description.Name = "Description";
+            Description.ReadOnly = true;
             // 
             // CostPerUnit
             // 
@@ -360,6 +414,7 @@
             CostPerUnit.HeaderText = "CostPerUnit";
             CostPerUnit.MinimumWidth = 6;
             CostPerUnit.Name = "CostPerUnit";
+            CostPerUnit.ReadOnly = true;
             // 
             // NumberOfUnits
             // 
@@ -367,6 +422,7 @@
             NumberOfUnits.HeaderText = "NumberOfUnits";
             NumberOfUnits.MinimumWidth = 6;
             NumberOfUnits.Name = "NumberOfUnits";
+            NumberOfUnits.ReadOnly = true;
             // 
             // TotalCost
             // 
@@ -374,11 +430,12 @@
             TotalCost.HeaderText = "TotalCost";
             TotalCost.MinimumWidth = 6;
             TotalCost.Name = "TotalCost";
+            TotalCost.ReadOnly = true;
             // 
             // lblTotalCostValue
             // 
             lblTotalCostValue.AutoSize = true;
-            lblTotalCostValue.Location = new Point(87, 3);
+            lblTotalCostValue.Location = new Point(99, 18);
             lblTotalCostValue.Name = "lblTotalCostValue";
             lblTotalCostValue.Size = new Size(36, 20);
             lblTotalCostValue.TabIndex = 1;
@@ -388,45 +445,30 @@
             // 
             lblTotalCost.AutoSize = true;
             lblTotalCost.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalCost.Location = new Point(3, 3);
+            lblTotalCost.Location = new Point(10, 18);
             lblTotalCost.Name = "lblTotalCost";
             lblTotalCost.Size = new Size(83, 20);
             lblTotalCost.TabIndex = 0;
             lblTotalCost.Text = "Total Cost:";
             // 
-            // dgvObjectives
+            // btnRefreshActivities
             // 
-            dgvObjectives.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvObjectives.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvObjectives.Columns.AddRange(new DataGridViewColumn[] { ObjectiveId, dataGridViewTextBoxColumn3 });
-            dgvObjectives.Location = new Point(7, 18);
-            dgvObjectives.MultiSelect = false;
-            dgvObjectives.Name = "dgvObjectives";
-            dgvObjectives.RowHeadersWidth = 51;
-            dgvObjectives.RowTemplate.Height = 29;
-            dgvObjectives.Size = new Size(754, 143);
-            dgvObjectives.TabIndex = 5;
-            // 
-            // ObjectiveId
-            // 
-            ObjectiveId.DataPropertyName = "ObjectiveId";
-            ObjectiveId.HeaderText = "ObjectiveId";
-            ObjectiveId.MinimumWidth = 6;
-            ObjectiveId.Name = "ObjectiveId";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Description";
-            dataGridViewTextBoxColumn3.HeaderText = "Description";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            btnRefreshActivities.BackColor = Color.White;
+            btnRefreshActivities.FlatStyle = FlatStyle.Flat;
+            btnRefreshActivities.Location = new Point(667, 14);
+            btnRefreshActivities.Name = "btnRefreshActivities";
+            btnRefreshActivities.Size = new Size(94, 29);
+            btnRefreshActivities.TabIndex = 10;
+            btnRefreshActivities.Text = "Refresh";
+            btnRefreshActivities.UseVisualStyleBackColor = false;
+            btnRefreshActivities.Click += btnRefreshActivities_Click;
             // 
             // frmProjectDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.RoyalBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1348, 721);
             Controls.Add(tabObjective);
             Controls.Add(btnSave);
             Controls.Add(groupBox1);
@@ -440,6 +482,7 @@
             grpInfo.PerformLayout();
             tabObjective.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvObjectives).EndInit();
             tabOutputs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvOutputs).EndInit();
             tabActivities.ResumeLayout(false);
@@ -447,7 +490,6 @@
             tabBudget.ResumeLayout(false);
             tabBudget.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBudget).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvObjectives).EndInit();
             ResumeLayout(false);
         }
 
@@ -488,5 +530,7 @@
         private DataGridView dgvObjectives;
         private DataGridViewTextBoxColumn ObjectiveId;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private Button btnRefreshBudget;
+        private Button btnRefreshActivities;
     }
 }

@@ -28,6 +28,11 @@ namespace ProjectWe.Desktop.Forms.Projects
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+            if (!ValidateChildren())
+            {
+                return;
+            }
+
             var searchObject = new ProjectSearchObject
             {
                 Name = txtProject.Text,
@@ -77,6 +82,51 @@ namespace ProjectWe.Desktop.Forms.Projects
 
             frmProjectDetails frmProjectDetails = new frmProjectDetails(project);
             frmProjectDetails.ShowDialog();
+        }
+
+        private void cmbCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbCity.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbCity.Focus();
+                errorProvider.SetError(cmbCity, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbCity, "");
+            }
+        }
+
+        private void cmbCategory_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbCategory.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbCategory.Focus();
+                errorProvider.SetError(cmbCategory, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbCategory, "");
+            }
+        }
+
+        private void cmbStatus_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbStatus.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbStatus.Focus();
+                errorProvider.SetError(cmbStatus, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbStatus, "");
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjects));
             btnSearch = new Button();
             dgvProjects = new DataGridView();
@@ -45,7 +46,9 @@
             cmbCategory = new ComboBox();
             label4 = new Label();
             cmbStatus = new ComboBox();
+            errorProvider = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dgvProjects).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // btnSearch
@@ -139,6 +142,7 @@
             cmbCity.Name = "cmbCity";
             cmbCity.Size = new Size(151, 28);
             cmbCity.TabIndex = 10;
+            cmbCity.Validating += cmbCity_Validating;
             // 
             // label2
             // 
@@ -184,6 +188,7 @@
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(151, 28);
             cmbCategory.TabIndex = 14;
+            cmbCategory.Validating += cmbCategory_Validating;
             // 
             // label4
             // 
@@ -202,6 +207,11 @@
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(151, 28);
             cmbStatus.TabIndex = 16;
+            cmbStatus.Validating += cmbStatus_Validating;
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // frmProjects
             // 
@@ -224,6 +234,7 @@
             Text = "Projects";
             Load += frmProjects_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProjects).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -246,5 +257,6 @@
         private DataGridViewTextBoxColumn CategoryId;
         private DataGridViewTextBoxColumn LastModified;
         private DataGridViewTextBoxColumn CreatedAt;
+        private ErrorProvider errorProvider;
     }
 }

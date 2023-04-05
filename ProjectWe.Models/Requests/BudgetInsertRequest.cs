@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Models.Requests
 {
-    public class BudgetUpsertRequest
+    public class BudgetInsertRequest
     {
         public string Description { get; set; } = null!;
         public decimal CostPerUnit { get; set; }

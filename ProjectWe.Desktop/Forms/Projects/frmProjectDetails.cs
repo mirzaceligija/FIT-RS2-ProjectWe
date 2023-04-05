@@ -1,5 +1,6 @@
 ﻿using ProjectWe.Desktop.Services;
 using ProjectWe.Models;
+using ProjectWe.Models.SearchObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,20 +96,26 @@ namespace ProjectWe.Desktop.Forms.Projects
 
         private async Task LoadActivities()
         {
-            //TODO: Filter by ProjectId
-            var activities = await ActivitiesService.GetList<List<Models.Activity>>();
+            var activitySearch = new ActivitySearchObject
+            {
+                ProjectId = _model.ProjectId,
+            };
+            var activities = await ActivitiesService.GetList<List<Models.Activity>>(activitySearch);
             dgvActivities.AutoGenerateColumns = false;
             dgvActivities.DataSource = activities;
         }
 
         private async Task LoadBudget()
         {
-            //TODO: Filter by ProjectId
-            string currency = "BAM";
-            var budget = await BudgetsService.GetList<List<Models.Budget>>();
+            var budgetSearch = new BudgetSearchObject
+            {
+                ProjectId = _model.ProjectId
+            };
+            var budget = await BudgetsService.GetList<List<Models.Budget>>(budgetSearch);
             dgvBudget.AutoGenerateColumns = false;
             dgvBudget.DataSource = budget;
 
+            string currency = "BAM";
             double totalCost = 0.00;
             foreach (var item in budget)
             {
@@ -119,7 +126,30 @@ namespace ProjectWe.Desktop.Forms.Projects
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //TODO: Update Project Data
+        }
 
+        private void dgvBudget_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var budgetItem = dgvBudget.SelectedRows[0].DataBoundItem as Models.Budget;
+
+            frmBudgetItem frmBudgetItem = new frmBudgetItem(budgetItem);
+            frmBudgetItem.ShowDialog();
+        }
+
+        private async void btnRefreshBudget_Click(object sender, EventArgs e)
+        {
+            await LoadBudget();
+        }
+
+        private void dgvActivities_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //TODO: Open Activity Form
+        }
+
+        private void btnRefreshActivities_Click(object sender, EventArgs e)
+        {
+            //TODO: Refresh Activity Data
         }
     }
 }

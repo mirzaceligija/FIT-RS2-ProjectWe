@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Models.Requests
 {
-    public class ActivityUpsertRequest
+    public class ActivityUpdateRequest
     {
         public string Description { get; set; } = null!;
         public string Locations { get; set; } = null!;
@@ -14,8 +14,6 @@ namespace ProjectWe.Models.Requests
         public DateTime? EndDate { get; set; }
         public string? DirectBeneficiaries { get; set; }
         public string? IndirectBeneficiaries { get; set; }
-        public int UserId { get; set; }
-        public int ProjectId { get; set; }
         public int OutputId { get; set; }
     }
 }

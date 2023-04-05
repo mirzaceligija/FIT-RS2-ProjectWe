@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public class BudgetsService : BaseCRUDService<Models.Budget, Database.Budget, BudgetSearchObject, BudgetUpsertRequest, BudgetUpsertRequest>, IBudgetsService
+    public class BudgetsService : BaseCRUDService<Models.Budget, Database.Budget, BudgetSearchObject, BudgetInsertRequest, BudgetUpdateRequest>, IBudgetsService
     {
         public BudgetsService(_160020Context context, IMapper mapper) : base(context, mapper)
         {
@@ -23,6 +23,11 @@ namespace ProjectWe.Services
             if (search?.ProjectId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.ProjectId == search.ProjectId);
+            }
+
+            if (search?.ActivityId > 0)
+            {
+                filteredQuery = filteredQuery.Where(s => s.ActivityId == search.ActivityId);
             }
 
             return filteredQuery;
