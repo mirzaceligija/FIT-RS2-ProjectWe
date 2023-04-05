@@ -54,11 +54,15 @@
             // 
             // dgvUsers
             // 
+            dgvUsers.AllowUserToAddRows = false;
+            dgvUsers.AllowUserToDeleteRows = false;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsers.Columns.AddRange(new DataGridViewColumn[] { UserName, FirstName, LastName, Email, RoleNames });
             dgvUsers.Location = new Point(12, 71);
+            dgvUsers.MultiSelect = false;
             dgvUsers.Name = "dgvUsers";
+            dgvUsers.ReadOnly = true;
             dgvUsers.RowHeadersWidth = 51;
             dgvUsers.RowTemplate.Height = 29;
             dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -72,6 +76,7 @@
             UserName.HeaderText = "UserName";
             UserName.MinimumWidth = 6;
             UserName.Name = "UserName";
+            UserName.ReadOnly = true;
             // 
             // FirstName
             // 
@@ -79,6 +84,7 @@
             FirstName.HeaderText = "FirstName";
             FirstName.MinimumWidth = 6;
             FirstName.Name = "FirstName";
+            FirstName.ReadOnly = true;
             // 
             // LastName
             // 
@@ -86,6 +92,7 @@
             LastName.HeaderText = "LastName";
             LastName.MinimumWidth = 6;
             LastName.Name = "LastName";
+            LastName.ReadOnly = true;
             // 
             // Email
             // 
@@ -93,6 +100,7 @@
             Email.HeaderText = "Email";
             Email.MinimumWidth = 6;
             Email.Name = "Email";
+            Email.ReadOnly = true;
             // 
             // RoleNames
             // 
@@ -100,6 +108,7 @@
             RoleNames.HeaderText = "RoleNames";
             RoleNames.MinimumWidth = 6;
             RoleNames.Name = "RoleNames";
+            RoleNames.ReadOnly = true;
             // 
             // txtUsername
             // 

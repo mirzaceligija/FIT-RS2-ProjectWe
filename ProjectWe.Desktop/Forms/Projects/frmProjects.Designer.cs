@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjects));
             btnSearch = new Button();
             dgvProjects = new DataGridView();
-            Name = new DataGridViewTextBoxColumn();
+            ProjectName = new DataGridViewTextBoxColumn();
             StatusId = new DataGridViewTextBoxColumn();
             CityId = new DataGridViewTextBoxColumn();
             CategoryId = new DataGridViewTextBoxColumn();
@@ -63,10 +63,14 @@
             // 
             // dgvProjects
             // 
+            dgvProjects.AllowUserToAddRows = false;
+            dgvProjects.AllowUserToDeleteRows = false;
             dgvProjects.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProjects.Columns.AddRange(new DataGridViewColumn[] { Name, StatusId, CityId, CategoryId, LastModified, CreatedAt });
+            dgvProjects.Columns.AddRange(new DataGridViewColumn[] { ProjectName, StatusId, CityId, CategoryId, LastModified, CreatedAt });
             dgvProjects.Location = new Point(12, 71);
+            dgvProjects.MultiSelect = false;
             dgvProjects.Name = "dgvProjects";
+            dgvProjects.ReadOnly = true;
             dgvProjects.RowHeadersWidth = 51;
             dgvProjects.RowTemplate.Height = 29;
             dgvProjects.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -74,13 +78,14 @@
             dgvProjects.TabIndex = 9;
             dgvProjects.CellDoubleClick += dgvProjects_CellDoubleClick;
             // 
-            // Name
+            // ProjectName
             // 
-            Name.DataPropertyName = "Name";
-            Name.HeaderText = "Name";
-            Name.MinimumWidth = 6;
-            Name.Name = "Name";
-            Name.Width = 125;
+            ProjectName.DataPropertyName = "Name";
+            ProjectName.HeaderText = "Name";
+            ProjectName.MinimumWidth = 6;
+            ProjectName.Name = "ProjectName";
+            ProjectName.ReadOnly = true;
+            ProjectName.Width = 125;
             // 
             // StatusId
             // 
@@ -88,6 +93,7 @@
             StatusId.HeaderText = "StatusId";
             StatusId.MinimumWidth = 6;
             StatusId.Name = "StatusId";
+            StatusId.ReadOnly = true;
             StatusId.Width = 125;
             // 
             // CityId
@@ -96,6 +102,7 @@
             CityId.HeaderText = "CityId";
             CityId.MinimumWidth = 6;
             CityId.Name = "CityId";
+            CityId.ReadOnly = true;
             CityId.Width = 125;
             // 
             // CategoryId
@@ -104,6 +111,7 @@
             CategoryId.HeaderText = "CategoryId";
             CategoryId.MinimumWidth = 6;
             CategoryId.Name = "CategoryId";
+            CategoryId.ReadOnly = true;
             CategoryId.Width = 125;
             // 
             // LastModified
@@ -112,6 +120,7 @@
             LastModified.HeaderText = "LastModified";
             LastModified.MinimumWidth = 6;
             LastModified.Name = "LastModified";
+            LastModified.ReadOnly = true;
             LastModified.Width = 125;
             // 
             // CreatedAt
@@ -120,6 +129,7 @@
             CreatedAt.HeaderText = "CreatedAt";
             CreatedAt.MinimumWidth = 6;
             CreatedAt.Name = "CreatedAt";
+            CreatedAt.ReadOnly = true;
             CreatedAt.Width = 125;
             // 
             // cmbCity
@@ -210,7 +220,7 @@
             Controls.Add(dgvProjects);
             Controls.Add(btnSearch);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = new DataGridViewTextBoxColumn();
+            Name = "frmProjects";
             Text = "Projects";
             Load += frmProjects_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProjects).EndInit();
@@ -230,7 +240,7 @@
         private ComboBox cmbCategory;
         private Label label4;
         private ComboBox cmbStatus;
-        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn ProjectName;
         private DataGridViewTextBoxColumn StatusId;
         private DataGridViewTextBoxColumn CityId;
         private DataGridViewTextBoxColumn CategoryId;
