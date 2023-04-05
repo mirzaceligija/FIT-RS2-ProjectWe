@@ -25,6 +25,21 @@ namespace ProjectWe.Services
                 filteredQuery = filteredQuery.Where(s => s.Name == search.Name);
             }
 
+            if (search?.StatusId > 0)
+            {
+                filteredQuery = filteredQuery.Where(s => s.StatusId == search.StatusId);
+            }
+
+            if (search?.CityId > 0)
+            {
+                filteredQuery = filteredQuery.Where(s => s.CityId == search.CityId);
+            }
+
+            if (search?.CategoryId > 0)
+            {
+                filteredQuery = filteredQuery.Where(s => s.CategoryId == search.CategoryId);
+            }
+
             return filteredQuery;
         }
     }
