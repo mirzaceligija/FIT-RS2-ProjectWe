@@ -20,7 +20,7 @@ namespace ProjectWe.Services
         {
             var filteredQuery = base.AddFilter(query, search);
 
-            if (search?.ProjectId > 0)
+            if (search.ProjectId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.ProjectId == search.ProjectId);
             }

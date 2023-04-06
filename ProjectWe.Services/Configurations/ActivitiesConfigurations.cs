@@ -25,6 +25,8 @@ namespace ProjectWe.Services.Configurations
             builder.Property(u => u.Locations).HasMaxLength(256).IsRequired(false);
             builder.Property(u => u.DirectBeneficiaries).HasMaxLength(256).IsRequired(false);
             builder.Property(u => u.IndirectBeneficiaries).HasMaxLength(256).IsRequired(false);
+            builder.Property(u => u.StartDate).IsRequired(true);
+            builder.Property(u => u.EndDate).IsRequired(true);
             builder.Property(u => u.CreatedAt).ValueGeneratedOnAdd().HasDefaultValue(DateTime.UtcNow);
             builder.Property(u => u.LastModified).ValueGeneratedOnAddOrUpdate().HasDefaultValue(DateTime.UtcNow);
 
@@ -50,8 +52,8 @@ namespace ProjectWe.Services.Configurations
         public void SeedActivities(EntityTypeBuilder<Activity> builder)
         {
             builder.HasData(
-                new Activity { ActivityId = 1, Description = "Test", CreatedAt = DateTime.UtcNow, LastModified = null, UserId = 2, ProjectId = 1, OutputId = 1 },
-                new Activity { ActivityId = 2, Description = "Test", CreatedAt = DateTime.UtcNow, LastModified = null, UserId = 2, ProjectId = 1, OutputId = 1 });
+                new Activity { ActivityId = 1, Description = "Test", StartDate = DateTime.UtcNow, EndDate = DateTime.UtcNow, CreatedAt = DateTime.UtcNow, LastModified = null, UserId = 2, ProjectId = 1, OutputId = 1 },
+                new Activity { ActivityId = 2, Description = "Test", StartDate = DateTime.UtcNow, EndDate = DateTime.UtcNow, CreatedAt = DateTime.UtcNow, LastModified = null, UserId = 2, ProjectId = 1, OutputId = 1 });
         }
     }
 }

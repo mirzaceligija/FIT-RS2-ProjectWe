@@ -8,8 +8,6 @@ namespace ProjectWe.Models.SearchObjects
 {
     public class OutputSearchObject : BaseSearchObject
     {
-        public string? Description { get; set; }
-        public int? ProjectId { get; set; }
-        public int? ObjectiveId { get; set; }
+        public int ProjectId { get; set; }
     }
 }

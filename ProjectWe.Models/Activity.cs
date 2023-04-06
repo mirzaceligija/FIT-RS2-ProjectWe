@@ -10,9 +10,9 @@ namespace ProjectWe.Models
     {
         public int ActivityId { get; set; }
         public string Description { get; set; } = null!;
-        public string Locations { get; set; } = null!;
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public string? Locations { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string? DirectBeneficiaries { get; set; }
         public string? IndirectBeneficiaries { get; set; }
         public int UserId { get; set; }

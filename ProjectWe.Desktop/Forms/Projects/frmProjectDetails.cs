@@ -88,8 +88,11 @@ namespace ProjectWe.Desktop.Forms.Projects
 
         private async Task LoadOutputs()
         {
-            //TODO: Filter by ProjectId
-            var outputs = await OutputsService.GetList<List<Models.Output>>();
+            var outputSearch = new OutputSearchObject
+            {
+                ProjectId = _model.ProjectId,
+            };
+            var outputs = await OutputsService.GetList<List<Models.Output>>(outputSearch);
             dgvOutputs.AutoGenerateColumns = false;
             dgvOutputs.DataSource = outputs;
         }
@@ -144,12 +147,15 @@ namespace ProjectWe.Desktop.Forms.Projects
 
         private void dgvActivities_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //TODO: Open Activity Form
+            var activityItem = dgvActivities.SelectedRows[0].DataBoundItem as Models.Activity;
+
+            frmActivityDetails frmActivityDetails = new frmActivityDetails(activityItem);
+            frmActivityDetails.ShowDialog();
         }
 
-        private void btnRefreshActivities_Click(object sender, EventArgs e)
+        private async void btnRefreshActivities_Click(object sender, EventArgs e)
         {
-            //TODO: Refresh Activity Data
+            await LoadActivities();
         }
     }
 }
