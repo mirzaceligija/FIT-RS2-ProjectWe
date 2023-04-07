@@ -47,7 +47,9 @@
             txtLocations = new Label();
             txtLocation = new TextBox();
             label6 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -197,11 +199,21 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.ControlText;
-            label6.Location = new Point(12, 20);
+            label6.Location = new Point(50, 9);
             label6.Name = "label6";
             label6.Size = new Size(192, 37);
             label6.TabIndex = 33;
             label6.Text = "Activity Details";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(14, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 36;
+            pictureBox1.TabStop = false;
             // 
             // frmActivityDetails
             // 
@@ -209,6 +221,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(662, 433);
+            Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(txtLocations);
             Controls.Add(txtLocation);
@@ -230,6 +243,7 @@
             Text = "Activity Details";
             Load += frmActivityDetails_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,5 +267,6 @@
         private Label txtLocations;
         private TextBox txtLocation;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }

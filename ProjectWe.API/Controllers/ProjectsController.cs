@@ -9,7 +9,7 @@ using System.Data;
 
 namespace ProjectWe.API.Controllers
 {
-    public class ProjectsController : BaseCRUDController<Models.Project, ProjectSearchObject, ProjectUpsertRequest, ProjectUpsertRequest>
+    public class ProjectsController : BaseCRUDController<Models.Project, ProjectSearchObject, ProjectInsertRequest, ProjectUpdateRequest>
     {
         public IProjectsService _service { get; set; }
 
@@ -18,15 +18,14 @@ namespace ProjectWe.API.Controllers
             _service = service;
         }
 
-        public override Models.Project Insert([FromBody] ProjectUpsertRequest insert)
+        public override Models.Project Insert([FromBody] ProjectInsertRequest insert)
         {
             insert.UserId = GetUserId();
             return base.Insert(insert);
         }
 
-        public override Models.Project Update(int id, [FromBody] ProjectUpsertRequest update)
+        public override Models.Project Update(int id, [FromBody] ProjectUpdateRequest update)
         {
-            update.UserId = GetUserId();
             return base.Update(id, update);
         }
     }

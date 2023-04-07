@@ -41,13 +41,16 @@
             label3 = new Label();
             txtEmail = new TextBox();
             btnSearch = new Button();
+            pictureBox2 = new PictureBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(165, 45);
+            label1.Location = new Point(165, 124);
             label1.Name = "label1";
             label1.Size = new Size(0, 20);
             label1.TabIndex = 0;
@@ -59,14 +62,14 @@
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsers.Columns.AddRange(new DataGridViewColumn[] { UserName, FirstName, LastName, Email, RoleNames });
-            dgvUsers.Location = new Point(12, 71);
+            dgvUsers.Location = new Point(12, 150);
             dgvUsers.MultiSelect = false;
             dgvUsers.Name = "dgvUsers";
             dgvUsers.ReadOnly = true;
             dgvUsers.RowHeadersWidth = 51;
             dgvUsers.RowTemplate.Height = 29;
             dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsers.Size = new Size(776, 367);
+            dgvUsers.Size = new Size(982, 367);
             dgvUsers.TabIndex = 1;
             dgvUsers.CellDoubleClick += dgvUsers_CellDoubleClick;
             // 
@@ -112,16 +115,16 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(12, 32);
+            txtUsername.Location = new Point(12, 111);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(209, 27);
+            txtUsername.Size = new Size(162, 27);
             txtUsername.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(12, 9);
+            label2.ForeColor = SystemColors.ControlText;
+            label2.Location = new Point(12, 88);
             label2.Name = "label2";
             label2.Size = new Size(78, 20);
             label2.TabIndex = 4;
@@ -130,8 +133,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(227, 9);
+            label3.ForeColor = SystemColors.ControlText;
+            label3.Location = new Point(180, 88);
             label3.Name = "label3";
             label3.Size = new Size(49, 20);
             label3.TabIndex = 5;
@@ -139,17 +142,18 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(227, 32);
+            txtEmail.Location = new Point(180, 110);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(209, 27);
             txtEmail.TabIndex = 6;
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = Color.White;
+            btnSearch.BackColor = Color.FromArgb(0, 122, 255);
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Location = new Point(694, 30);
+            btnSearch.ForeColor = SystemColors.ControlLightLight;
+            btnSearch.Location = new Point(900, 108);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 7;
@@ -157,12 +161,35 @@
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.logo;
+            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(30, 30);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 36;
+            pictureBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.ControlText;
+            label6.Location = new Point(48, 10);
+            label6.Name = "label6";
+            label6.Size = new Size(155, 37);
+            label6.TabIndex = 37;
+            label6.Text = "User Search";
+            // 
             // frmUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.RoyalBlue;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.White;
+            ClientSize = new Size(1006, 529);
+            Controls.Add(label6);
+            Controls.Add(pictureBox2);
             Controls.Add(btnSearch);
             Controls.Add(txtEmail);
             Controls.Add(label3);
@@ -174,6 +201,7 @@
             Name = "frmUsers";
             Text = "Users";
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,5 +221,7 @@
         private Label label3;
         private TextBox txtEmail;
         private Button btnSearch;
+        private PictureBox pictureBox2;
+        private Label label6;
     }
 }

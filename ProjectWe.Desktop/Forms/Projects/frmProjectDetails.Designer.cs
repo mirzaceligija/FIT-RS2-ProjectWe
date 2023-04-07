@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjectDetails));
             cmbStatus = new ComboBox();
             cmbCategory = new ComboBox();
             cmbCity = new ComboBox();
-            groupBox1 = new GroupBox();
             txtDescription = new TextBox();
-            grpInfo = new GroupBox();
             label11 = new Label();
             label8 = new Label();
             label9 = new Label();
@@ -44,6 +44,8 @@
             tabPage1 = new TabPage();
             btnObjectivesRefresh = new Button();
             dgvObjectives = new DataGridView();
+            ObjectiveId = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             tabOutputs = new TabPage();
             btnOutputRefresh = new Button();
             dgvOutputs = new DataGridView();
@@ -66,10 +68,10 @@
             TotalCost = new DataGridViewTextBoxColumn();
             lblTotalCostValue = new Label();
             lblTotalCost = new Label();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            ObjectiveId = new DataGridViewTextBoxColumn();
-            groupBox1.SuspendLayout();
-            grpInfo.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            label6 = new Label();
+            label1 = new Label();
+            errorProvider = new ErrorProvider(components);
             tabObjective.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvObjectives).BeginInit();
@@ -79,125 +81,102 @@
             ((System.ComponentModel.ISupportInitialize)dgvActivities).BeginInit();
             tabBudget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBudget).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // cmbStatus
             // 
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(113, 58);
+            cmbStatus.Location = new Point(16, 165);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(265, 28);
+            cmbStatus.Size = new Size(296, 28);
             cmbStatus.TabIndex = 24;
+            cmbStatus.Validating += cmbStatus_Validating;
             // 
             // cmbCategory
             // 
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(113, 91);
+            cmbCategory.Location = new Point(16, 219);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(265, 28);
+            cmbCategory.Size = new Size(296, 28);
             cmbCategory.TabIndex = 22;
+            cmbCategory.Validating += cmbCategory_Validating;
             // 
             // cmbCity
             // 
             cmbCity.FormattingEnabled = true;
-            cmbCity.Location = new Point(113, 125);
+            cmbCity.Location = new Point(16, 273);
             cmbCity.Name = "cmbCity";
-            cmbCity.Size = new Size(265, 28);
+            cmbCity.Size = new Size(296, 28);
             cmbCity.TabIndex = 18;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(txtDescription);
-            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.ForeColor = SystemColors.ControlLightLight;
-            groupBox1.Location = new Point(403, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(385, 173);
-            groupBox1.TabIndex = 27;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Description";
+            cmbCity.Validating += cmbCity_Validating;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(6, 26);
+            txtDescription.Location = new Point(354, 112);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.ScrollBars = ScrollBars.Vertical;
-            txtDescription.Size = new Size(373, 127);
+            txtDescription.Size = new Size(430, 189);
             txtDescription.TabIndex = 1;
-            // 
-            // grpInfo
-            // 
-            grpInfo.Controls.Add(label11);
-            grpInfo.Controls.Add(label8);
-            grpInfo.Controls.Add(label9);
-            grpInfo.Controls.Add(txtName);
-            grpInfo.Controls.Add(cmbStatus);
-            grpInfo.Controls.Add(label10);
-            grpInfo.Controls.Add(cmbCategory);
-            grpInfo.Controls.Add(cmbCity);
-            grpInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            grpInfo.ForeColor = SystemColors.ControlLightLight;
-            grpInfo.Location = new Point(12, 12);
-            grpInfo.Name = "grpInfo";
-            grpInfo.Size = new Size(384, 173);
-            grpInfo.TabIndex = 26;
-            grpInfo.TabStop = false;
-            grpInfo.Text = "Project Info";
+            txtDescription.Validating += txtDescription_Validating;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.ForeColor = SystemColors.ControlLightLight;
-            label11.Location = new Point(12, 129);
+            label11.ForeColor = SystemColors.ControlText;
+            label11.Location = new Point(16, 250);
             label11.Name = "label11";
-            label11.Size = new Size(36, 20);
+            label11.Size = new Size(34, 20);
             label11.TabIndex = 25;
             label11.Text = "City";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.ForeColor = SystemColors.ControlLightLight;
-            label8.Location = new Point(12, 95);
+            label8.ForeColor = SystemColors.ControlText;
+            label8.Location = new Point(16, 196);
             label8.Name = "label8";
-            label8.Size = new Size(73, 20);
+            label8.Size = new Size(69, 20);
             label8.TabIndex = 6;
             label8.Text = "Category";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.ForeColor = SystemColors.ControlLightLight;
-            label9.Location = new Point(12, 62);
+            label9.ForeColor = SystemColors.ControlText;
+            label9.Location = new Point(16, 142);
             label9.Name = "label9";
-            label9.Size = new Size(57, 20);
+            label9.Size = new Size(52, 20);
             label9.TabIndex = 2;
             label9.Text = "Status:";
             // 
             // txtName
             // 
-            txtName.Location = new Point(113, 26);
+            txtName.Location = new Point(16, 112);
             txtName.Name = "txtName";
-            txtName.Size = new Size(265, 27);
+            txtName.Size = new Size(296, 27);
             txtName.TabIndex = 1;
+            txtName.Validating += txtName_Validating;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.ForeColor = SystemColors.ControlLightLight;
-            label10.Location = new Point(12, 29);
+            label10.ForeColor = SystemColors.ControlText;
+            label10.Location = new Point(14, 89);
             label10.Name = "label10";
-            label10.Size = new Size(55, 20);
+            label10.Size = new Size(52, 20);
             label10.TabIndex = 0;
             label10.Text = "Name:";
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.Gold;
+            btnSave.BackColor = Color.FromArgb(0, 122, 255);
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Location = new Point(694, 191);
+            btnSave.ForeColor = SystemColors.ControlLightLight;
+            btnSave.Location = new Point(690, 307);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 28;
@@ -211,10 +190,10 @@
             tabObjective.Controls.Add(tabOutputs);
             tabObjective.Controls.Add(tabActivities);
             tabObjective.Controls.Add(tabBudget);
-            tabObjective.Location = new Point(12, 226);
+            tabObjective.Location = new Point(12, 342);
             tabObjective.Name = "tabObjective";
             tabObjective.SelectedIndex = 0;
-            tabObjective.Size = new Size(776, 483);
+            tabObjective.Size = new Size(776, 367);
             tabObjective.TabIndex = 29;
             // 
             // tabPage1
@@ -224,7 +203,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(768, 450);
+            tabPage1.Size = new Size(768, 334);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Objectives";
             tabPage1.UseVisualStyleBackColor = true;
@@ -255,9 +234,25 @@
             dgvObjectives.RowHeadersWidth = 51;
             dgvObjectives.RowTemplate.Height = 29;
             dgvObjectives.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvObjectives.Size = new Size(754, 395);
+            dgvObjectives.Size = new Size(754, 279);
             dgvObjectives.TabIndex = 5;
             dgvObjectives.CellDoubleClick += dgvObjectives_CellDoubleClick;
+            // 
+            // ObjectiveId
+            // 
+            ObjectiveId.DataPropertyName = "ObjectiveId";
+            ObjectiveId.HeaderText = "ObjectiveId";
+            ObjectiveId.MinimumWidth = 6;
+            ObjectiveId.Name = "ObjectiveId";
+            ObjectiveId.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            dataGridViewTextBoxColumn3.HeaderText = "Description";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // tabOutputs
             // 
@@ -266,7 +261,7 @@
             tabOutputs.Location = new Point(4, 29);
             tabOutputs.Name = "tabOutputs";
             tabOutputs.Padding = new Padding(3);
-            tabOutputs.Size = new Size(768, 450);
+            tabOutputs.Size = new Size(768, 334);
             tabOutputs.TabIndex = 1;
             tabOutputs.Text = "Outputs";
             tabOutputs.UseVisualStyleBackColor = true;
@@ -297,7 +292,7 @@
             dgvOutputs.RowHeadersWidth = 51;
             dgvOutputs.RowTemplate.Height = 29;
             dgvOutputs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvOutputs.Size = new Size(754, 395);
+            dgvOutputs.Size = new Size(754, 279);
             dgvOutputs.TabIndex = 4;
             dgvOutputs.CellDoubleClick += dgvOutputs_CellDoubleClick;
             // 
@@ -332,7 +327,7 @@
             tabActivities.Location = new Point(4, 29);
             tabActivities.Name = "tabActivities";
             tabActivities.Padding = new Padding(3);
-            tabActivities.Size = new Size(768, 450);
+            tabActivities.Size = new Size(768, 334);
             tabActivities.TabIndex = 2;
             tabActivities.Text = "Activities";
             tabActivities.UseVisualStyleBackColor = true;
@@ -363,7 +358,7 @@
             dgvActivities.RowHeadersWidth = 51;
             dgvActivities.RowTemplate.Height = 29;
             dgvActivities.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvActivities.Size = new Size(754, 395);
+            dgvActivities.Size = new Size(754, 279);
             dgvActivities.TabIndex = 3;
             dgvActivities.CellDoubleClick += dgvActivities_CellDoubleClick;
             // 
@@ -408,7 +403,7 @@
             tabBudget.Location = new Point(4, 29);
             tabBudget.Name = "tabBudget";
             tabBudget.Padding = new Padding(3);
-            tabBudget.Size = new Size(768, 450);
+            tabBudget.Size = new Size(768, 334);
             tabBudget.TabIndex = 3;
             tabBudget.Text = "Budget";
             tabBudget.UseVisualStyleBackColor = true;
@@ -439,7 +434,7 @@
             dgvBudget.RowHeadersWidth = 51;
             dgvBudget.RowTemplate.Height = 29;
             dgvBudget.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBudget.Size = new Size(754, 395);
+            dgvBudget.Size = new Size(754, 279);
             dgvBudget.TabIndex = 2;
             dgvBudget.CellDoubleClick += dgvBudget_CellDoubleClick;
             // 
@@ -494,39 +489,65 @@
             lblTotalCost.TabIndex = 0;
             lblTotalCost.Text = "Total Cost:";
             // 
-            // dataGridViewTextBoxColumn3
+            // pictureBox1
             // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Description";
-            dataGridViewTextBoxColumn3.HeaderText = "Description";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(14, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 38;
+            pictureBox1.TabStop = false;
             // 
-            // ObjectiveId
+            // label6
             // 
-            ObjectiveId.DataPropertyName = "ObjectiveId";
-            ObjectiveId.HeaderText = "ObjectiveId";
-            ObjectiveId.MinimumWidth = 6;
-            ObjectiveId.Name = "ObjectiveId";
-            ObjectiveId.ReadOnly = true;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.ControlText;
+            label6.Location = new Point(50, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(187, 37);
+            label6.TabIndex = 37;
+            label6.Text = "Project Details";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(354, 89);
+            label1.Name = "label1";
+            label1.Size = new Size(88, 20);
+            label1.TabIndex = 39;
+            label1.Text = "Description:";
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // frmProjectDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.RoyalBlue;
+            BackColor = Color.White;
             ClientSize = new Size(1348, 721);
+            Controls.Add(label1);
+            Controls.Add(txtDescription);
+            Controls.Add(label11);
+            Controls.Add(pictureBox1);
+            Controls.Add(label8);
+            Controls.Add(label6);
+            Controls.Add(label9);
             Controls.Add(tabObjective);
+            Controls.Add(txtName);
             Controls.Add(btnSave);
-            Controls.Add(groupBox1);
-            Controls.Add(grpInfo);
+            Controls.Add(cmbStatus);
+            Controls.Add(label10);
+            Controls.Add(cmbCategory);
+            Controls.Add(cmbCity);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmProjectDetails";
             Text = "Project Details";
             Load += frmProjectDetails_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            grpInfo.ResumeLayout(false);
-            grpInfo.PerformLayout();
             tabObjective.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvObjectives).EndInit();
@@ -537,16 +558,17 @@
             tabBudget.ResumeLayout(false);
             tabBudget.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBudget).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private ComboBox cmbStatus;
         private ComboBox cmbCategory;
         private ComboBox cmbCity;
-        private GroupBox groupBox1;
         private TextBox txtDescription;
-        private GroupBox grpInfo;
         private Label label8;
         private Label label9;
         private TextBox txtName;
@@ -581,5 +603,9 @@
         private Button btnObjectivesRefresh;
         private DataGridViewTextBoxColumn ObjectiveId;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private PictureBox pictureBox1;
+        private Label label6;
+        private Label label1;
+        private ErrorProvider errorProvider;
     }
 }

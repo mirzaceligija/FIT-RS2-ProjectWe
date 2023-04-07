@@ -32,7 +32,8 @@ namespace ProjectWe.Services
             CreateMap<CategoryUpsertRequest, Database.Category>();
 
             CreateMap<Database.Project, Models.Project>();
-            CreateMap<ProjectUpsertRequest, Database.Project>();
+            CreateMap<ProjectInsertRequest, Database.Project>();
+            CreateMap<ProjectUpdateRequest, Database.Project>();
 
             CreateMap<Database.Objective, Models.Objective>();
             CreateMap<ObjectiveInsertRequest, Database.Objective>();

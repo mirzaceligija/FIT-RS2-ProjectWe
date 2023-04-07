@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmObjectiveDetails));
             label6 = new Label();
             pictureBox1 = new PictureBox();
             label10 = new Label();
@@ -107,6 +108,7 @@
             Controls.Add(txtDescription);
             Controls.Add(label6);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmObjectiveDetails";
             Text = "Objective Details";
             Load += frmObjectiveDetails_Load;

@@ -92,7 +92,7 @@ namespace ProjectWe.Desktop.Forms.Users
             var roles = await RolesService.GetList<List<Models.AppRole>>();
             chkRoles.DataSource = roles;
             chkRoles.DisplayMember = "Name";
-            if(_model is not null)
+            if (_model is not null)
             {
                 for (int i = 0; i < chkRoles.Items.Count; i++)
                 {
@@ -199,7 +199,7 @@ namespace ProjectWe.Desktop.Forms.Users
 
         private void chkRoles_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if(e.Index == 1 && e.NewValue == CheckState.Unchecked)
+            if (e.Index == 1 && e.NewValue == CheckState.Unchecked)
             {
                 e.NewValue = CheckState.Checked;
             }

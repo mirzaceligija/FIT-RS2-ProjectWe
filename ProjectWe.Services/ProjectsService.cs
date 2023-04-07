@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public class ProjectsService : BaseCRUDService<Models.Project, Database.Project, ProjectSearchObject, ProjectUpsertRequest, ProjectUpsertRequest>, IProjectsService
+    public class ProjectsService : BaseCRUDService<Models.Project, Database.Project, ProjectSearchObject, ProjectInsertRequest, ProjectUpdateRequest>, IProjectsService
     {
         public ProjectsService(_160020Context context, IMapper mapper) : base(context, mapper)
         {
@@ -25,17 +25,17 @@ namespace ProjectWe.Services
                 filteredQuery = filteredQuery.Where(s => s.Name == search.Name);
             }
 
-            if (search?.StatusId > 0)
+            if (search.StatusId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.StatusId == search.StatusId);
             }
 
-            if (search?.CityId > 0)
+            if (search.CityId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.CityId == search.CityId);
             }
 
-            if (search?.CategoryId > 0)
+            if (search.CategoryId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.CategoryId == search.CategoryId);
             }

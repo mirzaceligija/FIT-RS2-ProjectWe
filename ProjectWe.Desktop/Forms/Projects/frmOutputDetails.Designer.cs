@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOutputDetails));
             pictureBox1 = new PictureBox();
             label6 = new Label();
             label1 = new Label();
@@ -172,6 +173,7 @@
             Controls.Add(cmbObjectives);
             Controls.Add(label6);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmOutputDetails";
             Text = "Output Details";
             Load += frmOutputDetails_Load;

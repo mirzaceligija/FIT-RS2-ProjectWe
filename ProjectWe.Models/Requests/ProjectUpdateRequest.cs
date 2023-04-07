@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Models.Requests
 {
-    public class ProjectUpsertRequest
+    public class ProjectUpdateRequest
     {
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public int UserId { get; set; }
         public int StatusId { get; set; }
         public int CityId { get; set; }
         public int CategoryId { get; set; }

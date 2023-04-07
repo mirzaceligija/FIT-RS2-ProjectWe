@@ -1,5 +1,6 @@
 ﻿using ProjectWe.Desktop.Services;
 using ProjectWe.Models;
+using ProjectWe.Models.Requests;
 using ProjectWe.Models.SearchObjects;
 using System;
 using System.Collections.Generic;
@@ -127,9 +128,24 @@ namespace ProjectWe.Desktop.Forms.Projects
             lblTotalCostValue.Text = currency + totalCost.ToString();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            //TODO: Update Project Data
+            if (!ValidateChildren() || _model is null)
+            {
+                return;
+            }
+
+            ProjectUpdateRequest updateRequest = new ProjectUpdateRequest()
+            {
+                Name = txtName.Text,
+                Description = txtDescription.Text,
+                StatusId = (int)cmbStatus.SelectedValue,
+                CategoryId = (int)cmbCategory.SelectedValue,
+                CityId = (int)cmbCity.SelectedValue,
+            };
+
+            await ProjectsService.Update<Models.Project>(_model.ProjectId, updateRequest);
+            this.Hide();
         }
 
         private void dgvBudget_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -182,6 +198,81 @@ namespace ProjectWe.Desktop.Forms.Projects
 
             frmObjectiveDetails frmObjectiveDetails = new frmObjectiveDetails(objectiveItem);
             frmObjectiveDetails.ShowDialog();
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                e.Cancel = true;
+                txtName.Focus();
+                errorProvider.SetError(txtName, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtName, "");
+            }
+        }
+
+        private void cmbStatus_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbStatus.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbStatus.Focus();
+                errorProvider.SetError(cmbStatus, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbStatus, "");
+            }
+        }
+
+        private void cmbCategory_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbCategory.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbCategory.Focus();
+                errorProvider.SetError(cmbCategory, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbCategory, "");
+            }
+        }
+
+        private void cmbCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbCity.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbCity.Focus();
+                errorProvider.SetError(cmbCity, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbCity, "");
+            }
+        }
+
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                e.Cancel = true;
+                txtDescription.Focus();
+                errorProvider.SetError(txtDescription, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtDescription, "");
+            }
         }
     }
 }
