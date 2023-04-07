@@ -157,5 +157,31 @@ namespace ProjectWe.Desktop.Forms.Projects
         {
             await LoadActivities();
         }
+
+        private void dgvOutputs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var outputItem = dgvOutputs.SelectedRows[0].DataBoundItem as Models.Output;
+
+            frmOutputDetails frmOutputDetails = new frmOutputDetails(outputItem);
+            frmOutputDetails.ShowDialog();
+        }
+
+        private async void btnOutputRefresh_Click(object sender, EventArgs e)
+        {
+            await LoadOutputs();
+        }
+
+        private async void btnObjectivesRefresh_Click(object sender, EventArgs e)
+        {
+            await LoadObjectives();
+        }
+
+        private void dgvObjectives_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var objectiveItem = dgvObjectives.SelectedRows[0].DataBoundItem as Models.Objective;
+
+            frmObjectiveDetails frmObjectiveDetails = new frmObjectiveDetails(objectiveItem);
+            frmObjectiveDetails.ShowDialog();
+        }
     }
 }

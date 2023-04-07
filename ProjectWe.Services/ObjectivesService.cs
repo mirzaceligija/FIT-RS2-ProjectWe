@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public class ObjectivesService : BaseCRUDService<Models.Objective, Database.Objective, ObjectiveSearchObject, ObjectiveUpsertRequest, ObjectiveUpsertRequest>, IObjectivesService
+    public class ObjectivesService : BaseCRUDService<Models.Objective, Database.Objective, ObjectiveSearchObject, ObjectiveInsertRequest, ObjectiveUpdateRequest>, IObjectivesService
     {
         public ObjectivesService(_160020Context context, IMapper mapper) : base(context, mapper)
         {
@@ -20,7 +20,7 @@ namespace ProjectWe.Services
         {
             var filteredQuery = base.AddFilter(query, search);
 
-            if (search?.ProjectId > 0)
+            if (search.ProjectId > 0)
             {
                 filteredQuery = filteredQuery.Where(s => s.ProjectId == search.ProjectId);
             }

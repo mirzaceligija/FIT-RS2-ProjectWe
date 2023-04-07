@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public interface IObjectivesService : ICRUDService<Models.Objective, ObjectiveSearchObject, ObjectiveUpsertRequest, ObjectiveUpsertRequest>
+    public interface IObjectivesService : ICRUDService<Models.Objective, ObjectiveSearchObject, ObjectiveInsertRequest, ObjectiveUpdateRequest>
     {
     }
 }

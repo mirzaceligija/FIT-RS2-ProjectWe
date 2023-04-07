@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectWe.Models.SearchObjects
+namespace ProjectWe.Models.Requests
 {
-    public class ObjectiveSearchObject : BaseSearchObject
+    public class ObjectiveInsertRequest
     {
+        public string Description { get; set; } = null!;
+        public int UserId { get; set; }
         public int ProjectId { get; set; }
     }
 }

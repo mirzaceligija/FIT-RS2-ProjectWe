@@ -6,7 +6,7 @@ using ProjectWe.Services;
 
 namespace ProjectWe.API.Controllers
 {
-    public class ObjectivesController : BaseCRUDController<Models.Objective, ObjectiveSearchObject, ObjectiveUpsertRequest, ObjectiveUpsertRequest>
+    public class ObjectivesController : BaseCRUDController<Models.Objective, ObjectiveSearchObject, ObjectiveInsertRequest, ObjectiveUpdateRequest>
     {
         public IObjectivesService _service { get; set; }
 
@@ -15,15 +15,14 @@ namespace ProjectWe.API.Controllers
             _service = service;
         }
 
-        public override Models.Objective Insert([FromBody] ObjectiveUpsertRequest insert)
+        public override Models.Objective Insert([FromBody] ObjectiveInsertRequest insert)
         {
             insert.UserId = GetUserId();
             return base.Insert(insert);
         }
 
-        public override Models.Objective Update(int id, [FromBody] ObjectiveUpsertRequest update)
+        public override Models.Objective Update(int id, [FromBody] ObjectiveUpdateRequest update)
         {
-            update.UserId = GetUserId();
             return base.Update(id, update);
         }
     }

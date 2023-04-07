@@ -42,15 +42,16 @@
             btnSave = new Button();
             tabObjective = new TabControl();
             tabPage1 = new TabPage();
+            btnObjectivesRefresh = new Button();
             dgvObjectives = new DataGridView();
-            ObjectiveId = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             tabOutputs = new TabPage();
+            btnOutputRefresh = new Button();
             dgvOutputs = new DataGridView();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             Indicators = new DataGridViewTextBoxColumn();
             MeansOfVerification = new DataGridViewTextBoxColumn();
             tabActivities = new TabPage();
+            btnRefreshActivities = new Button();
             dgvActivities = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             Locations = new DataGridViewTextBoxColumn();
@@ -65,7 +66,8 @@
             TotalCost = new DataGridViewTextBoxColumn();
             lblTotalCostValue = new Label();
             lblTotalCost = new Label();
-            btnRefreshActivities = new Button();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            ObjectiveId = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             grpInfo.SuspendLayout();
             tabObjective.SuspendLayout();
@@ -217,6 +219,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(btnObjectivesRefresh);
             tabPage1.Controls.Add(dgvObjectives);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
@@ -226,35 +229,39 @@
             tabPage1.Text = "Objectives";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnObjectivesRefresh
+            // 
+            btnObjectivesRefresh.BackColor = Color.White;
+            btnObjectivesRefresh.FlatStyle = FlatStyle.Flat;
+            btnObjectivesRefresh.Location = new Point(667, 14);
+            btnObjectivesRefresh.Name = "btnObjectivesRefresh";
+            btnObjectivesRefresh.Size = new Size(94, 29);
+            btnObjectivesRefresh.TabIndex = 12;
+            btnObjectivesRefresh.Text = "Refresh";
+            btnObjectivesRefresh.UseVisualStyleBackColor = false;
+            btnObjectivesRefresh.Click += btnObjectivesRefresh_Click;
+            // 
             // dgvObjectives
             // 
+            dgvObjectives.AllowUserToAddRows = false;
+            dgvObjectives.AllowUserToDeleteRows = false;
             dgvObjectives.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvObjectives.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvObjectives.Columns.AddRange(new DataGridViewColumn[] { ObjectiveId, dataGridViewTextBoxColumn3 });
-            dgvObjectives.Location = new Point(7, 18);
+            dgvObjectives.Location = new Point(7, 49);
             dgvObjectives.MultiSelect = false;
             dgvObjectives.Name = "dgvObjectives";
+            dgvObjectives.ReadOnly = true;
             dgvObjectives.RowHeadersWidth = 51;
             dgvObjectives.RowTemplate.Height = 29;
-            dgvObjectives.Size = new Size(754, 426);
+            dgvObjectives.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvObjectives.Size = new Size(754, 395);
             dgvObjectives.TabIndex = 5;
-            // 
-            // ObjectiveId
-            // 
-            ObjectiveId.DataPropertyName = "ObjectiveId";
-            ObjectiveId.HeaderText = "ObjectiveId";
-            ObjectiveId.MinimumWidth = 6;
-            ObjectiveId.Name = "ObjectiveId";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Description";
-            dataGridViewTextBoxColumn3.HeaderText = "Description";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dgvObjectives.CellDoubleClick += dgvObjectives_CellDoubleClick;
             // 
             // tabOutputs
             // 
+            tabOutputs.Controls.Add(btnOutputRefresh);
             tabOutputs.Controls.Add(dgvOutputs);
             tabOutputs.Location = new Point(4, 29);
             tabOutputs.Name = "tabOutputs";
@@ -264,18 +271,35 @@
             tabOutputs.Text = "Outputs";
             tabOutputs.UseVisualStyleBackColor = true;
             // 
+            // btnOutputRefresh
+            // 
+            btnOutputRefresh.BackColor = Color.White;
+            btnOutputRefresh.FlatStyle = FlatStyle.Flat;
+            btnOutputRefresh.Location = new Point(667, 14);
+            btnOutputRefresh.Name = "btnOutputRefresh";
+            btnOutputRefresh.Size = new Size(94, 29);
+            btnOutputRefresh.TabIndex = 11;
+            btnOutputRefresh.Text = "Refresh";
+            btnOutputRefresh.UseVisualStyleBackColor = false;
+            btnOutputRefresh.Click += btnOutputRefresh_Click;
+            // 
             // dgvOutputs
             // 
+            dgvOutputs.AllowUserToAddRows = false;
+            dgvOutputs.AllowUserToDeleteRows = false;
             dgvOutputs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOutputs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOutputs.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Indicators, MeansOfVerification });
-            dgvOutputs.Location = new Point(7, 18);
+            dgvOutputs.Location = new Point(7, 49);
             dgvOutputs.MultiSelect = false;
             dgvOutputs.Name = "dgvOutputs";
+            dgvOutputs.ReadOnly = true;
             dgvOutputs.RowHeadersWidth = 51;
             dgvOutputs.RowTemplate.Height = 29;
-            dgvOutputs.Size = new Size(754, 426);
+            dgvOutputs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOutputs.Size = new Size(754, 395);
             dgvOutputs.TabIndex = 4;
+            dgvOutputs.CellDoubleClick += dgvOutputs_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -283,6 +307,7 @@
             dataGridViewTextBoxColumn2.HeaderText = "Description";
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // Indicators
             // 
@@ -290,6 +315,7 @@
             Indicators.HeaderText = "Indicators";
             Indicators.MinimumWidth = 6;
             Indicators.Name = "Indicators";
+            Indicators.ReadOnly = true;
             // 
             // MeansOfVerification
             // 
@@ -297,6 +323,7 @@
             MeansOfVerification.HeaderText = "MeansOfVerification";
             MeansOfVerification.MinimumWidth = 6;
             MeansOfVerification.Name = "MeansOfVerification";
+            MeansOfVerification.ReadOnly = true;
             // 
             // tabActivities
             // 
@@ -309,6 +336,18 @@
             tabActivities.TabIndex = 2;
             tabActivities.Text = "Activities";
             tabActivities.UseVisualStyleBackColor = true;
+            // 
+            // btnRefreshActivities
+            // 
+            btnRefreshActivities.BackColor = Color.White;
+            btnRefreshActivities.FlatStyle = FlatStyle.Flat;
+            btnRefreshActivities.Location = new Point(667, 14);
+            btnRefreshActivities.Name = "btnRefreshActivities";
+            btnRefreshActivities.Size = new Size(94, 29);
+            btnRefreshActivities.TabIndex = 10;
+            btnRefreshActivities.Text = "Refresh";
+            btnRefreshActivities.UseVisualStyleBackColor = false;
+            btnRefreshActivities.Click += btnRefreshActivities_Click;
             // 
             // dgvActivities
             // 
@@ -334,6 +373,7 @@
             dataGridViewTextBoxColumn1.HeaderText = "Description";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Locations
             // 
@@ -341,6 +381,7 @@
             Locations.HeaderText = "Locations";
             Locations.MinimumWidth = 6;
             Locations.Name = "Locations";
+            Locations.ReadOnly = true;
             // 
             // StartDate
             // 
@@ -348,6 +389,7 @@
             StartDate.HeaderText = "StartDate";
             StartDate.MinimumWidth = 6;
             StartDate.Name = "StartDate";
+            StartDate.ReadOnly = true;
             // 
             // EndDate
             // 
@@ -355,6 +397,7 @@
             EndDate.HeaderText = "EndDate";
             EndDate.MinimumWidth = 6;
             EndDate.Name = "EndDate";
+            EndDate.ReadOnly = true;
             // 
             // tabBudget
             // 
@@ -451,17 +494,21 @@
             lblTotalCost.TabIndex = 0;
             lblTotalCost.Text = "Total Cost:";
             // 
-            // btnRefreshActivities
+            // dataGridViewTextBoxColumn3
             // 
-            btnRefreshActivities.BackColor = Color.White;
-            btnRefreshActivities.FlatStyle = FlatStyle.Flat;
-            btnRefreshActivities.Location = new Point(667, 14);
-            btnRefreshActivities.Name = "btnRefreshActivities";
-            btnRefreshActivities.Size = new Size(94, 29);
-            btnRefreshActivities.TabIndex = 10;
-            btnRefreshActivities.Text = "Refresh";
-            btnRefreshActivities.UseVisualStyleBackColor = false;
-            btnRefreshActivities.Click += btnRefreshActivities_Click;
+            dataGridViewTextBoxColumn3.DataPropertyName = "Description";
+            dataGridViewTextBoxColumn3.HeaderText = "Description";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // ObjectiveId
+            // 
+            ObjectiveId.DataPropertyName = "ObjectiveId";
+            ObjectiveId.HeaderText = "ObjectiveId";
+            ObjectiveId.MinimumWidth = 6;
+            ObjectiveId.Name = "ObjectiveId";
+            ObjectiveId.ReadOnly = true;
             // 
             // frmProjectDetails
             // 
@@ -528,9 +575,11 @@
         private DataGridViewTextBoxColumn Indicators;
         private DataGridViewTextBoxColumn MeansOfVerification;
         private DataGridView dgvObjectives;
-        private DataGridViewTextBoxColumn ObjectiveId;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Button btnRefreshBudget;
         private Button btnRefreshActivities;
+        private Button btnOutputRefresh;
+        private Button btnObjectivesRefresh;
+        private DataGridViewTextBoxColumn ObjectiveId;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

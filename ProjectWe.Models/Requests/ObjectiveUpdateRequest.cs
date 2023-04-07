@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Models.Requests
 {
-    public class ObjectiveUpsertRequest
+    public class ObjectiveUpdateRequest
     {
         public string Description { get; set; } = null!;
-        public int UserId { get; set; }
-        public int ProjectId { get; set; }
     }
 }

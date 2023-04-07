@@ -35,10 +35,12 @@ namespace ProjectWe.Services
             CreateMap<ProjectUpsertRequest, Database.Project>();
 
             CreateMap<Database.Objective, Models.Objective>();
-            CreateMap<ObjectiveUpsertRequest, Database.Objective>();
+            CreateMap<ObjectiveInsertRequest, Database.Objective>();
+            CreateMap<ObjectiveUpdateRequest, Database.Objective>();
 
             CreateMap<Database.Output, Models.Output>();
-            CreateMap<OutputUpsertRequest, Database.Output>();
+            CreateMap<OutputInsertRequest, Database.Output>();
+            CreateMap<OutputUpdateRequest, Database.Output>();
 
             CreateMap<Database.Activity, Models.Activity>();
             CreateMap<ActivityInsertRequest, Database.Activity>();

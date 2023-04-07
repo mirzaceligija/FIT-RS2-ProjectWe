@@ -28,6 +28,7 @@ namespace ProjectWe.Desktop.Forms.Authentication
             }
 
             btnSignIn.Enabled = false;
+            btnSignIn.Text = "Signing in...";
 
             var authRequest = new
             {
@@ -42,6 +43,7 @@ namespace ProjectWe.Desktop.Forms.Authentication
                 {
                     MessageBox.Show("User is not an Admin");
                     btnSignIn.Enabled = true;
+                    btnSignIn.Text = "Sign In";
                     return;
                 }
 
@@ -52,6 +54,7 @@ namespace ProjectWe.Desktop.Forms.Authentication
             catch
             {
                 btnSignIn.Enabled = true;
+                btnSignIn.Text = "Sign In";
                 MessageBox.Show("Invalid Credentials");
             }
         }

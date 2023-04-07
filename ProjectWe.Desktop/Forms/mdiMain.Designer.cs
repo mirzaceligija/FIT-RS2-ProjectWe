@@ -47,10 +47,10 @@
             // 
             statusStrip.ImageScalingSize = new Size(20, 20);
             statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
-            statusStrip.Location = new Point(0, 671);
+            statusStrip.Location = new Point(0, 503);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 19, 0);
-            statusStrip.Size = new Size(843, 26);
+            statusStrip.Size = new Size(1006, 26);
             statusStrip.TabIndex = 2;
             statusStrip.Text = "StatusStrip";
             // 
@@ -62,12 +62,12 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.RoyalBlue;
+            menuStrip1.BackColor = Color.FromArgb(0, 122, 255);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { projectsToolStripMenuItem, usersToolStripMenuItem, reportsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(843, 28);
+            menuStrip1.Size = new Size(1006, 28);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -90,14 +90,14 @@
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(224, 26);
+            newToolStripMenuItem.Size = new Size(136, 26);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // searchToolStripMenuItem
             // 
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            searchToolStripMenuItem.Size = new Size(224, 26);
+            searchToolStripMenuItem.Size = new Size(136, 26);
             searchToolStripMenuItem.Text = "Search";
             searchToolStripMenuItem.Click += searchToolStripMenuItem_Click;
             // 
@@ -113,7 +113,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(843, 697);
+            ClientSize = new Size(1006, 529);
             Controls.Add(statusStrip);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");

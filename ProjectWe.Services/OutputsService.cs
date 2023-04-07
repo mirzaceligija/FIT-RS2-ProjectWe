@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Services
 {
-    public class OutputsService : BaseCRUDService<Models.Output, Database.Output, OutputSearchObject, OutputUpsertRequest, OutputUpsertRequest>, IOutputsService
+    public class OutputsService : BaseCRUDService<Models.Output, Database.Output, OutputSearchObject, OutputInsertRequest, OutputUpdateRequest>, IOutputsService
     {
         public OutputsService(_160020Context context, IMapper mapper) : base(context, mapper)
         {

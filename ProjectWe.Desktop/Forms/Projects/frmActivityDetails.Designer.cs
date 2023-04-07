@@ -53,7 +53,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.ForeColor = SystemColors.ControlText;
             label1.Location = new Point(354, 89);
             label1.Name = "label1";
             label1.Size = new Size(58, 20);
@@ -63,7 +63,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.ForeColor = SystemColors.ControlLightLight;
+            label10.ForeColor = SystemColors.ControlText;
             label10.Location = new Point(14, 89);
             label10.Name = "label10";
             label10.Size = new Size(61, 20);
@@ -98,7 +98,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.ForeColor = SystemColors.ControlText;
             label2.Location = new Point(14, 151);
             label2.Name = "label2";
             label2.Size = new Size(79, 20);
@@ -108,7 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.ForeColor = SystemColors.ControlText;
             label3.Location = new Point(354, 151);
             label3.Name = "label3";
             label3.Size = new Size(73, 20);
@@ -126,7 +126,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.ForeColor = SystemColors.ControlText;
             label4.Location = new Point(14, 216);
             label4.Name = "label4";
             label4.Size = new Size(100, 20);
@@ -143,7 +143,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.ForeColor = SystemColors.ControlLightLight;
+            label5.ForeColor = SystemColors.ControlText;
             label5.Location = new Point(354, 216);
             label5.Name = "label5";
             label5.Size = new Size(105, 20);
@@ -159,9 +159,10 @@
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.Gold;
+            btnSave.BackColor = Color.FromArgb(0, 122, 255);
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.ForeColor = SystemColors.ButtonHighlight;
             btnSave.Location = new Point(556, 392);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
@@ -177,7 +178,7 @@
             // txtLocations
             // 
             txtLocations.AutoSize = true;
-            txtLocations.ForeColor = SystemColors.ControlLightLight;
+            txtLocations.ForeColor = SystemColors.ControlText;
             txtLocations.Location = new Point(14, 277);
             txtLocations.Name = "txtLocations";
             txtLocations.Size = new Size(72, 20);
@@ -195,7 +196,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = SystemColors.ControlLightLight;
+            label6.ForeColor = SystemColors.ControlText;
             label6.Location = new Point(12, 20);
             label6.Name = "label6";
             label6.Size = new Size(192, 37);
@@ -206,7 +207,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.RoyalBlue;
+            BackColor = Color.White;
             ClientSize = new Size(662, 433);
             Controls.Add(label6);
             Controls.Add(txtLocations);

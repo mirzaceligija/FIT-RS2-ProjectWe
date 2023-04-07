@@ -47,16 +47,20 @@
             label4 = new Label();
             cmbStatus = new ComboBox();
             errorProvider = new ErrorProvider(components);
+            label6 = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvProjects).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = Color.White;
+            btnSearch.BackColor = Color.FromArgb(0, 122, 255);
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Location = new Point(694, 30);
+            btnSearch.ForeColor = SystemColors.ControlLightLight;
+            btnSearch.Location = new Point(900, 106);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 8;
@@ -68,16 +72,17 @@
             // 
             dgvProjects.AllowUserToAddRows = false;
             dgvProjects.AllowUserToDeleteRows = false;
+            dgvProjects.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProjects.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProjects.Columns.AddRange(new DataGridViewColumn[] { ProjectName, StatusId, CityId, CategoryId, LastModified, CreatedAt });
-            dgvProjects.Location = new Point(12, 71);
+            dgvProjects.Location = new Point(12, 150);
             dgvProjects.MultiSelect = false;
             dgvProjects.Name = "dgvProjects";
             dgvProjects.ReadOnly = true;
             dgvProjects.RowHeadersWidth = 51;
             dgvProjects.RowTemplate.Height = 29;
             dgvProjects.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProjects.Size = new Size(776, 367);
+            dgvProjects.Size = new Size(982, 367);
             dgvProjects.TabIndex = 9;
             dgvProjects.CellDoubleClick += dgvProjects_CellDoubleClick;
             // 
@@ -88,7 +93,6 @@
             ProjectName.MinimumWidth = 6;
             ProjectName.Name = "ProjectName";
             ProjectName.ReadOnly = true;
-            ProjectName.Width = 125;
             // 
             // StatusId
             // 
@@ -97,7 +101,6 @@
             StatusId.MinimumWidth = 6;
             StatusId.Name = "StatusId";
             StatusId.ReadOnly = true;
-            StatusId.Width = 125;
             // 
             // CityId
             // 
@@ -106,7 +109,6 @@
             CityId.MinimumWidth = 6;
             CityId.Name = "CityId";
             CityId.ReadOnly = true;
-            CityId.Width = 125;
             // 
             // CategoryId
             // 
@@ -115,7 +117,6 @@
             CategoryId.MinimumWidth = 6;
             CategoryId.Name = "CategoryId";
             CategoryId.ReadOnly = true;
-            CategoryId.Width = 125;
             // 
             // LastModified
             // 
@@ -124,7 +125,6 @@
             LastModified.MinimumWidth = 6;
             LastModified.Name = "LastModified";
             LastModified.ReadOnly = true;
-            LastModified.Width = 125;
             // 
             // CreatedAt
             // 
@@ -133,12 +133,11 @@
             CreatedAt.MinimumWidth = 6;
             CreatedAt.Name = "CreatedAt";
             CreatedAt.ReadOnly = true;
-            CreatedAt.Width = 125;
             // 
             // cmbCity
             // 
             cmbCity.FormattingEnabled = true;
-            cmbCity.Location = new Point(180, 32);
+            cmbCity.Location = new Point(180, 108);
             cmbCity.Name = "cmbCity";
             cmbCity.Size = new Size(151, 28);
             cmbCity.TabIndex = 10;
@@ -147,8 +146,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(12, 9);
+            label2.ForeColor = SystemColors.ControlText;
+            label2.Location = new Point(12, 85);
             label2.Name = "label2";
             label2.Size = new Size(99, 20);
             label2.TabIndex = 12;
@@ -156,7 +155,7 @@
             // 
             // txtProject
             // 
-            txtProject.Location = new Point(12, 32);
+            txtProject.Location = new Point(12, 108);
             txtProject.Name = "txtProject";
             txtProject.Size = new Size(162, 27);
             txtProject.TabIndex = 11;
@@ -164,8 +163,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(180, 9);
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(180, 85);
             label1.Name = "label1";
             label1.Size = new Size(37, 20);
             label1.TabIndex = 13;
@@ -174,8 +173,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(337, 9);
+            label3.ForeColor = SystemColors.ControlText;
+            label3.Location = new Point(337, 85);
             label3.Name = "label3";
             label3.Size = new Size(72, 20);
             label3.TabIndex = 15;
@@ -184,7 +183,7 @@
             // cmbCategory
             // 
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(337, 32);
+            cmbCategory.Location = new Point(337, 108);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(151, 28);
             cmbCategory.TabIndex = 14;
@@ -193,8 +192,8 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(494, 9);
+            label4.ForeColor = SystemColors.ControlText;
+            label4.Location = new Point(494, 85);
             label4.Name = "label4";
             label4.Size = new Size(52, 20);
             label4.TabIndex = 17;
@@ -203,7 +202,7 @@
             // cmbStatus
             // 
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(494, 32);
+            cmbStatus.Location = new Point(494, 108);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(151, 28);
             cmbStatus.TabIndex = 16;
@@ -213,12 +212,35 @@
             // 
             errorProvider.ContainerControl = this;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.ControlText;
+            label6.Location = new Point(48, 10);
+            label6.Name = "label6";
+            label6.Size = new Size(184, 37);
+            label6.TabIndex = 36;
+            label6.Text = "Project Search";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.logo;
+            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(30, 30);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 35;
+            pictureBox2.TabStop = false;
+            // 
             // frmProjects
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.RoyalBlue;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.White;
+            ClientSize = new Size(1006, 529);
+            Controls.Add(label6);
+            Controls.Add(pictureBox2);
             Controls.Add(label4);
             Controls.Add(cmbStatus);
             Controls.Add(label3);
@@ -235,6 +257,7 @@
             Load += frmProjects_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProjects).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -258,5 +281,7 @@
         private DataGridViewTextBoxColumn LastModified;
         private DataGridViewTextBoxColumn CreatedAt;
         private ErrorProvider errorProvider;
+        private Label label6;
+        private PictureBox pictureBox2;
     }
 }
