@@ -32,6 +32,7 @@ namespace ProjectWe.Services.Database
         public virtual DbSet<Output> Outputs { get; set; } = null!;
         public virtual DbSet<Activity> Activities { get; set; } = null!;
         public virtual DbSet<Budget> Budgets { get; set; } = null!;
+        public virtual DbSet<Review> Reviews { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Status> Statuses { get; set; } = null!;
         public virtual DbSet<City> Cities { get; set; } = null!;

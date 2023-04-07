@@ -50,6 +50,10 @@ namespace ProjectWe.Services
             CreateMap<Database.Budget, Models.Budget>();
             CreateMap<BudgetInsertRequest, Database.Budget>();
             CreateMap<BudgetUpdateRequest, Database.Budget>();
+
+            CreateMap<Database.Review, Models.Review>();
+            CreateMap<ReviewInsertRequest, Database.Review>();
+            CreateMap<ReviewUpdateRequest, Database.Review>();
         }
     }
 }

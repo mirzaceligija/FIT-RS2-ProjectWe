@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectWe.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace ProjectWe.Services.Database
         public Status()
         {
             Projects = new HashSet<Project>();
+            Reviews = new HashSet<Review>();
         }
 
         public int StatusId { get; set; }
@@ -19,5 +21,6 @@ namespace ProjectWe.Services.Database
         public DateTime? CreatedAt { get; set; }
         public DateTime? LastModified { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

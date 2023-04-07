@@ -31,7 +31,7 @@ namespace ProjectWe.Services.Configurations
         {
             builder.HasData(
                 new Status { StatusId = 1, Name = "Submitted", CreatedAt = DateTime.UtcNow, LastModified = null },
-                new Status { StatusId = 2, Name = "Reviewed", CreatedAt = DateTime.UtcNow, LastModified = null },
+                new Status { StatusId = 2, Name = "Needs Improvment", CreatedAt = DateTime.UtcNow, LastModified = null },
                 new Status { StatusId = 3, Name = "Active", CreatedAt = DateTime.UtcNow, LastModified = null },
                 new Status { StatusId = 4, Name = "Completed", CreatedAt = DateTime.UtcNow, LastModified = null });
         }

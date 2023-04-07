@@ -15,6 +15,7 @@ namespace ProjectWe.Services.Database
             Budgets = new HashSet<Budget>();
             Objectives = new HashSet<Objective>();
             Outputs = new HashSet<Output>();
+            Reviews = new HashSet<Review>();
             Votes = new HashSet<Vote>();
         }
 
@@ -37,6 +38,7 @@ namespace ProjectWe.Services.Database
         public virtual ICollection<Budget> Budgets { get; set; }
         public virtual ICollection<Objective> Objectives { get; set; }
         public virtual ICollection<Output> Outputs { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<Vote> Votes { get; set; }
     }
 }

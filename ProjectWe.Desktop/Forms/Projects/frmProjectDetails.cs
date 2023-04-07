@@ -25,6 +25,7 @@ namespace ProjectWe.Desktop.Forms.Projects
         public APIService ActivitiesService { get; set; } = new APIService("Activities");
         public APIService OutputsService { get; set; } = new APIService("Outputs");
         public APIService ObjectivesService { get; set; } = new APIService("Objectives");
+        public APIService ReviewsService { get; set; } = new APIService("Reviews");
 
 
         private Project _model = null;
@@ -46,6 +47,7 @@ namespace ProjectWe.Desktop.Forms.Projects
                 await LoadActivities();
                 await LoadOutputs();
                 await LoadObjectives();
+                await LoadReviews();
 
                 txtName.Text = _model.Name;
                 txtDescription.Text = _model.Description;
@@ -77,12 +79,19 @@ namespace ProjectWe.Desktop.Forms.Projects
             cmbStatus.DataSource = statuses;
             cmbStatus.ValueMember = "StatusId";
             cmbStatus.DisplayMember = "Name";
+
+            cmbReivewStatus.DataSource = statuses.Where(x => x.StatusId == 2 || x.StatusId == 3).ToList<Models.Status>();
+            cmbReivewStatus.ValueMember = "StatusId";
+            cmbReivewStatus.DisplayMember = "Name";
         }
 
         private async Task LoadObjectives()
         {
-            //TODO: Filter by ProjectId
-            var objectives = await ObjectivesService.GetList<List<Models.Objective>>();
+            var objectiveSearch = new ObjectiveSearchObject
+            {
+                ProjectId = _model.ProjectId,
+            };
+            var objectives = await ObjectivesService.GetList<List<Models.Objective>>(objectiveSearch);
             dgvObjectives.AutoGenerateColumns = false;
             dgvObjectives.DataSource = objectives;
         }
@@ -128,9 +137,33 @@ namespace ProjectWe.Desktop.Forms.Projects
             lblTotalCostValue.Text = currency + totalCost.ToString();
         }
 
+        private async Task LoadReviews()
+        {
+            var reviewsSearch = new ReviewSearchObject
+            {
+                ProjectId = _model.ProjectId
+            };
+            var reviews = await ReviewsService.GetList<List<Models.Review>>(reviewsSearch);
+            dgvReviews.AutoGenerateColumns = false;
+            dgvReviews.DataSource = reviews;
+
+            if (_model.StatusId == 3 || _model.StatusId == 4)
+            {
+                cmbReivewStatus.Enabled = false;
+                txtReview.Enabled = false;
+                btnAddReview.Enabled = false;
+            }
+        }
+
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren() || _model is null)
+            await UpdateProject();
+            this.Hide();
+        }
+
+        private async Task UpdateProject()
+        {
+            if (!isProjectFormValid())
             {
                 return;
             }
@@ -139,13 +172,23 @@ namespace ProjectWe.Desktop.Forms.Projects
             {
                 Name = txtName.Text,
                 Description = txtDescription.Text,
-                StatusId = (int)cmbStatus.SelectedValue,
+                StatusId = (_model.StatusId != 3 || _model.StatusId == 4) //if it is not active or completed
+                    ? (int)cmbReivewStatus.SelectedValue
+                    : _model.StatusId,
                 CategoryId = (int)cmbCategory.SelectedValue,
                 CityId = (int)cmbCity.SelectedValue,
             };
 
             await ProjectsService.Update<Models.Project>(_model.ProjectId, updateRequest);
-            this.Hide();
+        }
+
+        private bool isProjectFormValid()
+        {
+            bool shouldUseReviewStatus = _model.StatusId != 3 && _model.StatusId == 4;
+            return !(errorProvider.GetError(txtName) != "" || errorProvider.GetError(txtDescription) != ""
+                || errorProvider.GetError(cmbStatus) != "" || errorProvider.GetError(cmbCategory) != ""
+                || errorProvider.GetError(cmbCity) != "" || _model is null
+                || (shouldUseReviewStatus && errorProvider.GetError(cmbReivewStatus) != ""));
         }
 
         private void dgvBudget_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -272,6 +315,60 @@ namespace ProjectWe.Desktop.Forms.Projects
             {
                 e.Cancel = false;
                 errorProvider.SetError(txtDescription, "");
+            }
+        }
+
+        private async void btnReviewsRefresh_Click(object sender, EventArgs e)
+        {
+            await LoadReviews();
+        }
+
+        private async void btnAddReview_Click(object sender, EventArgs e)
+        {
+            if (errorProvider.GetError(txtReview) != "" || errorProvider.GetError(cmbReivewStatus) != "")
+            {
+                return;
+            }
+
+            ReviewInsertRequest reviewInsert = new ReviewInsertRequest()
+            {
+                Description = txtReview.Text,
+                StatusId = (int)cmbReivewStatus.SelectedValue,
+                ProjectId = _model.ProjectId
+            };
+
+            await ReviewsService.Insert<Models.Review>(reviewInsert);
+            await UpdateProject();
+            this.Hide();
+        }
+
+        private void txtReview_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtReview.Text))
+            {
+                e.Cancel = true;
+                txtReview.Focus();
+                errorProvider.SetError(txtReview, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtReview, "");
+            }
+        }
+
+        private void cmbReivewStatus_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbReivewStatus.SelectedItem is null)
+            {
+                e.Cancel = true;
+                cmbReivewStatus.Focus();
+                errorProvider.SetError(cmbReivewStatus, "This is a required field!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbReivewStatus, "");
             }
         }
     }

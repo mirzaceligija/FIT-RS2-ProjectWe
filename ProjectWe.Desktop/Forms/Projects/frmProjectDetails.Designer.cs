@@ -72,6 +72,16 @@
             label6 = new Label();
             label1 = new Label();
             errorProvider = new ErrorProvider(components);
+            label2 = new Label();
+            dgvReviews = new DataGridView();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            StatusId = new DataGridViewTextBoxColumn();
+            LastModified = new DataGridViewTextBoxColumn();
+            btnReviewsRefresh = new Button();
+            txtReview = new TextBox();
+            btnAddReview = new Button();
+            label3 = new Label();
+            cmbReivewStatus = new ComboBox();
             tabObjective.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvObjectives).BeginInit();
@@ -83,10 +93,12 @@
             ((System.ComponentModel.ISupportInitialize)dgvBudget).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReviews).BeginInit();
             SuspendLayout();
             // 
             // cmbStatus
             // 
+            cmbStatus.Enabled = false;
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Location = new Point(16, 165);
             cmbStatus.Name = "cmbStatus";
@@ -524,12 +536,125 @@
             // 
             errorProvider.ContainerControl = this;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(846, 385);
+            label2.Name = "label2";
+            label2.Size = new Size(134, 25);
+            label2.TabIndex = 40;
+            label2.Text = "Review History";
+            // 
+            // dgvReviews
+            // 
+            dgvReviews.AllowUserToAddRows = false;
+            dgvReviews.AllowUserToDeleteRows = false;
+            dgvReviews.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReviews.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReviews.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, StatusId, LastModified });
+            dgvReviews.Location = new Point(846, 420);
+            dgvReviews.MultiSelect = false;
+            dgvReviews.Name = "dgvReviews";
+            dgvReviews.ReadOnly = true;
+            dgvReviews.RowHeadersWidth = 51;
+            dgvReviews.RowTemplate.Height = 29;
+            dgvReviews.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvReviews.Size = new Size(490, 289);
+            dgvReviews.TabIndex = 41;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "Description";
+            dataGridViewTextBoxColumn4.HeaderText = "Description";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // StatusId
+            // 
+            StatusId.DataPropertyName = "StatusId";
+            StatusId.HeaderText = "StatusId";
+            StatusId.MinimumWidth = 6;
+            StatusId.Name = "StatusId";
+            StatusId.ReadOnly = true;
+            // 
+            // LastModified
+            // 
+            LastModified.DataPropertyName = "LastModified";
+            LastModified.HeaderText = "LastModified";
+            LastModified.MinimumWidth = 6;
+            LastModified.Name = "LastModified";
+            LastModified.ReadOnly = true;
+            // 
+            // btnReviewsRefresh
+            // 
+            btnReviewsRefresh.BackColor = Color.White;
+            btnReviewsRefresh.FlatStyle = FlatStyle.Flat;
+            btnReviewsRefresh.Location = new Point(1242, 385);
+            btnReviewsRefresh.Name = "btnReviewsRefresh";
+            btnReviewsRefresh.Size = new Size(94, 29);
+            btnReviewsRefresh.TabIndex = 42;
+            btnReviewsRefresh.Text = "Refresh";
+            btnReviewsRefresh.UseVisualStyleBackColor = false;
+            btnReviewsRefresh.Click += btnReviewsRefresh_Click;
+            // 
+            // txtReview
+            // 
+            txtReview.Location = new Point(846, 145);
+            txtReview.Multiline = true;
+            txtReview.Name = "txtReview";
+            txtReview.ScrollBars = ScrollBars.Vertical;
+            txtReview.Size = new Size(490, 156);
+            txtReview.TabIndex = 43;
+            txtReview.Validating += txtReview_Validating;
+            // 
+            // btnAddReview
+            // 
+            btnAddReview.BackColor = Color.FromArgb(4, 200, 200);
+            btnAddReview.FlatAppearance.BorderSize = 0;
+            btnAddReview.FlatStyle = FlatStyle.Flat;
+            btnAddReview.ForeColor = SystemColors.ControlLightLight;
+            btnAddReview.Location = new Point(1242, 307);
+            btnAddReview.Name = "btnAddReview";
+            btnAddReview.Size = new Size(94, 29);
+            btnAddReview.TabIndex = 44;
+            btnAddReview.Text = "Add";
+            btnAddReview.UseVisualStyleBackColor = false;
+            btnAddReview.Click += btnAddReview_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ControlText;
+            label3.Location = new Point(846, 89);
+            label3.Name = "label3";
+            label3.Size = new Size(59, 20);
+            label3.TabIndex = 45;
+            label3.Text = "Review:";
+            // 
+            // cmbReivewStatus
+            // 
+            cmbReivewStatus.FormattingEnabled = true;
+            cmbReivewStatus.Location = new Point(846, 111);
+            cmbReivewStatus.Name = "cmbReivewStatus";
+            cmbReivewStatus.Size = new Size(490, 28);
+            cmbReivewStatus.TabIndex = 46;
+            cmbReivewStatus.Validating += cmbReivewStatus_Validating;
+            // 
             // frmProjectDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1348, 721);
+            Controls.Add(cmbReivewStatus);
+            Controls.Add(label3);
+            Controls.Add(btnAddReview);
+            Controls.Add(txtReview);
+            Controls.Add(btnReviewsRefresh);
+            Controls.Add(dgvReviews);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtDescription);
             Controls.Add(label11);
@@ -560,6 +685,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvBudget).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReviews).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -607,5 +733,15 @@
         private Label label6;
         private Label label1;
         private ErrorProvider errorProvider;
+        private Label label2;
+        private DataGridView dgvReviews;
+        private Button btnReviewsRefresh;
+        private Button btnAddReview;
+        private TextBox txtReview;
+        private Label label3;
+        private ComboBox cmbReivewStatus;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn StatusId;
+        private DataGridViewTextBoxColumn LastModified;
     }
 }

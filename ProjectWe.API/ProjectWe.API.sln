@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectWe.Services", "..\Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectWe.Models", "..\ProjectWe.Models\ProjectWe.Models.csproj", "{94C0CDF3-EDBA-4263-BFC6-044DDAB09048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectWe.Desktop", "..\ProjectWe.Desktop\ProjectWe.Desktop.csproj", "{2D37C950-D439-41EB-9D41-AE678D8566AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectWe.Desktop", "..\ProjectWe.Desktop\ProjectWe.Desktop.csproj", "{2D37C950-D439-41EB-9D41-AE678D8566AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
