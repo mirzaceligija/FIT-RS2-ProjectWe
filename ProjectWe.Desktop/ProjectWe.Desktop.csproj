@@ -9,7 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Models\Projects.rdlc" />
+    <None Remove="Models\Users.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Models\Projects.rdlc" />
+    <EmbeddedResource Include="Models\Users.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="3.2.4" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.16" />
   </ItemGroup>
 
   <ItemGroup>
