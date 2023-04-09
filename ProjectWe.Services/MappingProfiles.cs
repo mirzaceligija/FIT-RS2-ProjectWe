@@ -54,6 +54,10 @@ namespace ProjectWe.Services
             CreateMap<Database.Review, Models.Review>();
             CreateMap<ReviewInsertRequest, Database.Review>();
             CreateMap<ReviewUpdateRequest, Database.Review>();
+
+            CreateMap<Database.Vote, Models.Vote>();
+            CreateMap<VoteInsertRequest, Database.Vote>();
+            CreateMap<VoteUpdateRequest, Database.Vote>();
         }
     }
 }
