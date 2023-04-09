@@ -1,4 +1,5 @@
 ﻿using Flurl.Http;
+using ProjectWe.Desktop.Properties;
 using ProjectWe.Models;
 using ProjectWe.Models.Extensions;
 using System;
@@ -12,7 +13,7 @@ namespace ProjectWe.Desktop.Services
     public class APIService
     {
         private readonly string _resource = null;
-        private readonly string _baseUrl = "https://localhost:44397/api/";
+        private readonly string _baseUrl = Settings.Default.ApiURL; //http://localhost:44397/api/;
 
         public static AppUser User = null;
 

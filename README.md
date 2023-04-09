@@ -33,14 +33,14 @@ To run the development server locally you will need to install the following too
 
 ### Development server
 
-To start development server, you need to clone the repository
+To start development server, you need to clone the repository:
 
 ```bash
 git clone https://github.com/mirzaceligija/FIT-RS2-ProjectWe.git
 ```
 
-### Docker SQL Server
+#### Docker
 
 ```bash
-docker pull mcr.microsoft.com/mssql/server:2017-latest docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=QWErty123!" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+docker-compose up --build
 ```
