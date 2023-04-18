@@ -1,23 +1,36 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projectwe_mobile/src/constants/image_strings.dart';
-import 'package:projectwe_mobile/src/constants/text_strings.dart';
 
 class SignInHeaderWidget extends StatelessWidget {
-  const SignInHeaderWidget({Key? key}) : super(key: key);
+  const SignInHeaderWidget({
+    Key? key,
+    this.imageColor,
+    this.heightBetween,
+    required this.image,
+    required this.title,
+    required this.subTitle,
+    this.imageHeight = 0.4,
+    this.textAlign,
+    this.crossAxisAlignment = CrossAxisAlignment.start}) : super(key: key);
+
+  //Variables -- Declared in Constructor
+  final Color? imageColor;
+  final double imageHeight;
+  final double? heightBetween;
+  final String image, title, subTitle;
+  final CrossAxisAlignment crossAxisAlignment;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: crossAxisAlignment,
       children: [
-        Image(
-            image: const AssetImage(tWelcomeScreenImage),
-            height: size.height * 0.4),
-        Text(tSignInTitle, style: Theme.of(context).textTheme.headline1),
-        Text(tSignInSubtitle, style: Theme.of(context).textTheme.bodyText1),
+        Image(image: AssetImage(image), color: imageColor, height: size.height * imageHeight),
+        SizedBox(height: heightBetween),
+        Text(title, style: Theme.of(context).textTheme.headline1),
+        Text(subTitle, textAlign: textAlign, style: Theme.of(context).textTheme.bodyText1),
       ],
     );
   }

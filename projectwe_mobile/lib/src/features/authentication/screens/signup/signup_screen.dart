@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projectwe_mobile/src/constants/image_strings.dart';
 import 'package:projectwe_mobile/src/constants/sizes.dart';
@@ -20,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
             padding: const EdgeInsets.all(tDefaultSize),
             child: Column(
               children: [
-                FormHeaderWidget(
+                SignUpHeaderWidget(
                   image: tWelcomeScreenImage,
                   title: tSignUpTitle,
                   subTitle: tSignUpSubtitle,

@@ -19,11 +19,15 @@ class SignInScreen extends StatelessWidget {
       child: Scaffold(
           body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(tDefaultSize),
-          child:
-              Column(children: [
-            SignInHeaderWidget(),
-            SignInForm(),
+          padding: const EdgeInsets.all(tDefaultSize),
+          child: Column(children: [
+            SignInHeaderWidget(
+                image: tWelcomeScreenImage,
+                title: tSignInTitle,
+                subTitle: tSignInSubtitle,
+                heightBetween: 20,
+                imageHeight: 0.4),
+            SignInFormWidget(),
             SignInFooterWidget(),
           ]),
         ),

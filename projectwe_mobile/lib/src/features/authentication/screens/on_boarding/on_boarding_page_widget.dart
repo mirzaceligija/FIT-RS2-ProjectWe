@@ -21,7 +21,7 @@ class OnBoardingPageWidget extends StatelessWidget {
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Image(
           image: AssetImage(model.image),
-          height: size.height * 0.3,
+          height: size.height * 0.2,
         ),
         Column(children: [
           Text(

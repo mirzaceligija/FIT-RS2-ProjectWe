@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FormHeaderWidget extends StatelessWidget {
-  const FormHeaderWidget({
+class SignUpHeaderWidget extends StatelessWidget {
+  const SignUpHeaderWidget({
     Key? key,
     this.imageColor,
     this.heightBetween,
