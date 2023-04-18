@@ -4,6 +4,7 @@ import 'package:projectwe_mobile/src/features/projects/models/project.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/project_details_screen.dart';
 import 'package:projectwe_mobile/src/common_widgets/master_screen.dart';
 import 'package:provider/provider.dart';
+import '../../../constants/image_strings.dart';
 
 class ProjectListScreen extends StatefulWidget {
   static const String routeName = "/project";
@@ -40,6 +41,8 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return MasterScreenWidget(
         child: SingleChildScrollView(
       child: Container(
@@ -54,7 +57,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
               child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
-                    childAspectRatio: 4 / 3,
+                    childAspectRatio: 9 / 14,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20),
                 scrollDirection: Axis.vertical,
@@ -141,74 +144,101 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                 ),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    x.name ?? "",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+              child: Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image(
+                      image: AssetImage(tProjectScreenImage),
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    x.description ?? "",
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(5),
+                    SizedBox(height: 20),
+                    Text(
+                      x.name ?? "",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      child: Text(
-                        'City:',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.map, color: Colors.white, size: 18),
+                              SizedBox(width: 4),
+                              Text(
+                                x.city ?? "",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      child: Text(
-                        'Category:',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                    SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.cyan,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        child: Text(
+                          x.category ?? "",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context,
-                              "${ProjectDetailsScreen.routeName}/${x.projectId}");
-                        },
-                        child: const Text("View Details")),
-                  ),
-                ],
+                    SizedBox(height: 10),
+                    Text(
+                      x.description ?? "",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w300),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    
+                    Expanded(
+                      child: Container(),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context,
+                                "${ProjectDetailsScreen.routeName}/${x.projectId}");
+                          },
+                          child: const Text("View Details")),
+                    ),
+                  ],
+                ),
               ),
             ))
         .cast<Widget>()

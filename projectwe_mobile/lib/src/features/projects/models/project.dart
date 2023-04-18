@@ -8,6 +8,8 @@ class Project {
   int? projectId;
   String? name;
   String? description;
+  String? city;
+  String? category;
 
   Project(){}
 

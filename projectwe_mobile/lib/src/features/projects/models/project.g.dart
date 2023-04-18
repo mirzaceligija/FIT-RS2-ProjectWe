@@ -9,10 +9,14 @@ part of 'project.dart';
 Project _$ProjectFromJson(Map<String, dynamic> json) => Project()
   ..projectId = json['projectId'] as int?
   ..name = json['name'] as String?
-  ..description = json['description'] as String?;
+  ..description = json['description'] as String?
+  ..city = json['city'] as String?
+  ..category = json['category'] as String?;
 
 Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'projectId': instance.projectId,
       'name': instance.name,
       'description': instance.description,
+      'city': instance.city,
+      'category': instance.category,
     };

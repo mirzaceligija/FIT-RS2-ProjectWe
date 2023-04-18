@@ -31,7 +31,11 @@ namespace ProjectWe.Services
             CreateMap<Database.Category, Models.Category>();
             CreateMap<CategoryUpsertRequest, Database.Category>();
 
-            CreateMap<Database.Project, Models.Project>();
+            CreateMap<Database.Project, Models.Project>()
+                .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.City.Name))
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.Name))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.Name));
+
             CreateMap<ProjectInsertRequest, Database.Project>();
             CreateMap<ProjectUpdateRequest, Database.Project>();
 

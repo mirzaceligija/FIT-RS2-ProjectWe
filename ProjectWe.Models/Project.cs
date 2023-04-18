@@ -15,7 +15,10 @@ namespace ProjectWe.Models
         public DateTime? LastModified { get; set; }
         public int UserId { get; set; }
         public int StatusId { get; set; }
+        public string Status { get; set; } = null!;
         public int CityId { get; set; }
+        public string City { get; set; } = null!;
         public int CategoryId { get; set; }
+        public string Category { get; set; } = null!;
     }
 }

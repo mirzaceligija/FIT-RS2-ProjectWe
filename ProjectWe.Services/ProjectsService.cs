@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ProjectWe.Models.Requests;
 using ProjectWe.Models.SearchObjects;
 using ProjectWe.Services.Database;
@@ -41,6 +42,15 @@ namespace ProjectWe.Services
             }
 
             return filteredQuery;
+        }
+
+        public override IQueryable<Database.Project> AddInclude(IQueryable<Database.Project> query, ProjectSearchObject search = null)
+        {
+            query = query.Include("City");
+            query = query.Include("Category");
+            query = query.Include("Status");
+
+            return query;
         }
     }
 }

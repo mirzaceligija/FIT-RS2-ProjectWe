@@ -18,3 +18,6 @@ const String tTopProjectImage1 = "assets/images/dashboard_images/dash3.png";
 const String tTopProjectImage2 = "assets/images/dashboard_images/dash4.png";
 
 const String tBookmarkIcon = "assets/images/dashboard_images/dash1.png";
+
+// -- Projects Screen Images
+const String tProjectScreenImage = "assets/images/projects_images/placeholder.png";
