@@ -25,6 +25,11 @@ namespace ProjectWe.Services
                 filteredQuery = filteredQuery.Where(s => s.ProjectId == search.ProjectId);
             }
 
+            if (search.UserId > 0)
+            {
+                filteredQuery = filteredQuery.Where(s => s.UserId == search.UserId);
+            }
+
             return filteredQuery;
         }
     }

@@ -17,6 +17,17 @@ namespace ProjectWe.Services
         {
         }
 
+        public override Models.Project Get(int id)
+        {
+            var entity = Context.Projects
+                .Include(x => x.City)
+                .Include(x => x.Category)
+                .Include(x => x.Status)
+                .FirstOrDefault(x => x.ProjectId == id);
+
+            return Mapper.Map<Models.Project>(entity);
+        }
+
         public override IQueryable<Database.Project> AddFilter(IQueryable<Database.Project> query, ProjectSearchObject search = null)
         {
             var filteredQuery = base.AddFilter(query, search);

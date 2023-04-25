@@ -10,7 +10,6 @@ class UserProvider extends BaseProvider<User> {
   @override
   User fromJson(data) {
     return User.fromJson(data);
-    //return User();
   }
 
   Future<User?> signIn(dynamic request) async {

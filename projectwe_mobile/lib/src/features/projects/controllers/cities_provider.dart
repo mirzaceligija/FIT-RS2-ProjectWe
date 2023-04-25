@@ -5,13 +5,13 @@ import 'package:http/http.dart';
 import 'package:http/io_client.dart';
 import 'package:flutter/foundation.dart';
 import 'package:projectwe_mobile/src/features/core/providers/base_provider.dart';
-import 'package:projectwe_mobile/src/features/projects/models/category.dart' as c;
+import 'package:projectwe_mobile/src/features/projects/models/city.dart';
 
-class CategoryProvider extends BaseProvider<c.Category> {
-  CategoryProvider() : super("Categories");
+class CityProvider extends BaseProvider<City> {
+  CityProvider() : super("Cities");
 
   @override
-  c.Category fromJson(data) {
-    return c.Category.fromJson(data);
+  City fromJson(data) {
+    return City.fromJson(data);
   }
 }

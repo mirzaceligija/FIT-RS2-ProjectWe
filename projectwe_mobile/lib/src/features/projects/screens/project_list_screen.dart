@@ -5,6 +5,10 @@ import 'package:projectwe_mobile/src/features/projects/screens/project_details_s
 import 'package:projectwe_mobile/src/common_widgets/master_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../constants/image_strings.dart';
+import '../controllers/categories_provider.dart';
+import '../controllers/cities_provider.dart';
+import '../models/category.dart';
+import '../models/city.dart';
 
 class ProjectListScreen extends StatefulWidget {
   static const String routeName = "/project";
@@ -17,14 +21,25 @@ class ProjectListScreen extends StatefulWidget {
 
 class _ProjectListScreenState extends State<ProjectListScreen> {
   ProjectProvider? _projectProvider = null;
+  CategoryProvider? _categoryProvider = null;
+  CityProvider? _cityProvider = null;
+
   List<Project> data = [];
+  List<Category> _categories = [];
+  List<City> _cities = [];
+  Category? _selectedCategory;
+  City? _selectedCity;
+  String? _searchTerm;
   bool isLoading = true;
+
   TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _projectProvider = context.read<ProjectProvider>();
+    _categoryProvider = context.read<CategoryProvider>();
+    _cityProvider = context.read<CityProvider>();
     loadData();
   }
 
@@ -32,10 +47,33 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
     setState(() {
       isLoading = true;
     });
-    var tempData = await _projectProvider?.getList(null);
+    await loadProjects(null, null, null);
+    await loadCities();
+    await loadCategories();
     setState(() {
-      data = tempData!;
       isLoading = false;
+    });
+  }
+
+  Future loadProjects(int? categoryId, int? cityId, String? name) async {
+    var response =
+        await _projectProvider?.getList({"statusId": 3, "cityId": cityId, "categoryId": categoryId, "name": name}); //Only active projects
+    setState(() {
+      data = response!;
+    });
+  }
+
+  Future loadCities() async {
+    var response = await _cityProvider!.getList(null);
+    setState(() {
+      _cities = response;
+    });
+  }
+
+  Future loadCategories() async {
+    var response = await _categoryProvider!.getList(null);
+    setState(() {
+      _categories = response;
     });
   }
 
@@ -51,8 +89,9 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
           children: [
             _buildHeader(),
             _buildProjectSearch(),
+            _buildProjectFilter(),
             Container(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 50.0),
               height: 450,
               child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -92,10 +131,10 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
               onSubmitted: (value) async {
                 setState(() {
                   isLoading = true;
+                  _searchTerm = value;
                 });
-                var tmpData = await _projectProvider?.getList({'name': value});
+                await loadProjects(_selectedCategory!.categoryId, _selectedCity!.cityId, _searchTerm);
                 setState(() {
-                  data = tmpData!;
                   isLoading = false;
                 });
               },
@@ -108,25 +147,61 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
             ),
           ),
         ),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: IconButton(
-            icon: Icon(Icons.filter_list),
-            onPressed: () async {
-              setState(() {
-                isLoading = true;
-              });
-              var tmpData = await _projectProvider
-                  ?.getList({'name': _searchController.text});
-              setState(() {
-                data = tmpData!;
-                isLoading = false;
-              });
-            },
-          ),
-        )
       ],
     );
+  }
+
+  Widget _buildProjectFilter() {
+    return Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            DropdownButton<Category>(
+              isExpanded: true,
+              value: _selectedCategory,
+              hint: Text('Select category'),
+              onChanged: (Category? newValue) {
+                setState(() {
+                  _selectedCategory = newValue;
+                });
+              },
+              items: _categories
+                  .map<DropdownMenuItem<Category>>((Category category) {
+                return DropdownMenuItem<Category>(
+                  value: category,
+                  child: Text(category.name),
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 16.0),
+            DropdownButton<City>(
+              isExpanded: true,
+              value: _selectedCity,
+              hint: Text('Select city'),
+              onChanged: (City? newValue) {
+                setState(() {
+                  _selectedCity = newValue;
+                });
+              },
+              items: _cities.map<DropdownMenuItem<City>>((City city) {
+                return DropdownMenuItem<City>(
+                  value: city,
+                  child: Text(city.name ?? ""),
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () async {
+                if (_selectedCategory != null && _selectedCity != null) {
+                  await loadProjects(_selectedCategory!.categoryId, _selectedCity!.cityId, _searchTerm);
+                }
+              },
+              child: Text('Filter'),
+            )
+          ],
+        ));
   }
 
   List<Widget> _buildProjectCardList() {
@@ -204,12 +279,24 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                         ),
                         padding:
                             EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                        child: Text(
-                          x.category ?? "",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.category,
+                                  color: Colors.white, size: 18),
+                              SizedBox(width: 4),
+                              Text(
+                                x.category ?? "",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -224,7 +311,6 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    
                     Expanded(
                       child: Container(),
                     ),
@@ -233,7 +319,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                       child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(context,
-                                "${ProjectDetailsScreen.routeName}/${x.projectId}");
+                                "${ProjectDetailsScreen.routeName}/${x.projectId.toString()}");
                           },
                           child: const Text("View Details")),
                     ),
