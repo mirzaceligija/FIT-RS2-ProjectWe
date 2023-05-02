@@ -1,17 +1,17 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
-//part 'category.g.dart';
+part 'category.g.dart';
 
 @JsonSerializable()
 class Category {
   int? categoryId;
-  String? name;
+  String name;
 
-  Category(){}
+  Category({this.name = ""});
 
-  //factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
+  factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
 
   /// Connect the generated [_$CategoryToJson] function to the `toJson` method.
-  //Map<String, dynamic> toJson() => _$CategoryToJson(this);
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }

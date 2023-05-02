@@ -9,5 +9,6 @@ namespace ProjectWe.Models.SearchObjects
     public class VoteSearchObject : BaseSearchObject
     {
         public int ProjectId { get; set; }
+        public int UserId { get; set; }
     }
 }

@@ -15,6 +15,12 @@ namespace ProjectWe.API.Controllers
             _service = service;
         }
 
+        public override IEnumerable<Models.Vote> GetList([FromQuery] VoteSearchObject search = null)
+        {
+            search.UserId = GetUserId();
+            return base.GetList(search);
+        }
+
         public override Models.Vote Insert([FromBody] VoteInsertRequest insert)
         {
             insert.UserId = GetUserId();
