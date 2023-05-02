@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
 class Authorization {
+  static int? id;
   static String? username;
   static String? password;
   static String? token;

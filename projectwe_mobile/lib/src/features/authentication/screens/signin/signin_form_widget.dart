@@ -61,6 +61,7 @@ class SignInFormWidget extends StatelessWidget {
                       "password": Authorization.password
                     });
                     Authorization.token = user?.token;
+                    Authorization.id = user?.id;
                     Get.to(() => OnBoardingScreen());
                   } catch (e) {
                     showDialog(

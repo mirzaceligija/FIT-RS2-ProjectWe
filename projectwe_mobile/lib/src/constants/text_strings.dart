@@ -9,6 +9,7 @@ const String tForgetPassword = "Forgot Password?";
 const String tFirstName = "First Name";
 const String tLastName = "Last Name";
 const String tPhoneNo = "Phone Number";
+const String tUpdate = "Update";
 
 // -- Splash Screen Text
 const String tAppName = ".ProjectWe";

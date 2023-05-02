@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projectwe_mobile/src/constants/text_strings.dart';
+import 'package:projectwe_mobile/src/features/authentication/screens/account/account_details_screen.dart';
 import 'package:projectwe_mobile/src/features/core/screens/dashboard/widgets/dashboard.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/project_list_screen.dart';
 import 'package:projectwe_mobile/src/common_widgets/projectwe_drawer.dart';
@@ -28,7 +29,7 @@ class _MasterScreenWidgetState extends State<MasterScreenWidget> {
     } else if (currentIndex == 2) {
       Navigator.pushNamed(context, ProjectListScreen.routeName);
     } else if (currentIndex == 3) {
-      Navigator.pushNamed(context, ProjectListScreen.routeName);
+      Navigator.pushNamed(context, AccountDetailsScreen.routeName);
     }
   }
 

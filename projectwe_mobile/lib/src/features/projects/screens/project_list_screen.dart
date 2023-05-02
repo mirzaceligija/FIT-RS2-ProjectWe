@@ -91,8 +91,8 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
             _buildProjectSearch(),
             _buildProjectFilter(),
             Container(
-              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 50.0),
-              height: 450,
+              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 100.0),
+              height: 400,
               child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,

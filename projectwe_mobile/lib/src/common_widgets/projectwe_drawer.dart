@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projectwe_mobile/main.dart';
+import 'package:projectwe_mobile/src/features/authentication/screens/account/account_details_screen.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:projectwe_mobile/src/features/core/screens/dashboard/widgets/dashboard.dart';
@@ -37,7 +38,7 @@ class projectWeDrawer extends StatelessWidget {
           ListTile(
             title: Text('Account'),
             onTap: () {
-               Navigator.popAndPushNamed(context, ProjectListScreen.routeName);
+               Navigator.popAndPushNamed(context, AccountDetailsScreen.routeName);
             },
           ),
           ListTile(

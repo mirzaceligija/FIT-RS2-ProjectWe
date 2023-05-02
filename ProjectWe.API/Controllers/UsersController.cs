@@ -36,7 +36,7 @@ namespace ProjectWe.API.Controllers
             return base.Insert(insert);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public override Models.AppUser Update(int id, [FromBody] UserUpdateRequest update)
         {
             return base.Update(id, update);
@@ -48,7 +48,7 @@ namespace ProjectWe.API.Controllers
             return base.GetList(getList);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public override Models.AppUser Get(int id)
         {
             return base.Get(id);
