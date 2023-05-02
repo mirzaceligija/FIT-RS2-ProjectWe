@@ -6,6 +6,9 @@ part 'budget.g.dart';
 class Budget {
   int? budgetId;
   String? description;
+  double? costPerUnit;
+  int? numberOfUnits;
+  double? totalCost;
 
   Budget({this.description = ""});
 

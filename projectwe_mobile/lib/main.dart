@@ -67,8 +67,6 @@ class App extends StatelessWidget {
           return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
         } else if (settings.name == AccountDetailsScreen.routeName) {
           return MaterialPageRoute(builder: ((context) => AccountDetailsScreen()));
-        } else if (settings.name == OutputListScreen.routeName) {
-          return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
         } else if (settings.name == ObjectiveListScreen.routeName) {
           return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
         } else if (settings.name == BudgetListScreen.routeName) {
@@ -83,21 +81,41 @@ class App extends StatelessWidget {
           var id = uri.pathSegments[1];
           return MaterialPageRoute(
               builder: (context) => ProjectDetailsScreen(id));
+        }  else if (uri.pathSegments.length == 2 &&
+            "/${uri.pathSegments.first}" == OutputListScreen.routeName) {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(
+              builder: (context) => OutputListScreen(id));
         } else if (uri.pathSegments.length == 2 &&
             "/${uri.pathSegments.first}" == OutputDetailsScreen.routeName) {
           var id = uri.pathSegments[1];
           return MaterialPageRoute(
               builder: (context) => OutputDetailsScreen(id));
+        }  else if (uri.pathSegments.length == 2 &&
+            "/${uri.pathSegments.first}" == ObjectiveListScreen.routeName) {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(
+              builder: (context) => ObjectiveListScreen(id));
         } else if (uri.pathSegments.length == 2 &&
             "/${uri.pathSegments.first}" == ObjectiveDetailsScreen.routeName) {
           var id = uri.pathSegments[1];
           return MaterialPageRoute(
               builder: (context) => ObjectiveDetailsScreen(id));
+        }  else if (uri.pathSegments.length == 2 &&
+            "/${uri.pathSegments.first}" == ActivityListScreen.routeName) {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(
+              builder: (context) => ActivityListScreen(id));
         } else if (uri.pathSegments.length == 2 &&
             "/${uri.pathSegments.first}" == ActivityDetailsScreen.routeName) {
           var id = uri.pathSegments[1];
           return MaterialPageRoute(
               builder: (context) => ActivityDetailsScreen(id));
+        }  else if (uri.pathSegments.length == 2 &&
+            "/${uri.pathSegments.first}" == BudgetListScreen.routeName) {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(
+              builder: (context) => BudgetListScreen(id));
         } else if (uri.pathSegments.length == 2 &&
             "/${uri.pathSegments.first}" == BudgetDetailsScreen.routeName) {
           var id = uri.pathSegments[1];

@@ -10,6 +10,10 @@ import '../controllers/votes_provider.dart';
 import '../models/objective.dart';
 import '../models/project.dart';
 import '../models/vote.dart';
+import 'activity_list_screen.dart';
+import 'budget_list_screen.dart';
+import 'objective_list_screen.dart';
+import 'output_list_screen.dart';
 
 class ProjectDetailsScreen extends StatefulWidget {
   static const String routeName = "/project_details";
@@ -160,7 +164,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Text(
                       data.name + " (${data.status})",
                       style: TextStyle(
@@ -174,6 +178,46 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                       style: TextStyle(
                         fontSize: 16,
                       ),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context,
+                                "${ObjectiveListScreen.routeName}/${data.projectId.toString()}");
+                          },
+                          child: const Text("Objectives")),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context,
+                                "${OutputListScreen.routeName}/${data.projectId.toString()}");
+                          },
+                          child: const Text("Outputs")),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context,
+                                "${ActivityListScreen.routeName}/${data.projectId.toString()}");
+                          },
+                          child: const Text("Activities")),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context,
+                                "${BudgetListScreen.routeName}/${data.projectId.toString()}");
+                          },
+                          child: const Text("Budgets")),
                     ),
                     SizedBox(height: 20),
                     Row(

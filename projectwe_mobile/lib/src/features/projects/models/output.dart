@@ -6,6 +6,8 @@ part 'output.g.dart';
 class Output {
   int? outputId;
   String? description;
+  String? indicators;
+  String? meansOfVerification;
 
   Output({this.description = ""});
 

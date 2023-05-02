@@ -6,6 +6,9 @@ part 'activity.g.dart';
 class Activity {
   int? activityId;
   String? description;
+  String? locations;
+  String? directBeneficiaries;
+  String? indirectBeneficiaries;
 
   Activity({this.description = ""});
 
