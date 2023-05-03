@@ -10,6 +10,7 @@ const String tFirstName = "First Name";
 const String tLastName = "Last Name";
 const String tPhoneNo = "Phone Number";
 const String tUpdate = "Update";
+const String tEdit = "Edit";
 
 // -- Splash Screen Text
 const String tAppName = ".ProjectWe";
