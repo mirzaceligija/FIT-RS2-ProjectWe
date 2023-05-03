@@ -10,8 +10,8 @@ class TElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(),
         foregroundColor: tWhiteColor,
-        backgroundColor: tSecondaryColor,
-        side: BorderSide(color: tSecondaryColor),
+        backgroundColor: tPrimaryColor,
+        side: BorderSide(color: tPrimaryColor),
         padding: EdgeInsets.symmetric(vertical: tButtonHeight)),
   );
 }

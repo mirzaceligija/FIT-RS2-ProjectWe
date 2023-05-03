@@ -1,3 +1,6 @@
+// -- General Images
+const String tLogo ="assets/images/logo.png";
+
 // -- Splash Screen Images
 const String tSplashScreenImage ="assets/images/splash_images/splash-screen-image.png";
 const String tSplashScreenIcon = "assets/images/splash_images/splash-screen-icon.png";

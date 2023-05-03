@@ -12,6 +12,7 @@ class SignInFormWidget extends StatelessWidget {
   TextEditingController _passwordController = TextEditingController();
 
   late UserProvider _userProvider;
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class SignInFormWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
       child: Form(
+        key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,6 +31,7 @@ class SignInFormWidget extends StatelessWidget {
                   label: Text(tUsername),
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.text_format)),
+              validator: (value) => _validateRequired(value, 'Username'),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
@@ -41,6 +44,7 @@ class SignInFormWidget extends StatelessWidget {
                   border: OutlineInputBorder(),
                   label: Text(tPassword),
                   prefixIcon: Icon(Icons.fingerprint)),
+              validator: (value) => _validateRequired(value, 'Password'),
             ),
             const SizedBox(height: tFormHeight - 20),
             SizedBox(
@@ -48,16 +52,18 @@ class SignInFormWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () async {
                   try {
-                    Authorization.username = _usernameController.text;
-                    Authorization.password = _passwordController.text;
+                    if (_formKey.currentState!.validate()) {
+                      Authorization.username = _usernameController.text;
+                      Authorization.password = _passwordController.text;
 
-                    var user = await _userProvider.signIn({
-                      "userName": Authorization.username,
-                      "password": Authorization.password
-                    });
-                    Authorization.token = user?.token;
-                    Authorization.id = user?.id;
-                    Get.to(() => OnBoardingScreen());
+                      var user = await _userProvider.signIn({
+                        "userName": Authorization.username,
+                        "password": Authorization.password
+                      });
+                      Authorization.token = user?.token;
+                      Authorization.id = user?.id;
+                      Get.to(() => OnBoardingScreen());
+                    }
                   } catch (e) {
                     showDialog(
                         context: context,
@@ -80,5 +86,12 @@ class SignInFormWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String? _validateRequired(String? value, String fieldName) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter $fieldName';
+    }
+    return null;
   }
 }

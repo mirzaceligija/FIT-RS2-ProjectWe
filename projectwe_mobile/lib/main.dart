@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/account/account_details_screen.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/splash_screen/splash_screen.dart';
+import 'package:projectwe_mobile/src/features/core/providers/navigation_provider.dart';
 import 'package:projectwe_mobile/src/features/core/screens/dashboard/widgets/dashboard.dart';
 import 'package:projectwe_mobile/src/features/projects/controllers/activities_provider.dart';
 import 'package:projectwe_mobile/src/features/projects/controllers/budgets_provider.dart';
@@ -32,6 +33,7 @@ import 'package:provider/provider.dart';
 
 void main() => runApp(MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => AppNavigation()),
         ChangeNotifierProvider(create: (_) => ProjectProvider()),
         ChangeNotifierProvider(create: (_) => CityProvider()),
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
@@ -60,7 +62,7 @@ class App extends StatelessWidget {
         if (settings.name == Dashboard.routeName) {
           return MaterialPageRoute(builder: ((context) => Dashboard()));
         } else if (settings.name == ProjectListScreen.routeName) {
-          return MaterialPageRoute(builder: ((context) => ProjectListScreen()));
+          return MaterialPageRoute(builder: ((context) => ProjectListScreen(settings.arguments as bool? ?? false)));
         } else if (settings.name == OnBoardingScreen.routeName) {
           return MaterialPageRoute(builder: ((context) => OnBoardingScreen()));
         } else if (settings.name == WelcomeScreen.routeName) {

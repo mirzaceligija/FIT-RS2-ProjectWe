@@ -18,6 +18,7 @@ class SignUpFormWidget extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
 
   late UserProvider _userProvider;
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class SignUpFormWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
       child: Form(
+        key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -34,6 +36,7 @@ class SignUpFormWidget extends StatelessWidget {
               decoration: const InputDecoration(
                   label: Text(tFirstName),
                   prefixIcon: Icon(Icons.person_outline_rounded)),
+              validator: (value) => _validateRequired(value, 'First Name'),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
@@ -41,19 +44,21 @@ class SignUpFormWidget extends StatelessWidget {
               decoration: const InputDecoration(
                   label: Text(tLastName),
                   prefixIcon: Icon(Icons.person_outline_rounded)),
+              validator: (value) => _validateRequired(value, 'Last Name'),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               controller: _usernameController,
               decoration: const InputDecoration(
-                  label: Text(tUsername),
-                  prefixIcon: Icon(Icons.text_format)),
+                  label: Text(tUsername), prefixIcon: Icon(Icons.text_format)),
+              validator: (value) => _validateRequired(value, 'Username'),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               controller: _emailController,
               decoration: const InputDecoration(
                   label: Text(tEmail), prefixIcon: Icon(Icons.email_outlined)),
+              validator: (value) => _validateRequired(value, 'Email'),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
@@ -63,6 +68,7 @@ class SignUpFormWidget extends StatelessWidget {
               controller: _passwordController,
               decoration: const InputDecoration(
                   label: Text(tPassword), prefixIcon: Icon(Icons.fingerprint)),
+              validator: (value) => _validateRequired(value, 'Password'),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
@@ -71,7 +77,10 @@ class SignUpFormWidget extends StatelessWidget {
               autocorrect: false,
               controller: _confirmPasswordController,
               decoration: const InputDecoration(
-                  label: Text(tConfirmPassword), prefixIcon: Icon(Icons.fingerprint)),
+                  label: Text(tConfirmPassword),
+                  prefixIcon: Icon(Icons.fingerprint)),
+              validator: (value) =>
+                  _validateRequired(value, 'Confirm Password'),
             ),
             const SizedBox(height: tFormHeight - 10),
             SizedBox(
@@ -79,16 +88,19 @@ class SignUpFormWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () async {
                   try {
-                    var userToCreate = new User();
-                    userToCreate.firstName = _firstNameController.text;
-                    userToCreate.lastName = _lastNameController.text;
-                    userToCreate.username = _usernameController.text;
-                    userToCreate.email = _emailController.text;
-                    userToCreate.password= _passwordController.text;
-                    userToCreate.confirmPassword = _confirmPasswordController.text;
+                    if (_formKey.currentState!.validate()) {
+                      var userToCreate = new User();
+                      userToCreate.firstName = _firstNameController.text;
+                      userToCreate.lastName = _lastNameController.text;
+                      userToCreate.username = _usernameController.text;
+                      userToCreate.email = _emailController.text;
+                      userToCreate.password = _passwordController.text;
+                      userToCreate.confirmPassword =
+                          _confirmPasswordController.text;
 
-                    await _userProvider.signUp(userToCreate);
-                    Get.to(() => SignInScreen());
+                      await _userProvider.signUp(userToCreate);
+                      Get.to(() => SignInScreen());
+                    }
                   } catch (e) {
                     showDialog(
                         context: context,
@@ -111,5 +123,12 @@ class SignUpFormWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String? _validateRequired(String? value, String fieldName) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter $fieldName';
+    }
+    return null;
   }
 }

@@ -12,8 +12,9 @@ import '../models/city.dart';
 
 class ProjectListScreen extends StatefulWidget {
   static const String routeName = "/project";
+  bool isMyProjectsRoute = false;
 
-  const ProjectListScreen({Key? key}) : super(key: key);
+  ProjectListScreen(this.isMyProjectsRoute, {Key? key}) : super(key: key);
 
   @override
   State<ProjectListScreen> createState() => _ProjectListScreenState();
@@ -56,8 +57,9 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
   }
 
   Future loadProjects(int? categoryId, int? cityId, String? name) async {
-    var response =
-        await _projectProvider?.getList({"statusId": 3, "cityId": cityId, "categoryId": categoryId, "name": name}); //Only active projects
+    var response = widget.isMyProjectsRoute ?
+        await _projectProvider?.getList({"statusId": 3, "cityId": cityId, "categoryId": categoryId, "name": name}) : 
+        await _projectProvider?.getList({"userId": 3}); //Only user's projects
     setState(() {
       data = response!;
     });
@@ -88,11 +90,13 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildHeader(),
+            if(!this.widget.isMyProjectsRoute)
             _buildProjectSearch(),
+            if(!this.widget.isMyProjectsRoute)
             _buildProjectFilter(),
             Container(
-              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 100.0),
-              height: 400,
+              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 200.0),
+              height: 500,
               child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
@@ -113,7 +117,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Text(
-        "Projects",
+        '${this.widget.isMyProjectsRoute ? 'My ' : ''}Projects',
         style: TextStyle(
             color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
       ),
