@@ -45,4 +45,3 @@ git clone https://github.com/mirzaceligija/FIT-RS2-ProjectWe.git
 docker-compose up --build
 ```
 
-flutter pub run build_runner build
