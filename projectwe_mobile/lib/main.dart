@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/account/account_details_screen.dart';
@@ -19,8 +18,10 @@ import 'package:projectwe_mobile/src/features/authentication/screens/welcome/wel
 import 'package:projectwe_mobile/src/features/projects/controllers/votes_provider.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/activity_details_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/activity_list_screen.dart';
+import 'package:projectwe_mobile/src/features/projects/screens/add_edit_project_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/budget_details.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/budget_list_screen.dart';
+import 'package:projectwe_mobile/src/features/projects/screens/my_projects_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/objective_details_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/objective_list_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/output_details_screen.dart';
@@ -69,12 +70,8 @@ class App extends StatelessWidget {
           return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
         } else if (settings.name == AccountDetailsScreen.routeName) {
           return MaterialPageRoute(builder: ((context) => AccountDetailsScreen()));
-        } else if (settings.name == ObjectiveListScreen.routeName) {
-          return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
-        } else if (settings.name == BudgetListScreen.routeName) {
-          return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
-        } else if (settings.name == ActivityListScreen.routeName) {
-          return MaterialPageRoute(builder: ((context) => WelcomeScreen()));
+        } else if (settings.name == MyProjectsScreen.routeName) {
+          return MaterialPageRoute(builder: ((context) => MyProjectsScreen()));
         }
 
         var uri = Uri.parse(settings.name!);
@@ -123,6 +120,11 @@ class App extends StatelessWidget {
           var id = uri.pathSegments[1];
           return MaterialPageRoute(
               builder: (context) => BudgetDetailsScreen(id));
+        } else if (uri.pathSegments.length == 2 &&
+            "/${uri.pathSegments.first}" == AddEditProjectScreen.routeName) {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(
+              builder: (context) => AddEditProjectScreen(id ?? "0"));
         }
       }),
       home: SplashScreen(),

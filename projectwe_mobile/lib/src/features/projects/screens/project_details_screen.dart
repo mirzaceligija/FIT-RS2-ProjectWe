@@ -53,11 +53,13 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
       isLoading = true;
     });
     Project tempData = await _projectProvider!.get(int.parse(this.widget.id));
-    var tempVotes = await _voteProvider?.getList({"projectId": tempData.projectId, "userId": 2});
+    var tempVotes = await _voteProvider
+        ?.getList({"projectId": tempData.projectId, "userId": 2});
     setState(() {
       data = tempData;
       votes = tempVotes ?? [];
-      userVote = votes.firstWhere((x) => x.userId == 2, orElse: () => new Vote());
+      userVote =
+          votes.firstWhere((x) => x.userId == 2, orElse: () => new Vote());
       _isLiked = userVote?.positive ?? false;
       isLoading = false;
     });
@@ -65,7 +67,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
   }
 
   void vote(bool isPositive) async {
-    if(userVote?.voteId != 0) {
+    if (userVote?.voteId != 0) {
       userVote?.positive = isPositive;
       await _voteProvider!.update(userVote?.voteId ?? -1, userVote);
     } else {
@@ -102,34 +104,11 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                       fit: BoxFit.cover,
                     ),
                     SizedBox(height: 20),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                        child: Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.map, color: Colors.white, size: 18),
-                              SizedBox(width: 4),
-                              Text(
-                                data.city,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                    Text(
+                      data.name + " (${data.status})",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 10),
@@ -156,7 +135,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 14,
+                                  fontSize: 12,
                                 ),
                               ),
                             ],
@@ -165,19 +144,41 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Text(
-                      data.name + " (${data.status})",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.map, color: Colors.white, size: 18),
+                              SizedBox(width: 4),
+                              Text(
+                                data.city,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: 10),
+                    
                     Text(
                       data.description,
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
+                      style: TextStyle(fontSize: 14, color: Colors.black45),
                     ),
                     SizedBox(height: 20),
                     Container(
@@ -231,7 +232,9 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                             _isLiked
                                 ? Icons.thumb_up_alt
                                 : Icons.thumb_up_alt_outlined,
-                            color: _isLiked && userVote?.voteId != 0 ? Colors.blue : null,
+                            color: _isLiked && userVote?.voteId != 0
+                                ? Colors.blue
+                                : null,
                           ),
                         ),
                         SizedBox(width: 10),
@@ -243,7 +246,9 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                             !_isLiked
                                 ? Icons.thumb_down_alt
                                 : Icons.thumb_down_alt_outlined,
-                            color: !_isLiked && userVote?.voteId != 0 ? Colors.red : null,
+                            color: !_isLiked && userVote?.voteId != 0
+                                ? Colors.red
+                                : null,
                           ),
                         ),
                       ],
@@ -258,4 +263,3 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
     );
   }
 }
-

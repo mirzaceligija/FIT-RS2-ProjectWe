@@ -2,6 +2,8 @@
 const String tSignIn = "Sign In";
 const String tSignUp = "Sign Up";
 const String tUsername = "Username";
+const String tName = "Name";
+const String tDescription = "Description";
 const String tEmail = "Email";
 const String tPassword = "Password";
 const String tConfirmPassword = "Confirm Password";
@@ -11,6 +13,7 @@ const String tLastName = "Last Name";
 const String tPhoneNo = "Phone Number";
 const String tUpdate = "Update";
 const String tEdit = "Edit";
+const String tAdd = "Add";
 
 // -- Splash Screen Text
 const String tAppName = ".ProjectWe";

@@ -3,6 +3,7 @@ import 'package:projectwe_mobile/src/constants/colors.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/account/account_details_screen.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:projectwe_mobile/src/features/core/screens/dashboard/widgets/dashboard.dart';
+import 'package:projectwe_mobile/src/features/projects/screens/my_projects_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/project_list_screen.dart';
 
 class projectWeDrawer extends StatelessWidget {
@@ -29,8 +30,7 @@ class projectWeDrawer extends StatelessWidget {
           ListTile(
             title: Text('My Projects'),
             onTap: () {
-              Navigator.popAndPushNamed(context, ProjectListScreen.routeName,
-                  arguments: true);
+              Navigator.popAndPushNamed(context, MyProjectsScreen.routeName);
             },
           ),
           ListTile(

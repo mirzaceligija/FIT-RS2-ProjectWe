@@ -5,6 +5,7 @@ import 'package:projectwe_mobile/src/constants/colors.dart';
 import 'package:projectwe_mobile/src/constants/text_strings.dart';
 import 'package:projectwe_mobile/src/features/authentication/screens/account/account_details_screen.dart';
 import 'package:projectwe_mobile/src/features/core/screens/dashboard/widgets/dashboard.dart';
+import 'package:projectwe_mobile/src/features/projects/screens/my_projects_screen.dart';
 import 'package:projectwe_mobile/src/features/projects/screens/project_list_screen.dart';
 import 'package:projectwe_mobile/src/common_widgets/projectwe_drawer.dart';
 import 'package:provider/provider.dart';
@@ -42,8 +43,7 @@ class _MasterScreenWidgetState extends State<MasterScreenWidget> {
       Navigator.pushNamed(context, ProjectListScreen.routeName,
           arguments: false);
     } else if (currentIndex == 2) {
-      Navigator.pushNamed(context, ProjectListScreen.routeName,
-          arguments: true);
+      Navigator.pushNamed(context, MyProjectsScreen.routeName);
     } else if (currentIndex == 3) {
       Navigator.pushNamed(context, AccountDetailsScreen.routeName);
     }

@@ -12,11 +12,15 @@ class SignInFormWidget extends StatelessWidget {
   TextEditingController _passwordController = TextEditingController();
 
   late UserProvider _userProvider;
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late GlobalKey<FormState> _formKey;
 
   @override
   Widget build(BuildContext context) {
     _userProvider = Provider.of<UserProvider>(context, listen: false);
+    _formKey = new GlobalKey<FormState>();
+
+    _usernameController.text = "manager";
+    _passwordController.text = "test";
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
