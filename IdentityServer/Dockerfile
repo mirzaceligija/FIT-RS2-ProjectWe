@@ -1,16 +1,16 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 44397
-ENV ASPNETCORE_URLS=http://+:44397
+EXPOSE 44398
+ENV ASPNETCORE_URLS=http://+:44398
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY . .
 
 FROM build AS publish
-RUN dotnet publish "ProjectWe.API/ProjectWe.API.csproj" -c Release -o /app
+RUN dotnet publish "IdentityServer/IdentityServer.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 
-ENTRYPOINT ["dotnet", "ProjectWe.API.dll"]
+ENTRYPOINT ["dotnet", "IdentityServer.dll"]

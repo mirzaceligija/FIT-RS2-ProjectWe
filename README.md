@@ -45,3 +45,6 @@ git clone https://github.com/mirzaceligija/FIT-RS2-ProjectWe.git
 docker-compose up --build
 ```
 
+flutter pub run build_runner build
+
+dotnet run IdentityServer/bin/Debug/net6.0/IdentityServer /seed --project IdentityServer

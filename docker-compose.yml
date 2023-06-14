@@ -15,6 +15,23 @@ services:
     networks:
       - projectwenetwork
 
+  identity-api:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./IdentityServer/Dockerfile
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=${SQL_SERVER},1433;Database=${SQL_DATABASE};User=${SQL_USER};Password=${SQL_PASSWORD};ConnectRetryCount=0
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 44398:44398
+    networks:
+      - projectwenetwork
+    links:
+      - projectwe-sql
+    depends_on:
+      - projectwe-sql
+
   projectwe-api:
     restart: unless-stopped
     build:
@@ -31,6 +48,7 @@ services:
       - projectwe-sql
     depends_on:
       - projectwe-sql
+      - identity-api
       
 networks:
   projectwenetwork:

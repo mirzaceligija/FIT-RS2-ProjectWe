@@ -16,20 +16,6 @@ namespace ProjectWe.API.Controllers
             _service = service;
         }
 
-        [AllowAnonymous]
-        [HttpPost("SignIn")]
-        public async Task<ActionResult<Models.AppUser>> SignIn([FromBody] UserSignInRequest signIn)
-        {
-            return await _service.SignIn(signIn);
-        }
-
-        [AllowAnonymous]
-        [HttpPost("SignUp")]
-        public async Task<ActionResult<Models.AppUser>> SignUp([FromBody] UserInsertRequest signUp)
-        {
-            return await _service.SignUp(signUp);
-        }
-
         [Authorize(Roles = "Admin")]
         public override Models.AppUser Insert([FromBody] UserInsertRequest insert)
         {

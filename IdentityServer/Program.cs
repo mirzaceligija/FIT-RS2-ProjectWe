@@ -1,18 +1,10 @@
 using IdentityServer;
-
-var seed = args.Contains("/seed");
-if (seed)
-{
-    args = args.Except(new[] { "/seed" }).ToArray();
-}
+using IdentityServer.Database;
+using IdentityServer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddIdentityServerServices(builder.Configuration);
-    if (seed)
-    {
-        SeedData.EnsureSeedData(builder.Configuration.GetConnectionString("DefaultConnection")!);
-    }
+    builder.Services.AddPresentation(builder.Configuration);
 }
 
 var app = builder.Build();
@@ -23,14 +15,29 @@ var app = builder.Build();
         app.UseSwaggerUI();
     }
 
-    app
-        .UseHttpsRedirection()
-        .UseAuthorization();
-
+    app.UseHttpsRedirection();
     app.UseRouting();
     app.UseIdentityServer();
     app.UseAuthorization();
     app.MapControllers();
-
-    app.Run();
 }
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var context = services.GetRequiredService<AspNetIdentityDbContext>();
+        await context.Database.EnsureCreatedAsync();
+        var hostSeeder = services.GetRequiredService<IHostSeeder>();
+        await AspNetIdentityDbContextSeeder.SeedAsync(hostSeeder);
+    }
+    catch (Exception ex)
+    {
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, $"An error occurred while migrating or seeding the database.|{ex.InnerException?.ToString() ?? ex.Message}");
+    }
+}
+
+app.Run();
