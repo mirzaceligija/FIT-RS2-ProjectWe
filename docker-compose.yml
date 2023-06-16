@@ -14,14 +14,14 @@ services:
         - 1433
     networks:
       - projectwenetwork
-
+#is4 docker
   identity-api:
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./IdentityServer/Dockerfile
     environment:
-      - ConnectionStrings:DefaultConnection=Server=${SQL_SERVER},1433;Database=${SQL_DATABASE};User=${SQL_USER};Password=${SQL_PASSWORD};ConnectRetryCount=0
+      - ConnectionStrings:DefaultConnection=Server=${SQL_SERVER},1433;Database=${SQL_DATABASE};TrustServerCertificate=True;User=${SQL_USER};Password=${SQL_PASSWORD};ConnectRetryCount=0
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - 44398:44398
@@ -31,14 +31,14 @@ services:
       - projectwe-sql
     depends_on:
       - projectwe-sql
-
+#webapi docker
   projectwe-api:
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./ProjectWe.API/Dockerfile
     environment:
-      - ConnectionStrings:DefaultConnection=Server=${SQL_SERVER},1433;Database=${SQL_DATABASE};User=${SQL_USER};Password=${SQL_PASSWORD};ConnectRetryCount=0
+      - ConnectionStrings:DefaultConnection=Server=${SQL_SERVER},1433;Database=${SQL_DATABASE};TrustServerCertificate=True;User=${SQL_USER};Password=${SQL_PASSWORD};ConnectRetryCount=0
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - 44397:44397

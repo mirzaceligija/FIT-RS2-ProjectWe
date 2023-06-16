@@ -14,7 +14,6 @@ namespace ProjectWe.Services.Configurations
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
             ConfigureUsersTable(builder);
-            SeedUsers(builder);
         }
 
         public void ConfigureUsersTable(EntityTypeBuilder<AppUser> builder)
@@ -45,45 +44,6 @@ namespace ProjectWe.Services.Configurations
             builder.Property(u => u.AccessFailedCount).IsRequired(true).HasDefaultValue(0);
             builder.Property(u => u.CreatedAt).ValueGeneratedOnAdd().HasDefaultValue(DateTime.UtcNow);
             builder.Property(u => u.LastModified).ValueGeneratedOnAddOrUpdate().HasDefaultValue(DateTime.UtcNow);
-        }
-
-        public void SeedUsers(EntityTypeBuilder<AppUser> builder)
-        {
-            builder.HasData(
-                new AppUser { 
-                    Id = 1,
-                    UserName = "Admin",
-                    NormalizedUserName = "ADMIN",
-                    Email = "admin@email.com",
-                    NormalizedEmail = "ADMIN@EMAIL.COM",
-                    FirstName = "Admin",
-                    LastName = "Super",
-                    PasswordHash = "AQAAAAEAACcQAAAAEJSnLX1fQLSM0GHZgeHn7+BQiABcmmD5rMhOu5DCTCHh3huSn3kevRq8fmUQJ0urqg==",
-                    SecurityStamp = "VHFSXSTATK7ARJ7NGKNMU2TOAEL6GDZU",
-                    ConcurrencyStamp = "0b275a23-24e7-4bbc-86c5-5f24843d0062",
-                    LockoutEnabled = false,
-                    EmailConfirmed = true,
-                    CreatedAt = DateTime.UtcNow,
-                    LastModified = null,
-                },
-
-                new AppUser
-                {
-                    Id = 2,
-                    UserName = "Manager",
-                    NormalizedUserName = "MANAGER",
-                    Email = "manager@email.com",
-                    NormalizedEmail = "MANAGER@EMAIL.COM",
-                    FirstName = "Manager",
-                    LastName = "Super",
-                    PasswordHash = "AQAAAAEAACcQAAAAEJSnLX1fQLSM0GHZgeHn7+BQiABcmmD5rMhOu5DCTCHh3huSn3kevRq8fmUQJ0urqg==",
-                    SecurityStamp = "VHFSXSTATK7ARJ7NGKNMU2TOAEL6GDZU",
-                    ConcurrencyStamp = "0b275a23-24e7-4bbc-86c5-5f24843d0062",
-                    LockoutEnabled = false,
-                    EmailConfirmed = true,
-                    CreatedAt = DateTime.UtcNow,
-                    LastModified = null,
-                });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectWe.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Models
 {
-    public class Budget
+    public class Budget : IAuditableEntity
     {
         public int BudgetId { get; set; }
         public string Description { get; set; } = null!;

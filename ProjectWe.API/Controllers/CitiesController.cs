@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProjectWe.Models.Requests;
 using ProjectWe.Models.SearchObjects;
-using ProjectWe.Services;
+using ProjectWe.Services.Services.Cities;
 
 namespace ProjectWe.API.Controllers
 {
@@ -13,6 +13,12 @@ namespace ProjectWe.API.Controllers
         public CitiesController(ICitiesService service) : base(service)
         {
             _service = service;
+        }
+
+        [HttpGet]
+        public override IEnumerable<Models.City> GetList([FromQuery] CitySearchObject search = null)
+        {
+            return _service.GetList(search);
         }
     }
 }

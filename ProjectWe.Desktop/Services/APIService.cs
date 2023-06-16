@@ -14,6 +14,7 @@ namespace ProjectWe.Desktop.Services
     {
         private readonly string _resource = null;
         private readonly string _baseUrl = Settings.Default.ApiURL; //http://localhost:44397/api/;
+        private readonly string _baseAuthUrl = Settings.Default.AuthURL; //http://localhost:44398/api/;
 
         public static AppUser User = null;
 
@@ -80,7 +81,7 @@ namespace ProjectWe.Desktop.Services
         // Authentication Endpoints
         public async Task<Models.AppUser> SignIn(object request)
         {
-            return await $"{_baseUrl}users/signin".PostJsonAsync(request).ReceiveJson<Models.AppUser>();
+            return await $"{_baseAuthUrl}auth/signin".PostJsonAsync(request).ReceiveJson<Models.AppUser>();
         }
     }
 }

@@ -34,5 +34,17 @@ namespace ProjectWe.Desktop.Properties {
                 this["ApiURL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44398/api/")]
+        public string AuthURL {
+            get {
+                return ((string)(this["AuthURL"]));
+            }
+            set {
+                this["AuthURL"] = value;
+            }
+        }
     }
 }

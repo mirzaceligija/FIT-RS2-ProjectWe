@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjectWe.Services;
+using ProjectWe.Services.Services;
 
 namespace ProjectWe.API.Controllers
 {

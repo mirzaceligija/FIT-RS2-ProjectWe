@@ -13,7 +13,7 @@ class UserProvider extends BaseProvider<User> {
   }
 
   Future<User?> signIn(dynamic request) async {
-    var url = "http://10.0.2.2:44397/api/users/signin";
+    var url = "http://10.0.2.2:44398/api/auth/signin";
     var uri = Uri.parse(url);
 
     Map<String, String> headers = createHeaders();
@@ -30,7 +30,7 @@ class UserProvider extends BaseProvider<User> {
   }
 
   Future<User?> signUp(dynamic request) async {
-    var url = "http://10.0.2.2:44397/api/users/signup";
+    var url = "http://10.0.2.2:44398/api/auth/signup";
     var uri = Uri.parse(url);
 
     Map<String, String> headers = createHeaders();

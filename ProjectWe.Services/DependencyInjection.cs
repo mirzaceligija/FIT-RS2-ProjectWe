@@ -8,6 +8,18 @@ using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Tokens;
 using ProjectWe.Services.Database;
+using ProjectWe.Services.Services.Activities;
+using ProjectWe.Services.Services.Budgets;
+using ProjectWe.Services.Services.Categories;
+using ProjectWe.Services.Services.Cities;
+using ProjectWe.Services.Services.Objectives;
+using ProjectWe.Services.Services.Outputs;
+using ProjectWe.Services.Services.Projects;
+using ProjectWe.Services.Services.Reviews;
+using ProjectWe.Services.Services.Roles;
+using ProjectWe.Services.Services.Statuses;
+using ProjectWe.Services.Services.Users;
+using ProjectWe.Services.Services.Votes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -78,7 +90,6 @@ namespace ProjectWe.Services
             configuration.Bind(JwtSettings.SectionName, jwtSettings);
 
             services.AddSingleton(Options.Create(jwtSettings));
-            services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
             services.AddAuthentication(cfg =>
             {
@@ -125,10 +136,57 @@ namespace ProjectWe.Services
                     configuration.GetConnectionString("DefaultConnection"),
                     m => m.MigrationsAssembly("ProjectWe.Services")));
 
-            var context = services.BuildServiceProvider().GetRequiredService<_160020Context>();
-            context.Database.Migrate();
+            using (var scope = services.BuildServiceProvider().CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<_160020Context>();
+                WaitForDatabase(context);
+                context.Database.Migrate();
+            }
 
             return services;
+        }
+
+        private static void WaitForDatabase(_160020Context context)
+        {
+            var retryCount = 5;
+            var delay = TimeSpan.FromSeconds(10);
+
+            for (var i = 0; i < retryCount; i++)
+            {
+                try
+                {
+                    if (context.Database.CanConnect())
+                    {
+                        if (CheckTableExists(context, "AppUsers"))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("AppUsers table not found. Retry in {delay.TotalSeconds} seconds...");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to connect to the database: {ex.Message}");
+                }
+
+                Console.WriteLine($"Retry in {delay.TotalSeconds} seconds...");
+                Thread.Sleep(delay);
+            }
+        }
+
+        private static bool CheckTableExists(_160020Context context, string tableName)
+        {
+            var connection = context.Database.GetDbConnection();
+            var command = connection.CreateCommand();
+            command.CommandText = $"SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{tableName}'";
+            connection.Open();
+            var count = (int)command.ExecuteScalar();
+            connection.Close();
+
+            return count > 0;
         }
     }
 }

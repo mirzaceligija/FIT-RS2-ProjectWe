@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjectWe.Services;
+using ProjectWe.Services.Services;
 using System.Security.Claims;
 
 namespace ProjectWe.API.Controllers

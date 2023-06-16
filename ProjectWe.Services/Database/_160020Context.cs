@@ -15,10 +15,6 @@ namespace ProjectWe.Services.Database
         IdentityUserClaim<int>, IdentityUserRole<int>, IdentityUserLogin<int>,
         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
-        public _160020Context() : base()
-        {
-        }
-
         public _160020Context(DbContextOptions<_160020Context> options)
             : base(options)
         {

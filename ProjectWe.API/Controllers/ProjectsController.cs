@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjectWe.Models.Requests;
 using ProjectWe.Models.SearchObjects;
-using ProjectWe.Services;
+using ProjectWe.Services.Services.Projects;
 using System.Collections.Generic;
 using System.Data;
 

@@ -134,7 +134,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 381, DateTimeKind.Utc).AddTicks(8361));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(2960));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -155,7 +155,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 381, DateTimeKind.Utc).AddTicks(8510));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(3072));
 
                     b.Property<string>("Locations")
                         .HasMaxLength(256)
@@ -187,23 +187,221 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             ActivityId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(311),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4468),
                             Description = "Test",
-                            EndDate = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(310),
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4468),
                             OutputId = 1,
                             ProjectId = 1,
-                            StartDate = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(309),
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4467),
                             UserId = 2
                         },
                         new
                         {
                             ActivityId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(318),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4473),
                             Description = "Test",
-                            EndDate = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(318),
-                            OutputId = 1,
-                            ProjectId = 1,
-                            StartDate = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(317),
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4472),
+                            OutputId = 2,
+                            ProjectId = 2,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4472),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ActivityId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4474),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4474),
+                            OutputId = 3,
+                            ProjectId = 3,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4474),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            ActivityId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4476),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4475),
+                            OutputId = 4,
+                            ProjectId = 4,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4475),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ActivityId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4477),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4477),
+                            OutputId = 5,
+                            ProjectId = 5,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4477),
+                            UserId = 5
+                        },
+                        new
+                        {
+                            ActivityId = 6,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4479),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4478),
+                            OutputId = 6,
+                            ProjectId = 6,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4478),
+                            UserId = 6
+                        },
+                        new
+                        {
+                            ActivityId = 7,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4480),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4480),
+                            OutputId = 7,
+                            ProjectId = 7,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4479),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ActivityId = 8,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4481),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4481),
+                            OutputId = 8,
+                            ProjectId = 8,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4481),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ActivityId = 9,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4482),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4482),
+                            OutputId = 9,
+                            ProjectId = 9,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4482),
+                            UserId = 8
+                        },
+                        new
+                        {
+                            ActivityId = 10,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4484),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4483),
+                            OutputId = 10,
+                            ProjectId = 10,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4483),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            ActivityId = 11,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4485),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4485),
+                            OutputId = 11,
+                            ProjectId = 11,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4484),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            ActivityId = 12,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4486),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4486),
+                            OutputId = 12,
+                            ProjectId = 12,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4486),
+                            UserId = 10
+                        },
+                        new
+                        {
+                            ActivityId = 13,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4487),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4487),
+                            OutputId = 13,
+                            ProjectId = 13,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4487),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ActivityId = 14,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4489),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4488),
+                            OutputId = 14,
+                            ProjectId = 14,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4488),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            ActivityId = 15,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4490),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4490),
+                            OutputId = 15,
+                            ProjectId = 15,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4489),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ActivityId = 16,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4491),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4491),
+                            OutputId = 16,
+                            ProjectId = 16,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4491),
+                            UserId = 6
+                        },
+                        new
+                        {
+                            ActivityId = 17,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4492),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4492),
+                            OutputId = 17,
+                            ProjectId = 17,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4492),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ActivityId = 18,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4494),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4493),
+                            OutputId = 18,
+                            ProjectId = 18,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4493),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ActivityId = 19,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4495),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4495),
+                            OutputId = 19,
+                            ProjectId = 19,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4494),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ActivityId = 20,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4496),
+                            Description = "Test",
+                            EndDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4496),
+                            OutputId = 20,
+                            ProjectId = 20,
+                            StartDate = new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(4496),
                             UserId = 2
                         });
                 });
@@ -223,12 +421,12 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(1098));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(5219));
 
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(1246));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(5336));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -247,24 +445,6 @@ namespace ProjectWe.Services.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AppRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ConcurrencyStamp = "079e2914-753a-4c3f-b8d0-8f368fd2a50d",
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(1343),
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ConcurrencyStamp = "79e72872-f936-49d9-96bb-9f38c52f7d0b",
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(1348),
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
-                        });
                 });
 
             modelBuilder.Entity("ProjectWe.Services.Database.AppUser", b =>
@@ -289,7 +469,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(7483));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(658));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -309,7 +489,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(7591));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(740));
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -380,46 +560,6 @@ namespace ProjectWe.Services.Migrations
                         .IsUnique();
 
                     b.ToTable("AppUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "0b275a23-24e7-4bbc-86c5-5f24843d0062",
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(7667),
-                            Email = "admin@email.com",
-                            EmailConfirmed = true,
-                            FirstName = "Admin",
-                            LastName = "Super",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@EMAIL.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJSnLX1fQLSM0GHZgeHn7+BQiABcmmD5rMhOu5DCTCHh3huSn3kevRq8fmUQJ0urqg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "VHFSXSTATK7ARJ7NGKNMU2TOAEL6GDZU",
-                            TwoFactorEnabled = false,
-                            UserName = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "0b275a23-24e7-4bbc-86c5-5f24843d0062",
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(7687),
-                            Email = "manager@email.com",
-                            EmailConfirmed = true,
-                            FirstName = "Manager",
-                            LastName = "Super",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "MANAGER@EMAIL.COM",
-                            NormalizedUserName = "MANAGER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJSnLX1fQLSM0GHZgeHn7+BQiABcmmD5rMhOu5DCTCHh3huSn3kevRq8fmUQJ0urqg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "VHFSXSTATK7ARJ7NGKNMU2TOAEL6GDZU",
-                            TwoFactorEnabled = false,
-                            UserName = "Manager"
-                        });
                 });
 
             modelBuilder.Entity("ProjectWe.Services.Database.Budget", b =>
@@ -439,7 +579,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(8206));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(1248));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -449,7 +589,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(8289));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(1310));
 
                     b.Property<int>("NumberOfUnits")
                         .HasColumnType("int");
@@ -481,7 +621,7 @@ namespace ProjectWe.Services.Migrations
                             BudgetId = 1,
                             ActivityId = 1,
                             CostPerUnit = 0m,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(9810),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2580),
                             Description = "Test",
                             NumberOfUnits = 0,
                             ProjectId = 1,
@@ -490,12 +630,210 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             BudgetId = 2,
-                            ActivityId = 1,
+                            ActivityId = 2,
                             CostPerUnit = 0m,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(9813),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2582),
                             Description = "Test",
                             NumberOfUnits = 0,
-                            ProjectId = 1,
+                            ProjectId = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            BudgetId = 3,
+                            ActivityId = 3,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2583),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 3,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            BudgetId = 4,
+                            ActivityId = 4,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2584),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 4,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            BudgetId = 5,
+                            ActivityId = 5,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2585),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 5,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            BudgetId = 6,
+                            ActivityId = 6,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2586),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 6,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            BudgetId = 7,
+                            ActivityId = 7,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2586),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 7,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            BudgetId = 8,
+                            ActivityId = 8,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2587),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 8,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            BudgetId = 9,
+                            ActivityId = 9,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2588),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 9,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            BudgetId = 10,
+                            ActivityId = 10,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2589),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 10,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            BudgetId = 11,
+                            ActivityId = 11,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2590),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 11,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            BudgetId = 12,
+                            ActivityId = 12,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2590),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 12,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            BudgetId = 13,
+                            ActivityId = 13,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2591),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 13,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            BudgetId = 14,
+                            ActivityId = 14,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2592),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 14,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            BudgetId = 15,
+                            ActivityId = 15,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2593),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 15,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            BudgetId = 16,
+                            ActivityId = 16,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2593),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 16,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            BudgetId = 17,
+                            ActivityId = 17,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2594),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 17,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            BudgetId = 18,
+                            ActivityId = 18,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2595),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 18,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            BudgetId = 19,
+                            ActivityId = 19,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2596),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 19,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            BudgetId = 20,
+                            ActivityId = 20,
+                            CostPerUnit = 0m,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2596),
+                            Description = "Test",
+                            NumberOfUnits = 0,
+                            ProjectId = 20,
                             UserId = 2
                         });
                 });
@@ -511,7 +849,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(185));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(2911));
 
                     b.Property<string>("Description")
                         .HasMaxLength(512)
@@ -520,7 +858,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(272));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3001));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -534,43 +872,43 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(352),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3036),
                             Name = "Civic engagement and participation"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(354),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3038),
                             Name = "Volunteerism and community service"
                         },
                         new
                         {
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(355),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3039),
                             Name = "Youth development"
                         },
                         new
                         {
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(356),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3040),
                             Name = "Neighborhood revitalization"
                         },
                         new
                         {
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(357),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3040),
                             Name = "Interfaith and intercultural understanding"
                         },
                         new
                         {
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(358),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3041),
                             Name = "Aging and elder care"
                         },
                         new
                         {
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(359),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3042),
                             Name = "Food security and access"
                         });
                 });
@@ -586,12 +924,12 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(600));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3263));
 
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(704));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3313));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -606,31 +944,31 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             CityId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(750),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3347),
                             Name = "Sarajevo"
                         },
                         new
                         {
                             CityId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(752),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3348),
                             Name = "Mostar"
                         },
                         new
                         {
                             CityId = 3,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(753),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3349),
                             Name = "Banja Luka"
                         },
                         new
                         {
                             CityId = 4,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(754),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3350),
                             Name = "Zenica"
                         },
                         new
                         {
                             CityId = 5,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(755),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3350),
                             Name = "Tuzla"
                         });
                 });
@@ -646,7 +984,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(1049));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3578));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -656,7 +994,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(1124));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(3635));
 
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
@@ -676,7 +1014,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             ObjectiveId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(1974),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4558),
                             Description = "Objective 1",
                             ProjectId = 1,
                             UserId = 2
@@ -684,9 +1022,153 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             ObjectiveId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(1976),
-                            Description = "Objective 1",
-                            ProjectId = 1,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4560),
+                            Description = "Objective 2",
+                            ProjectId = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ObjectiveId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4561),
+                            Description = "Objective 3",
+                            ProjectId = 3,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            ObjectiveId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4562),
+                            Description = "Objective 4",
+                            ProjectId = 4,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ObjectiveId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4563),
+                            Description = "Objective 5",
+                            ProjectId = 5,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            ObjectiveId = 6,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4564),
+                            Description = "Objective 6",
+                            ProjectId = 6,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            ObjectiveId = 7,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4565),
+                            Description = "Objective 7",
+                            ProjectId = 7,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ObjectiveId = 8,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4565),
+                            Description = "Objective 8",
+                            ProjectId = 8,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ObjectiveId = 9,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4592),
+                            Description = "Objective 9",
+                            ProjectId = 9,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            ObjectiveId = 10,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4593),
+                            Description = "Objective 10",
+                            ProjectId = 10,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            ObjectiveId = 11,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4594),
+                            Description = "Objective 11",
+                            ProjectId = 11,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            ObjectiveId = 12,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4595),
+                            Description = "Objective 12",
+                            ProjectId = 12,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            ObjectiveId = 13,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4595),
+                            Description = "Objective 13",
+                            ProjectId = 13,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ObjectiveId = 14,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4596),
+                            Description = "Objective 14",
+                            ProjectId = 14,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            ObjectiveId = 15,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4597),
+                            Description = "Objective 15",
+                            ProjectId = 15,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ObjectiveId = 16,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4598),
+                            Description = "Objective 16",
+                            ProjectId = 16,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            ObjectiveId = 17,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4599),
+                            Description = "Objective 17",
+                            ProjectId = 17,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ObjectiveId = 18,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4599),
+                            Description = "Objective 18",
+                            ProjectId = 18,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ObjectiveId = 19,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4600),
+                            Description = "Objective 19",
+                            ProjectId = 19,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ObjectiveId = 20,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(4601),
+                            Description = "Objective 20",
+                            ProjectId = 20,
                             UserId = 2
                         });
                 });
@@ -702,7 +1184,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(2367));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(5087));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -716,7 +1198,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(2459));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(5180));
 
                     b.Property<string>("MeansOfVerification")
                         .HasMaxLength(512)
@@ -745,7 +1227,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             OutputId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(3740),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6208),
                             Description = "Output 1",
                             ObjectiveId = 1,
                             ProjectId = 1,
@@ -754,10 +1236,172 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             OutputId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(3743),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6209),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            OutputId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6211),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 3,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            OutputId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6212),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 4,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            OutputId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6212),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 5,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            OutputId = 6,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6213),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 6,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            OutputId = 7,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6214),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 7,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            OutputId = 8,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6215),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 8,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            OutputId = 9,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6216),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 9,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            OutputId = 10,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6217),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 10,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            OutputId = 11,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6218),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 11,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            OutputId = 12,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6219),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 12,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            OutputId = 13,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6220),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 13,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            OutputId = 14,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6221),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 14,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            OutputId = 15,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6222),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 15,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            OutputId = 16,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6223),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 16,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            OutputId = 17,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6223),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 17,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            OutputId = 18,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6224),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 18,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            OutputId = 19,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6225),
+                            Description = "Output 1",
+                            ObjectiveId = 1,
+                            ProjectId = 19,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            OutputId = 20,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6226),
                             Description = "Output 1",
                             ObjectiveId = 2,
-                            ProjectId = 1,
+                            ProjectId = 20,
                             UserId = 2
                         });
                 });
@@ -779,7 +1423,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(4074));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6537));
 
                     b.Property<string>("Description")
                         .HasMaxLength(512)
@@ -788,7 +1432,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(4166));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(6642));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -819,22 +1463,220 @@ namespace ProjectWe.Services.Migrations
                             ProjectId = 1,
                             CategoryId = 1,
                             CityId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(6037),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(7995),
                             Description = "Project Description 1",
                             Name = "Project 1",
-                            StatusId = 3,
-                            UserId = 1
+                            StatusId = 1,
+                            UserId = 2
                         },
                         new
                         {
                             ProjectId = 2,
                             CategoryId = 2,
-                            CityId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(6042),
+                            CityId = 1,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(7998),
                             Description = "Project Description 2",
                             Name = "Project 2",
+                            StatusId = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ProjectId = 3,
+                            CategoryId = 3,
+                            CityId = 1,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8000),
+                            Description = "Project Description 3",
+                            Name = "Project 3",
                             StatusId = 3,
-                            UserId = 1
+                            UserId = 3
+                        },
+                        new
+                        {
+                            ProjectId = 4,
+                            CategoryId = 4,
+                            CityId = 1,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8001),
+                            Description = "Project Description 4",
+                            Name = "Project 4",
+                            StatusId = 2,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ProjectId = 5,
+                            CategoryId = 5,
+                            CityId = 2,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8003),
+                            Description = "Project Description 5",
+                            Name = "Project 5",
+                            StatusId = 1,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            ProjectId = 6,
+                            CategoryId = 6,
+                            CityId = 2,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8004),
+                            Description = "Project Description 6",
+                            Name = "Project 6",
+                            StatusId = 2,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            ProjectId = 7,
+                            CategoryId = 7,
+                            CityId = 2,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8005),
+                            Description = "Project Description 7",
+                            Name = "Project 7",
+                            StatusId = 3,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ProjectId = 8,
+                            CategoryId = 1,
+                            CityId = 2,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8007),
+                            Description = "Project Description 8",
+                            Name = "Project 8",
+                            StatusId = 2,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ProjectId = 9,
+                            CategoryId = 2,
+                            CityId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8048),
+                            Description = "Project Description 9",
+                            Name = "Project 9",
+                            StatusId = 1,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            ProjectId = 10,
+                            CategoryId = 3,
+                            CityId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8050),
+                            Description = "Project Description 10",
+                            Name = "Project 10",
+                            StatusId = 2,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            ProjectId = 11,
+                            CategoryId = 4,
+                            CityId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8052),
+                            Description = "Project Description 11",
+                            Name = "Project 11",
+                            StatusId = 3,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            ProjectId = 12,
+                            CategoryId = 5,
+                            CityId = 3,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8053),
+                            Description = "Project Description 12",
+                            Name = "Project 12",
+                            StatusId = 1,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            ProjectId = 13,
+                            CategoryId = 6,
+                            CityId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8055),
+                            Description = "Project Description 13",
+                            Name = "Project 13",
+                            StatusId = 1,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ProjectId = 14,
+                            CategoryId = 7,
+                            CityId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8056),
+                            Description = "Project Description 14",
+                            Name = "Project 14",
+                            StatusId = 1,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            ProjectId = 15,
+                            CategoryId = 1,
+                            CityId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8057),
+                            Description = "Project Description 15",
+                            Name = "Project 15",
+                            StatusId = 2,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ProjectId = 16,
+                            CategoryId = 2,
+                            CityId = 4,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8059),
+                            Description = "Project Description 16",
+                            Name = "Project 16",
+                            StatusId = 3,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            ProjectId = 17,
+                            CategoryId = 2,
+                            CityId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8060),
+                            Description = "Project Description 17",
+                            Name = "Project 17",
+                            StatusId = 3,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            ProjectId = 18,
+                            CategoryId = 3,
+                            CityId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8061),
+                            Description = "Project Description 18",
+                            Name = "Project 18",
+                            StatusId = 3,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ProjectId = 19,
+                            CategoryId = 4,
+                            CityId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8062),
+                            Description = "Project Description 19",
+                            Name = "Project 19",
+                            StatusId = 4,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            ProjectId = 20,
+                            CategoryId = 5,
+                            CityId = 5,
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8064),
+                            Description = "Project Description 20",
+                            Name = "Project 20",
+                            StatusId = 4,
+                            UserId = 2
                         });
                 });
 
@@ -849,7 +1691,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(6390));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8382));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -859,7 +1701,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(6483));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(8452));
 
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
@@ -884,7 +1726,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             ReviewId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(7740),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(9776),
                             Description = "Review 1",
                             ProjectId = 1,
                             StatusId = 2,
@@ -893,7 +1735,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             ReviewId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(7743),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 711, DateTimeKind.Utc).AddTicks(9778),
                             Description = "Review 2",
                             ProjectId = 2,
                             StatusId = 3,
@@ -912,7 +1754,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8060));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(90));
 
                     b.Property<string>("Description")
                         .HasMaxLength(1024)
@@ -921,7 +1763,7 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8138));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(172));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -936,25 +1778,25 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             StatusId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8184),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(209),
                             Name = "Submitted"
                         },
                         new
                         {
                             StatusId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8187),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(210),
                             Name = "Needs Improvment"
                         },
                         new
                         {
                             StatusId = 3,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8188),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(211),
                             Name = "Active"
                         },
                         new
                         {
                             StatusId = 4,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8189),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(212),
                             Name = "Completed"
                         });
                 });
@@ -970,12 +1812,12 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8472));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(461));
 
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(8548));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(518));
 
                     b.Property<bool>("Positive")
                         .HasColumnType("bit");
@@ -998,7 +1840,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             VoteId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(9352),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(1210),
                             Positive = true,
                             ProjectId = 1,
                             UserId = 1
@@ -1006,7 +1848,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             VoteId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(9354),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(1212),
                             Positive = true,
                             ProjectId = 1,
                             UserId = 2
@@ -1014,7 +1856,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             VoteId = 3,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(9355),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(1213),
                             Positive = true,
                             ProjectId = 2,
                             UserId = 1
@@ -1022,7 +1864,7 @@ namespace ProjectWe.Services.Migrations
                         new
                         {
                             VoteId = 4,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 383, DateTimeKind.Utc).AddTicks(9356),
+                            CreatedAt = new DateTime(2023, 6, 16, 19, 12, 48, 712, DateTimeKind.Utc).AddTicks(1213),
                             Positive = false,
                             ProjectId = 2,
                             UserId = 2
@@ -1036,36 +1878,16 @@ namespace ProjectWe.Services.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(1667));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(5680));
 
                     b.Property<DateTime?>("LastModified")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(1770));
+                        .HasDefaultValue(new DateTime(2023, 6, 16, 19, 12, 48, 710, DateTimeKind.Utc).AddTicks(5756));
 
                     b.HasIndex("RoleId");
 
                     b.ToTable("AppUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(5463)
-                        },
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(5466)
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            RoleId = 2,
-                            CreatedAt = new DateTime(2023, 5, 1, 22, 29, 19, 382, DateTimeKind.Utc).AddTicks(5469)
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

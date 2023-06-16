@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.OpenApi.Models;
 using ProjectWe.API.Filters;
-using ProjectWe.Services;
+using ProjectWe.Services.Services.Users;
 
 namespace ProjectWe.API
 {

@@ -14,7 +14,6 @@ namespace ProjectWe.Services.Configurations
         public void Configure(EntityTypeBuilder<AppUserRoles> builder)
         {
             ConfigureUserRolesTable(builder);
-            SeedUserRoles(builder);
         }
 
         public void ConfigureUserRolesTable(EntityTypeBuilder<AppUserRoles> builder)
@@ -34,14 +33,6 @@ namespace ProjectWe.Services.Configurations
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_AppUserRoles_RoleId");
-        }
-
-        public void SeedUserRoles(EntityTypeBuilder<AppUserRoles> builder)
-        {
-            builder.HasData(
-                new AppUserRoles { UserId = 1, RoleId = 1, CreatedAt = DateTime.UtcNow, LastModified = null },
-                new AppUserRoles { UserId = 1, RoleId = 2, CreatedAt = DateTime.UtcNow, LastModified = null },
-                new AppUserRoles { UserId = 2, RoleId = 2, CreatedAt = DateTime.UtcNow, LastModified = null });
         }
     }
 }

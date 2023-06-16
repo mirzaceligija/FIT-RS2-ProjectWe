@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectWe.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectWe.Models
 {
-    public class AppRole
+    public class AppRole : IAuditableEntity
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;

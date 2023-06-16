@@ -20,7 +20,7 @@ class SignInFormWidget extends StatelessWidget {
     _formKey = new GlobalKey<FormState>();
 
     _usernameController.text = "manager";
-    _passwordController.text = "test";
+    _passwordController.text = "Test123!";
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),

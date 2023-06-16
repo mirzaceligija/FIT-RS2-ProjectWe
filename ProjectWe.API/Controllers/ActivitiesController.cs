@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProjectWe.Models.Requests;
 using ProjectWe.Models.SearchObjects;
-using ProjectWe.Services;
+using ProjectWe.Services.Services.Activities;
 
 namespace ProjectWe.API.Controllers
 {
