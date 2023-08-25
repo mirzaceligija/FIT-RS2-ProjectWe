@@ -46,14 +46,22 @@ namespace ProjectWe.Desktop.Services
                 return await $"{_baseUrl}{_resource}".WithOAuthBearerToken(User?.Token).PostJsonAsync(request).ReceiveJson<T>();
             } catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-                var stringBuilder = new StringBuilder();
-                foreach (var err in errors)
+                if (ex.Call.Response.StatusCode == 400)
                 {
-                    stringBuilder.AppendLine($"{err.Key}, ${string.Join(",", err.Value)}");
+                    var errorResponse = await ex.GetResponseStringAsync();
+                    MessageBox.Show(errorResponse, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                    var stringBuilder = new StringBuilder();
+                    foreach (var err in errors)
+                    {
+                        stringBuilder.AppendLine($"{err.Key}, ${string.Join(",", err.Value)}");
+                    }
+                    MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
                 return default(T);
             }
         }

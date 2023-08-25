@@ -28,10 +28,6 @@ namespace ProjectWe.Desktop.Forms.Projects
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren())
-            {
-                return;
-            }
 
             var searchObject = new ProjectSearchObject
             {
@@ -55,6 +51,8 @@ namespace ProjectWe.Desktop.Forms.Projects
         private async Task LoadCities()
         {
             var cities = await CitiesService.GetList<List<Models.City>>();
+            cities.Insert(0, new Models.City { CityId = 0, Name = "All" });
+
             cmbCity.DataSource = cities;
             cmbCity.ValueMember = "CityId";
             cmbCity.DisplayMember = "Name";
@@ -63,6 +61,8 @@ namespace ProjectWe.Desktop.Forms.Projects
         private async Task LoadCategories()
         {
             var categories = await CategoriesService.GetList<List<Models.Category>>();
+            categories.Insert(0, new Models.Category { CategoryId = 0, Name = "All" });
+
             cmbCategory.DataSource = categories;
             cmbCategory.ValueMember = "CategoryId";
             cmbCategory.DisplayMember = "Name";
@@ -71,6 +71,8 @@ namespace ProjectWe.Desktop.Forms.Projects
         private async Task LoadStatuses()
         {
             var statuses = await StatusesService.GetList<List<Models.Status>>();
+            statuses.Insert(0, new Models.Status { StatusId = 0, Name = "All" });
+
             cmbStatus.DataSource = statuses;
             cmbStatus.ValueMember = "StatusId";
             cmbStatus.DisplayMember = "Name";
