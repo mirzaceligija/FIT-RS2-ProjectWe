@@ -108,7 +108,7 @@ namespace ProjectWe.Desktop.Forms
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserDetails frmUserDetails = new frmUserDetails();
+            frmUserDetails frmUserDetails = new frmUserDetails(editMode: false);
             frmUserDetails.ShowDialog();
         }
 

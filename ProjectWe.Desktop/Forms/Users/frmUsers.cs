@@ -27,7 +27,7 @@ namespace ProjectWe.Desktop.Forms.Users
         {
             var user = dgvUsers.SelectedRows[0].DataBoundItem as AppUser;
 
-            frmUserDetails frmUserDetails = new frmUserDetails(user);
+            frmUserDetails frmUserDetails = new frmUserDetails(user, true);
             frmUserDetails.ShowDialog();
         }
 

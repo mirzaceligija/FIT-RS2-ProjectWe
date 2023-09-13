@@ -58,9 +58,12 @@ namespace ProjectWe.Services.Services.Users
 
         public override Models.AppUser Update(int id, UserUpdateRequest update)
         {
-            if (update.Password != update.ConfirmPassword)
+            if(!string.IsNullOrWhiteSpace(update.Password))
             {
-                throw new UserException("Password confirmation did not match the password!");
+                if (update.Password != update.ConfirmPassword)
+                {
+                    throw new UserException("Password confirmation did not match the password!");
+                }
             }
 
             var entity = base.Update(id, update);

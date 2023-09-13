@@ -16,11 +16,9 @@ namespace ProjectWe.Models.Requests
         [EmailAddress()]
         [Required(AllowEmptyStrings = false)]
         public string Email { get; set; } = null!;
-        [MinLength(4)]
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = true)]
         public string Password { get; set; } = null!;
-        [MinLength(4)]
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = true)]
         public string ConfirmPassword { get; set; } = null!;
         public List<int> AppRoleIdsList { get; set; } = new List<int> { 2 };
     }

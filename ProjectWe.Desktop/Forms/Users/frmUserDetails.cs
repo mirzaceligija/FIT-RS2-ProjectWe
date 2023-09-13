@@ -19,11 +19,13 @@ namespace ProjectWe.Desktop.Forms.Users
         public APIService RolesService { get; set; } = new APIService("Roles");
 
         private AppUser _model = null;
+        private bool _editMode = false;
 
-        public frmUserDetails(AppUser model = null)
+        public frmUserDetails(AppUser model = null, bool editMode = false)
         {
             InitializeComponent();
             _model = model;
+            _editMode = editMode;
             lblTitle.Text = _model is null ? "New User" : $"{_model.FirstName} {_model.LastName}";
         }
 
@@ -169,31 +171,37 @@ namespace ProjectWe.Desktop.Forms.Users
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            if(!_editMode)
             {
-                e.Cancel = true;
-                txtPassword.Focus();
-                errorProvider.SetError(txtPassword, "This is a required field!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtPassword, "");
+                if (string.IsNullOrWhiteSpace(txtPassword.Text))
+                {
+                    e.Cancel = true;
+                    txtPassword.Focus();
+                    errorProvider.SetError(txtPassword, "This is a required field!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProvider.SetError(txtPassword, "");
+                }
             }
         }
 
         private void txtConfirmation_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtConfirmation.Text))
+            if (!_editMode)
             {
-                e.Cancel = true;
-                txtConfirmation.Focus();
-                errorProvider.SetError(txtConfirmation, "This is a required field!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtConfirmation, "");
+                if (string.IsNullOrWhiteSpace(txtConfirmation.Text))
+                {
+                    e.Cancel = true;
+                    txtConfirmation.Focus();
+                    errorProvider.SetError(txtConfirmation, "This is a required field!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProvider.SetError(txtConfirmation, "");
+                }
             }
         }
 
