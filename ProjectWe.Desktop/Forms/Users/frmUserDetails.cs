@@ -171,7 +171,7 @@ namespace ProjectWe.Desktop.Forms.Users
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
-            if(!_editMode)
+            if (!_editMode)
             {
                 if (string.IsNullOrWhiteSpace(txtPassword.Text))
                 {
